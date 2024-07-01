@@ -40,21 +40,6 @@ export const theme = createTheme({
       lineHeight: 1.1,
       letterSpacing: '0em',
     },
-    button: {
-      fontSize: 20,
-      lineHeight: 1,
-      letterSpacing: '0.03em',
-    },
-    body1: {
-      fontSize: 18,
-      lineHeight: 1.4,
-      letterSpacing: '0em',
-    },
-    body2: {
-      fontSize: 16,
-      lineHeight: 1.4,
-      letterSpacing: '0em',
-    },
     h3: {
       fontSize: 32,
       fontWeight: 700,
@@ -81,6 +66,21 @@ export const theme = createTheme({
       fontWeight: 400,
       lineHeight: 1.4,
       letterSpacing: '0em',
+    },
+    body1: {
+      fontSize: 18,
+      lineHeight: 1.4,
+      letterSpacing: '0em',
+    },
+    body2: {
+      fontSize: 16,
+      lineHeight: 1.4,
+      letterSpacing: '0em',
+    },
+    button: {
+      fontSize: 20,
+      lineHeight: 1,
+      letterSpacing: '0.03em',
     },
   },
 });
