@@ -1,39 +1,52 @@
-import { ButtonProps, Typography, styled } from '@mui/material';
-import { useState } from 'react';
+import { Stack, StackProps, Typography, styled, useTheme } from '@mui/material';
+import { KeyboardEvent, useState } from 'react';
+import { DropdownProps } from '../../interfaces/FAQ/DropdownProps';
 
-export const Dropdown = ({ header, body, active = false }: { header: string; body: string; active?: boolean }) => {
+export const Dropdown = ({ qa, active = false }: DropdownProps) => {
   const [isActive, setIsActive] = useState<boolean>(active);
+  const theme = useTheme();
 
-  const changeIsAcvtive = () => setIsActive((state) => !state);
+  const { question, answer } = qa;
+
+  const handleEnterPress = (e: KeyboardEvent<HTMLDivElement>) => {
+    e.key === 'Enter' ? setIsActive((state) => !state) : null;
+  };
 
   return (
-    <StyledDropdown onClick={changeIsAcvtive} aria-expanded={isActive}>
+    <StyledDropdown
+      component={'section'}
+      onClick={() => setIsActive((state) => !state)}
+      onKeyDown={handleEnterPress}
+      theme={theme}
+      aria-expanded={isActive}
+      tabIndex={0}
+    >
       <StyledDropdownHead>
-        <Typography variant="h5">{header}</Typography>
-        <DropdownIcon src={isActive ? '/images/MinusIcon.svg' : '/images/PlusIcon.svg'} />
+        <Typography variant="h5">{question}</Typography>
+        <StyledDropdownIcon
+          src={isActive ? '../../src/assets/FAQ/MinusIcon.svg' : '../../src/assets/FAQ/PlusIcon.svg'}
+        />
       </StyledDropdownHead>
-      {isActive && <Typography variant="body2">{body}</Typography>}
+      {isActive && <Typography variant="body2">{answer}</Typography>}
     </StyledDropdown>
   );
 };
 
-const StyledDropdown = styled('button')<ButtonProps>`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 100%;
+const StyledDropdown = styled(Stack)<StackProps>(
+  ({ theme }) => `
+    gap: 24px;
+    width: 100%;
 
-  background-color: #ffffff;
+    background-color: #fff;
+    border: 1px solid ${theme.palette.divider};
+    border-radius: 8px;
+    padding: 16px;
 
-  border: 1px solid #dde1e6;
-  border-radius: 8px;
-  padding: 16px;
+    box-sizing: border-box;
+  `,
+);
 
-  box-sizing: border-box;
-  text-align: start;
-`;
-
-const DropdownIcon = styled('img')`
+const StyledDropdownIcon = styled('img')`
   margin-left: auto;
 `;
 
