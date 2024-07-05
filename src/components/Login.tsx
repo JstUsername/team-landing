@@ -20,8 +20,8 @@ interface loginProps {
 }
 
 export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginProps) {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [checked, setChecked] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
