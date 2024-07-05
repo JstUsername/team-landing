@@ -260,7 +260,7 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledOutlinedButton = styled(Button)`
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   border-radius: 0;
   text-transform: none;
   line-height: 1;
