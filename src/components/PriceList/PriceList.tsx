@@ -3,8 +3,12 @@ import PricingElem from './PriceElem';
 import { Services } from './constants';
 import Toggle from '../commons/Toggle/Toggle';
 import { useState } from 'react';
-import Chip from '../commons/Chip/Chip';
-import { SectionDescription, SectionHeader, SectionSubHeader } from '../commons/SectionHeaders/SectionHeaders';
+import StyledChip from '../commons/StyledChip/Chip';
+import {
+  StyledSectionDescription,
+  StyledSectionHeader,
+  StyledSectionSubHeader,
+} from '../commons/StyledSectionHeaders/SectionHeaders';
 
 const PriceList = () => {
   const theme = useTheme();
@@ -15,13 +19,13 @@ const PriceList = () => {
     <StyledPriceList component="section">
       <Stack sx={{ textAlign: 'center' }} gap={matches ? '24px' : '48px'}>
         <Stack gap={'8px'}>
-          <SectionSubHeader>цены</SectionSubHeader>
-          <SectionHeader variant={'h2'}>Лучший источник медицинской информации</SectionHeader>
+          <StyledSectionSubHeader>цены</StyledSectionSubHeader>
+          <StyledSectionHeader variant={'h2'}>Лучший источник медицинской информации</StyledSectionHeader>
         </Stack>
-        <SectionDescription>
+        <StyledSectionDescription>
           Сервис для врачей, доступный на разных устройствах по подписке на эксклюзивные статьи от ведущих экспертов в
           сфере здравоохранения и охраны здоровья
-        </SectionDescription>
+        </StyledSectionDescription>
       </Stack>
       <Stack alignItems="center" position={'relative'}>
         <SaleChip visible={isToggleChecked.toString()}>
@@ -67,7 +71,7 @@ const ServiceList = styled('div')`
   }
 `;
 
-const SaleChip = styled(Chip)<{ visible: string }>`
+const SaleChip = styled(StyledChip)<{ visible: string }>`
   visibility: ${(props) => (props.visible === 'true' ? 'visible' : 'hidden')};
   position: absolute;
   left: 50%;

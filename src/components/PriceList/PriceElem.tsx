@@ -1,7 +1,7 @@
 import { Stack, Typography, Button, styled, useTheme } from '@mui/material';
-import Chip from '../commons/Chip/Chip';
+import Chip from '../commons/StyledChip/Chip';
 import { Service } from './types';
-import { SectionDescription } from '../commons/SectionHeaders/SectionHeaders';
+import { SectionDescription } from '../commons/StyledSectionHeaders/SectionHeaders';
 
 const PricingElem = ({ service }: { service: Service }) => {
   const theme = useTheme();

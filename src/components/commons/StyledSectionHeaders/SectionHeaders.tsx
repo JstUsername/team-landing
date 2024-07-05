@@ -1,6 +1,6 @@
 import { Typography, styled } from '@mui/material';
 
-export const SectionHeader = styled(Typography)`
+export const StyledSectionHeader = styled(Typography)`
   font-size: ${(props) => props.theme.typography.h2.fontSize}px;
   font-weight: ${(props) => props.theme.typography.h2.fontWeight};
   line-height: ${(props) => props.theme.typography.h2.lineHeight}em;
@@ -11,7 +11,7 @@ export const SectionHeader = styled(Typography)`
   }
 `;
 
-export const SectionSubHeader = styled('span')`
+export const StyledSectionSubHeader = styled('span')`
   font-size: 20px;
   line-height: 1;
   letter-spacing: '1px';
@@ -22,7 +22,7 @@ export const SectionSubHeader = styled('span')`
   font-weight: 700;
 `;
 
-export const SectionDescription = styled(Typography)`
+export const StyledSectionDescription = styled(Typography)`
   font-size: ${(props) => props.theme.typography.body1.fontSize}px;
   line-height: ${(props) => props.theme.typography.body1.lineHeight}em;
   letter-spacing: ${(props) => props.theme.typography.body1.letterSpacing};
