@@ -4,15 +4,15 @@ import MuiButton from '@mui/material/Button';
 import { IDefaultButton } from './types';
 import { theme } from '../../theme';
 
-const DefaultButton: FC<IDefaultButton> = ({ type, text, fontSizeSx }) => {
+const DefaultButton: FC<IDefaultButton> = ({ type, text, fontsizesx }) => {
   return (
-    <Button variant={type} color={'info'} fontSizeSx={fontSizeSx}>
+    <Button variant={type} color={'info'} fontsizesx={fontsizesx}>
       {text}
     </Button>
   );
 };
 
-const Button = styled(MuiButton)((props: { fontSizeSx: number } & ButtonProps) => ({
+const Button = styled(MuiButton)((props: { fontsizesx: number } & ButtonProps) => ({
   'paddingInline': 32,
   'paddingBlock': 16,
   'border': ['2', 'solid'],
@@ -27,7 +27,7 @@ const Button = styled(MuiButton)((props: { fontSizeSx: number } & ButtonProps) =
   '@media (max-width: 768px)': {
     paddingInline: 28,
     paddingBlock: 14,
-    fontSize: props.fontSizeSx,
+    fontSize: props.fontsizesx,
   },
 }));
 

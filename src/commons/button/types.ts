@@ -5,5 +5,5 @@ export enum ButtonType {
 export interface IDefaultButton {
   type: ButtonType;
   text: string;
-  fontSizeSx: number;
+  fontsizesx: number;
 }
