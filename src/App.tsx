@@ -5,8 +5,8 @@ import Login from './components/Login.tsx';
 import { useState } from 'react';
 
 function App() {
-  const [openLogin, setOpenLogin] = useState<boolean>(true);
-  const [typeLogin, setTypeLogin] = useState<string>('authorization');
+  const [openLogin, setOpenLogin] = useState(true);
+  const [typeLogin, setTypeLogin] = useState('authorization');
 
   return (
     <ThemeProvider theme={theme}>
