@@ -2,6 +2,15 @@ import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 360,
+      sm: 768,
+      md: 1024,
+      lg: 1440,
+      xl: 1920,
+    },
+  },
   palette: {
     mode: 'light',
     primary: {
