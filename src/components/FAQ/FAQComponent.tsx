@@ -1,10 +1,11 @@
-import { Stack, Typography, TypographyProps, styled, useMediaQuery } from '@mui/material';
+import { Stack, styled } from '@mui/material';
 import { Dropdown } from './Dropdown';
 import { useTheme } from '@mui/material';
 import { questions } from './constants';
+import { StyledSectionHeader, StyledSectionSubHeader } from '../commons/SectionHeaders/SectionHeaders';
+import FaqDotsGroup from '../../assets/FAQ/FaqDotsGroup.svg';
 
 const FAQComponent = () => {
-  const matches = useMediaQuery('(width < 720px)');
   const theme = useTheme();
   return (
     <Stack
@@ -22,8 +23,8 @@ const FAQComponent = () => {
             textAlign: 'center',
           }}
         >
-          <StyledSectionHeader variant="h5">вопросы</StyledSectionHeader>
-          <Typography variant={!matches ? 'h2' : 'h4'}>Ответы на частые вопросы</Typography>
+          <StyledSectionSubHeader>вопросы</StyledSectionSubHeader>
+          <StyledSectionHeader variant="h2">Ответы на частые вопросы</StyledSectionHeader>
         </Stack>
         <StyledFaqDropdowns>
           {questions.map((qa, idx) => (
@@ -35,14 +36,14 @@ const FAQComponent = () => {
       </StyledFAQBody>
       <StyledFaqBackground>
         <StyledDots
-          src="src/assets/FAQ/FAQDotsGroup.svg"
+          src={FaqDotsGroup}
           sx={{
             top: '4px',
             left: '0',
           }}
         />
         <StyledDots
-          src="src/assets/FAQ/FAQDotsGroup.svg"
+          src={FaqDotsGroup}
           sx={{
             bottom: '4px',
             right: '0',
@@ -62,7 +63,7 @@ const StyledFAQBody = styled(Stack)`
 
   padding: 80px;
 
-  @media (width < 720px) {
+  @media (width < ${(props) => props.theme.breakpoints.values.md}px) {
     gap: 32px;
     padding: 48px 16px;
   }
@@ -80,7 +81,7 @@ const StyledFaqBackground = styled('div')`
 const StyledDots = styled('img')`
   position: absolute;
 
-  @media (width < 720px) {
+  @media (width < ${(props) => props.theme.breakpoints.values.md}px) {
     display: none;
   }
 `;
@@ -101,14 +102,5 @@ const StyledFaqDropdowns = styled('menu')`
 const StyledFaqListElem = styled('li')`
   list-style-type: none;
 `;
-
-const StyledSectionHeader = styled(Typography)<TypographyProps>(
-  ({ theme }) => `
-    color: ${theme.palette.primary.dark};
-    line-height: 1em;
-    letter-spacing: 1px;
-    text-transform: uppercase
-`,
-);
 
 export default FAQComponent;
