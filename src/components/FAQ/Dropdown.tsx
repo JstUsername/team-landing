@@ -1,5 +1,5 @@
 import { Stack, StackProps, Typography, styled, useTheme } from '@mui/material';
-import { KeyboardEvent, useState } from 'react';
+import { useState } from 'react';
 import { DropdownProps } from '../../interfaces/FAQ/DropdownProps';
 import MinusIcon from '../../assets/FAQ/MinusIcon.svg';
 import PlusIcon from '../../assets/FAQ/PlusIcon.svg';
@@ -10,14 +10,12 @@ export const Dropdown = ({ qa, active = false }: DropdownProps) => {
 
   const { question, answer } = qa;
 
-  const handleEnterPress = (e: KeyboardEvent<HTMLDivElement>) => {
-    e.key === 'Enter' ? setIsActive((state) => !state) : null;
-  };
-
   return (
     <StyledDropdown
       onClick={() => setIsActive((state) => !state)}
-      onKeyDown={handleEnterPress}
+      onKeyDown={(e) => {
+        e.key === 'Enter' && setIsActive((state) => !state);
+      }}
       theme={theme}
       aria-expanded={isActive}
       tabIndex={0}
