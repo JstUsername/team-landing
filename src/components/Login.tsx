@@ -173,14 +173,14 @@ const LeftColumnWrapper = styled(Box)`
   flex-direction: column;
   justify-content: center;
   gap: 48px;
-  @media (max-width: ${(props) => props.theme.breakpoints.values.sm}px) {
+  @media (max-width: ${theme.breakpoints.values.sm}px) {
     height: 100%;
     gap: 32px;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.values.md}px) {
+  @media (max-width: ${theme.breakpoints.values.md}px) {
     padding: 32px 16px;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.values.md + 1}px) {
+  @media (min-width: ${theme.breakpoints.values.md + 1}px) {
     padding: 80px;
   }
 `;
@@ -196,10 +196,10 @@ const StyledTextField = styled(TextField)`
     border-radius: 0;
     padding-right: 0;
     font-size: 16px;
-    color: ${(props) => props.theme.palette.text.secondary};
+    color: ${theme.palette.text.secondary};
     & .MuiInputBase-input {
       padding: 13px 16px;
-      background-color: ${(props) => props.theme.palette.secondary.light};
+      background-color: ${theme.palette.secondary.light};
       &::placeholder {
         opacity: 1;
       }
@@ -209,10 +209,10 @@ const StyledTextField = styled(TextField)`
       border-bottom: 1px solid #c1c7cd;
     }
     &:hover fieldset {
-      border-color: ${(props) => props.theme.palette.secondary.dark};
+      border-color: ${theme.palette.secondary.dark};
     }
     & .Mui-focused fieldset {
-      border-color: ${(props) => props.theme.palette.primary.main};
+      border-color: ${theme.palette.primary.main};
       border-width: 1px;
     }
     & .MuiInputAdornment-root {
@@ -229,7 +229,7 @@ const PasswordSubtitle = styled(Typography)`
   font-size: 12px;
   line-height: 1.4;
   margin-top: 4px;
-  color: ${(props) => props.theme.palette.text.secondary};
+  color: ${theme.palette.text.secondary};
 `;
 
 const AdditionalFields = styled(FormControl)`
@@ -244,9 +244,9 @@ const StyledCheckbox = styled('div')`
   height: 16px;
   padding: 2px;
   border: 1px solid;
-  color: ${(props) => props.theme.palette.text.primary};
+  color: ${theme.palette.text.primary};
   :hover {
-    background-color: ${(props) => props.theme.palette.secondary.light};
+    background-color: ${theme.palette.secondary.light};
   }
 `;
 
@@ -266,8 +266,8 @@ const StyledOutlinedButton = styled(Button)`
   line-height: 1;
   letter-spacing: 0.5em;
   border-width: 2px;
-  border-color: ${(props) => props.theme.palette.primary.main};
-  color: ${(props) => props.theme.palette.primary.main};
+  border-color: ${theme.palette.primary.main};
+  color: ${theme.palette.primary.main};
   flex: 1;
   & .MuiButton-startIcon {
     width: 24px;
