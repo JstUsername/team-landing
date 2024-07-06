@@ -120,11 +120,11 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
                 </Typography>
               </Box>
               {typeLogin === 'authorization' && (
-                <Link href="#" underline="hover" color="primary.dark">
+                <StyledLink href="#" underline="hover" color="primary.dark">
                   <Typography variant="body1" sx={{ fontSize: '14px' }}>
                     Забыли пароль?
                   </Typography>
-                </Link>
+                </StyledLink>
               )}
             </AdditionalFields>
             <FormControl>
@@ -151,17 +151,17 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
           </Box>
           <Divider />
           {typeLogin === 'registration' ? (
-            <Link href="#" underline="hover" color="primary.dark" onClick={() => setTypeLogin('authorization')}>
+            <StyledLink href="#" underline="hover" color="primary.dark" onClick={() => setTypeLogin('authorization')}>
               <Typography variant="body1" sx={{ fontSize: '14px' }}>
                 Нет аккаунта? Зарегистрироваться
               </Typography>
-            </Link>
+            </StyledLink>
           ) : (
-            <Link href="#" underline="hover" color="primary.dark" onClick={() => setTypeLogin('registration')}>
+            <StyledLink href="#" underline="hover" color="primary.dark" onClick={() => setTypeLogin('registration')}>
               <Typography variant="body1" sx={{ fontSize: '14px' }}>
                 Уже есть аккаунт?
               </Typography>
-            </Link>
+            </StyledLink>
           )}
         </LeftColumnWrapper>
       </Grid>
@@ -285,4 +285,9 @@ const StyledOutlinedButton = styled(Button)`
   &:hover {
     border-width: 2px;
   }
+`;
+
+const StyledLink = styled(Link)`
+  display: inline-block;
+  width: fit-content;
 `;
