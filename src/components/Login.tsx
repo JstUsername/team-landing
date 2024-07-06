@@ -6,6 +6,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -51,29 +52,29 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
             {typeLogin === 'registration' && (
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <FormControl sx={{ flex: 1 }}>
-                  <Typography variant="body1" sx={{ fontSize: '14px', marginBottom: '8px' }}>
+                  <StyledInputLabel shrink htmlFor="name-input">
                     Имя
-                  </Typography>
+                  </StyledInputLabel>
                   <StyledTextField id="name-input" placeholder="Иван" />
                 </FormControl>
                 <FormControl sx={{ flex: 1 }}>
-                  <Typography variant="body1" sx={{ fontSize: '14px', marginBottom: '8px' }}>
+                  <StyledInputLabel shrink htmlFor="surname-input">
                     Фамилия
-                  </Typography>
+                  </StyledInputLabel>
                   <StyledTextField id="surname-input" placeholder="Иванов" />
                 </FormControl>
               </Box>
             )}
             <FormControl>
-              <Typography variant="body1" sx={{ fontSize: '14px', marginBottom: '8px' }}>
+              <StyledInputLabel shrink htmlFor="email-input">
                 Email
-              </Typography>
+              </StyledInputLabel>
               <StyledTextField id="email-input" placeholder="example@email.com" />
             </FormControl>
             <FormControl>
-              <Typography variant="body1" sx={{ fontSize: '14px', marginBottom: '8px' }}>
+              <StyledInputLabel shrink htmlFor="password-input">
                 Пароль
-              </Typography>
+              </StyledInputLabel>
               <StyledTextField
                 id="password-input"
                 placeholder="******"
@@ -231,6 +232,15 @@ const StyledTextField = styled(TextField)`
       margin: 0;
     }
   }
+`;
+
+const StyledInputLabel = styled(InputLabel)`
+  position: relative;
+  margin-bottom: 8px;
+  ${theme.typography.body1};
+  font-size: 14px;
+  transform: none;
+  color: ${theme.palette.text.primary};
 `;
 
 const PasswordSubtitle = styled(Typography)`
