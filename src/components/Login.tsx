@@ -23,8 +23,6 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
@@ -76,7 +74,11 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} edge="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => setShowPassword((show) => !show)}
+                        edge="end"
+                      >
                         <img
                           src="/src/assets/login/icons/eye.svg"
                           alt="Change password visibility"
