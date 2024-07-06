@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from 'react';
+import { useState, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -24,6 +24,13 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
   const [checked, setChecked] = useState(false);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setChecked((prev) => !prev);
+    }
+  };
 
   return (
     <Grid
@@ -97,7 +104,7 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginPr
             </FormControl>
             <AdditionalFields>
               <Box sx={{ display: 'flex', gap: 1 }}>
-                <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)}>
+                <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)} onKeyDown={handleKeyDown}>
                   {checked && (
                     <img
                       src="/src/assets/login/icons/union.svg"
