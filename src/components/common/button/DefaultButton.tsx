@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ButtonProps, styled } from '@mui/material';
 import MuiButton from '@mui/material/Button';
 import { IDefaultButton } from './types';
-import { theme } from '../../theme';
+import { theme } from '../../../theme';
 
 const DefaultButton: FC<IDefaultButton> = ({ type, text, fontsizesx }) => {
   return (
