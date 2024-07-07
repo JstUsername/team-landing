@@ -15,6 +15,7 @@ export const theme = createTheme({
     },
     background: {
       paper: '#F2F4F8',
+
     },
     text: {
       primary: '#21272A',
@@ -26,7 +27,7 @@ export const theme = createTheme({
     success: {
       main: '#25A249',
     },
-    divider: '#DDE1E6',
+    divider: '#DDE1E6'
   },
   typography: {
     h1: {
@@ -82,6 +83,20 @@ export const theme = createTheme({
       fontSize: 20,
       lineHeight: 1,
       letterSpacing: '0.03em',
+    },
+    caption: {
+      fontSize: 20,
+      fontWeight: 700,
+      letterSpacing: 1
+    }
+  },
+  breakpoints: {
+    values: {
+      xs: 360,
+      sm: 768,
+      md: 1024,
+      lg: 1440,
+      xl: 1920,
     },
   },
 });
