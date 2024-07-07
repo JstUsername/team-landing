@@ -6,10 +6,6 @@ import People from '../../assets/Knowledge/people.svg?react';
 import theme from '../../theme';
 import { IKnowledgeInfo } from './types';
 import { ChartOptions } from 'chart.js';
-import ArtVenueLogo from '../assets/Swiper/artVenueLogo.svg';
-import ZoomerLogo from '../assets/Swiper/zoomerLogo.svg';
-import SwiperProfile from '../assets/Swiper/profile.png';
-import { ISwiperCard } from '../components/Swiper/types';
 
 export const knowledgeInfo: IKnowledgeInfo[] = [
   {
@@ -131,38 +127,3 @@ export const chartConfig: ChartOptions<'line'> = {
     padding: 16,
   },
 };
-
-export const swiperData: ISwiperCard[] = [
-  {
-    image: ArtVenueLogo,
-    title: 'ArtVenue',
-    text: 'Астма - это хроническое заболевание легких. Симптомы заболевания включают кашель, свистящее дыхание, одышку и чувство стеснения в груди.',
-    icon: SwiperProfile,
-    name: 'Кириллов Кирилл',
-    profession: 'Пульмонолог',
-  },
-  {
-    image: ZoomerLogo,
-    title: 'Zoomerr',
-    text: 'Исследование гласит, что наличие хороших навыков чтения в детском возрасте является предиктором высокого уровня интеллекта у молодых взрослых людей.',
-    icon: SwiperProfile,
-    name: 'Петров Петр',
-    profession: 'Невролог',
-  },
-  {
-    image: ArtVenueLogo,
-    title: 'ArtVenue',
-    text: 'Астма - это хроническое заболевание легких. Симптомы заболевания включают кашель, свистящее дыхание, одышку и чувство стеснения в груди.',
-    icon: SwiperProfile,
-    name: 'Афанасьев Афанасий',
-    profession: 'Пульмонолог',
-  },
-  {
-    image: ZoomerLogo,
-    title: 'Zoomerr',
-    text: 'Исследование гласит, что наличие хороших навыков чтения в детском возрасте является предиктором высокого уровня интеллекта у молодых взрослых людей.',
-    icon: SwiperProfile,
-    name: 'Дмитриев Дмитрий',
-    profession: 'Невролог',
-  },
-];

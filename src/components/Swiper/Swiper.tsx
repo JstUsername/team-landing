@@ -1,7 +1,7 @@
 import { FC, TouchEventHandler, useRef, useState } from 'react';
 import { Container, styled, useMediaQuery } from '@mui/material';
-import SwiperCard from './swiperCard';
-import { swiperData } from '../../constants/constants';
+import { swiperData } from './constants';
+import SwiperCard from './SwiperCard';
 import ButtonLeft from '../../assets/Swiper/swiperButtonLeft.svg';
 import ButtonRight from '../../assets/Swiper/swiperButtonRight.svg';
 import theme from '../../theme';

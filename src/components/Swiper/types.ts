@@ -1,5 +1,7 @@
+import { ReactElement } from 'react';
+
 export interface ISwiperCard {
-  image: string;
+  image: ReactElement;
   title: string;
   text: string;
   icon: string;

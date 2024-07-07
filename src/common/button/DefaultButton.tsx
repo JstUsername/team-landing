@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react';
 import { ButtonProps, Link, styled } from '@mui/material';
 import MuiButton from '@mui/material/Button';
 import { IDefaultButton } from './types';
-import { theme } from '../../../theme';
+import theme from '../../theme';
 
 const DefaultButton: FC<PropsWithChildren<IDefaultButton>> = ({ type, children }) => {
   return (

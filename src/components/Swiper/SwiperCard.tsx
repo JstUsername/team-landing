@@ -7,7 +7,7 @@ const SwiperCard: FC<ISwiperCard & ICard> = ({ name, icon, text, profession, tit
     <SwiperBox activeindex={activeIndex}>
       <SwiperCardGridAll>
         <FlexBox>
-          <img src={image} alt="логотип" width={32} height={32} />
+          {image}
           <Typography variant={'h4'} color={'text.secondary'}>
             {title}
           </Typography>

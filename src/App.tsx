@@ -2,7 +2,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
 import Knowledge from './components/Knowledge/Knowledge';
-import Swiper from './components/Swiper/swiper';
+import Swiper from './components/Swiper/Swiper';
 
 function App() {
   return (

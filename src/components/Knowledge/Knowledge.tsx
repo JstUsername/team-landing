@@ -3,8 +3,8 @@ import { Box, Container, styled, Typography } from '@mui/material';
 import MuiTypography from '@mui/material/Typography';
 import KnowledgeInfo from './knowledge-info/KnowledgeInfo';
 import { knowledgeInfo } from './constants';
-import DefaultButton from '../common/button/DefaultButton';
-import { ButtonType } from '../common/button/types';
+import DefaultButton from '../../common/button/DefaultButton';
+import { ButtonType } from '../../common/button/types';
 import Chart from './chart/Chart';
 
 const Knowledge: FC = () => {
