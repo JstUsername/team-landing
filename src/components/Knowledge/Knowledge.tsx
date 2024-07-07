@@ -3,13 +3,14 @@ import { Box, Container, styled, Typography } from '@mui/material';
 import MuiTypography from '@mui/material/Typography';
 import KnowledgeInfo from './knowledge-info/KnowledgeInfo';
 import { knowledgeInfo } from './constants';
-import DefaultButton from '../../commons/button/DefaultButton';
 import { ButtonType } from '../../commons/button/types';
 import Chart from './chart/Chart';
+import theme from '../../theme';
+import ButtonLink from '../../commons/button/ButtonLink';
 
 const Knowledge: FC = () => {
   return (
-    <Container maxWidth={'lg'} sx={{ background: '#FFF', marginBlock: { xs: 5, sm: 10 } }}>
+    <Container maxWidth={'lg'} sx={{ background: 'background.default', marginBlock: { xs: 5, sm: 10 } }}>
       <GridContainer>
         <Box>
           <Typography variant={'h5'} color={'primary.dark'} mb={1} textTransform={'uppercase'}>
@@ -21,29 +22,22 @@ const Knowledge: FC = () => {
           </KnowledgeText>
         </Box>
         <FlexButton>
-          <DefaultButton type={ButtonType.contained}>
+          <ButtonLink type={ButtonType.contained}>
             <Typography variant={'button'} fontSize={{ xs: 14, lg: 20 }} textAlign={'center'} textTransform={'none'}>
               Для врачей
             </Typography>
-          </DefaultButton>
-          <DefaultButton type={ButtonType.outlined}>
+          </ButtonLink>
+          <ButtonLink type={ButtonType.outlined}>
             <Typography variant={'button'} fontSize={{ xs: 14, lg: 20 }} textAlign={'center'} textTransform={'none'}>
               Для пациентов
             </Typography>
-          </DefaultButton>
+          </ButtonLink>
         </FlexButton>
         <Box sx={{ width: '100%' }}>
           <FlexKnowledgeItem>
-            <Box
-              border={1}
-              borderColor={'divider'}
-              mb={{ xs: 3, lg: 0 }}
-              minHeight={396}
-              maxHeight={396}
-              maxWidth={{ xs: 768, sm: 1024, md: 1440, lg: 535 }}
-            >
+            <KnowledgeItemBox>
               <Chart />
-            </Box>
+            </KnowledgeItemBox>
             <GridCard>
               {knowledgeInfo.map(({ statistics, image, description, id }) => (
                 <KnowledgeInfo
@@ -91,6 +85,15 @@ const FlexKnowledgeItem = styled('div')`
   @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
     grid-template-columns: 100%;
     gap: 24px;
+  },
+`;
+
+const KnowledgeItemBox = styled('div')`
+  border: 1px solid ${theme.palette.divider};
+  height: 396px;
+  max-width: 535px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+    max-width: 1440px;
   },
 `;
 

@@ -4,7 +4,7 @@ import MuiButton from '@mui/material/Button';
 import { IDefaultButton } from './types';
 import { theme } from '../../theme';
 
-const DefaultButton: FC<PropsWithChildren<IDefaultButton>> = ({ type, children }) => {
+const ButtonLink: FC<PropsWithChildren<IDefaultButton>> = ({ type, children }) => {
   return (
     <Button component={Link} variant={type} color={'info'}>
       {children}
@@ -28,4 +28,4 @@ const Button = styled(MuiButton)<ButtonProps>(`
   },
 `);
 
-export default DefaultButton;
+export default ButtonLink;
