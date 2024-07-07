@@ -14,13 +14,13 @@ import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import theme from '../theme.tsx';
 
-interface loginProps {
+interface LoginProps {
   typeLogin: string;
   setTypeLogin: Dispatch<SetStateAction<string>>;
   setOpenLogin: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: loginProps) {
+export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
