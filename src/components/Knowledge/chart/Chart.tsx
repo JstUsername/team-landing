@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
-import { chartConfig, data } from '../../../constants/constants';
+import { chartConfig, data } from '../constants';
 
 const Chart: FC = () => {
   const plugin = {

@@ -1,9 +1,10 @@
-import Smile from '../assets/Knowledge/smile.svg';
-import Copy from '../assets/Knowledge/copy.svg';
-import Pizza from '../assets/Knowledge/pizza.svg';
-import People from '../assets/Knowledge/people.svg';
-import theme from '../theme';
-import { IKnowledgeInfo } from '../components/Knowledge/types';
+/// <reference types="vite-plugin-svgr/client" />
+import Smile from '../../assets/Knowledge/smile.svg?react';
+import Copy from '../../assets/Knowledge/copy.svg?react';
+import Pizza from '../../assets/Knowledge/pizza.svg?react';
+import People from '../../assets/Knowledge/people.svg?react';
+import theme from '../../theme';
+import { IKnowledgeInfo } from './types';
 import { ChartOptions } from 'chart.js';
 import ArtVenueLogo from '../assets/Swiper/artVenueLogo.svg';
 import ZoomerLogo from '../assets/Swiper/zoomerLogo.svg';
@@ -12,25 +13,25 @@ import { ISwiperCard } from '../components/Swiper/types';
 
 export const knowledgeInfo: IKnowledgeInfo[] = [
   {
-    image: Smile,
+    image: <Smile width={48} height={48} />,
     statistics: '250+',
     description: 'Научных статей',
     id: 1,
   },
   {
-    image: Copy,
+    image: <Copy width={48} height={48} />,
     statistics: '600+',
     description: 'Просмотров за статью',
     id: 2,
   },
   {
-    image: Pizza,
+    image: <Pizza width={48} height={48} />,
     statistics: '1.8K+',
     description: 'Посетителей в день',
     id: 3,
   },
   {
-    image: People,
+    image: <People width={48} height={48} />,
     statistics: '11K+',
     description: 'Посетителей в неделю',
     id: 4,

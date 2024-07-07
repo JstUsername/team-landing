@@ -1,5 +1,7 @@
+import { ReactElement } from 'react';
+
 export interface IKnowledgeInfo {
-  image: string;
+  image: ReactElement;
   statistics: string;
   description: string;
   id: number;

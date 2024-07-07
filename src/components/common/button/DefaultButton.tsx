@@ -1,34 +1,31 @@
-import { FC } from 'react';
-import { ButtonProps, styled } from '@mui/material';
+import { FC, PropsWithChildren } from 'react';
+import { ButtonProps, Link, styled } from '@mui/material';
 import MuiButton from '@mui/material/Button';
 import { IDefaultButton } from './types';
 import { theme } from '../../../theme';
 
-const DefaultButton: FC<IDefaultButton> = ({ type, text, fontsizesx }) => {
+const DefaultButton: FC<PropsWithChildren<IDefaultButton>> = ({ type, children }) => {
   return (
-    <Button variant={type} color={'info'} fontsizesx={fontsizesx}>
-      {text}
+    <Button component={Link} variant={type} color={'info'}>
+      {children}
     </Button>
   );
 };
 
-const Button = styled(MuiButton)((props: { fontsizesx: number } & ButtonProps) => ({
-  'paddingInline': 32,
-  'paddingBlock': 16,
-  'border': ['2', 'solid'],
-  'borderRadius': 0,
-  'borderColor': theme.palette.info.main,
-  'boxShadow': 'none',
-  'textTransform': 'none',
-  ':hover': {
-    border: ['2', 'solid'],
-    borderColor: '#3064ac',
+const Button = styled(MuiButton)<ButtonProps>(`
+  padding-inline: 32px;
+  padding-block: 16px;
+  border: 2px solid ${theme.palette.info.main};
+  border-radius: 0;
+  box-shadow: none;
+  text-transform: none;
+  :hover {
+    border: 2px solid #3064ac;
+  };
+  @media (max-width: 768px) {
+    padding-inline: 28px;
+    padding-block: 14px;
   },
-  '@media (max-width: 768px)': {
-    paddingInline: 28,
-    paddingBlock: 14,
-    fontSize: props.fontsizesx,
-  },
-}));
+`);
 
 export default DefaultButton;
