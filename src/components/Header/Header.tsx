@@ -213,11 +213,10 @@ const LiButton = styled('button')<LiButtonProps>`
   line-height: 1;
   letter-spacing: 0;
   color: ${({ theme }) => theme.palette.text.primary};
-  padding: 8px 16px;
   border: none;
+  padding: ${(props) => (props.icon && props.active ? '8px 16px 8px 48px' : '8px 16px')};
   background: ${(props) => (props.active ? `${props.theme.palette.background.default}` : 'none')};
   box-shadow: ${(props) => (props.active ? `0 0 0 1px ${props.theme.palette.secondary.dark}` : 'none')};
-  padding-left: ${(props) => (props.icon && props.active ? '48px' : '16px')};
   transition: background-color 0.3s ease-in-out;
   &:hover {
     background-color: ${({ theme }) => theme.palette.background.default};
