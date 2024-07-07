@@ -23,6 +23,7 @@ export const theme = createTheme({
       dark: '#697077',
     },
     background: {
+      default: '#FFFFFF',
       paper: '#F2F4F8',
     },
     text: {
