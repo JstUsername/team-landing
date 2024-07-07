@@ -33,15 +33,7 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginPr
   };
 
   return (
-    <Grid
-      container
-      spacing={0}
-      sx={{
-        height: '100vh',
-        overflow: 'hidden',
-        [theme.breakpoints.down('sm')]: { height: '100%', overflow: 'auto' },
-      }}
-    >
+    <StyledGrid container spacing={0}>
       <Grid xs={12} sm={6}>
         <LeftColumnWrapper>
           <Typography variant={isSmallScreen ? 'h3' : 'h2'} sx={{ margin: 0 }}>
@@ -161,9 +153,18 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginPr
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </Grid>
-    </Grid>
+    </StyledGrid>
   );
 }
+
+const StyledGrid = styled(Grid)`
+  height: 100vh;
+  overflow: hidden;
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+    height: 100%;
+    overflow: auto;
+  }
+`;
 
 const LeftColumnWrapper = styled(Box)`
   height: 100vh;
