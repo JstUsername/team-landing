@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import theme from '../../theme.tsx';
 import { styled } from '@mui/material/styles';
-import { headerProps, LiButtonProps } from './types.ts';
-import { BottomHeaderItems } from '../../constants/constants.ts';
+import { headerProps, LiButtonProps } from './Header.types.ts';
+import { BottomHeaderItems } from './Header.constants.ts';
 import Logo from '../../assets/header/logo.svg?react';
 import MapMarkerIcon from '../../assets/header/icons/map-marker.svg?react';
 import UserIcon from '../../assets/header/icons/user.svg?react';

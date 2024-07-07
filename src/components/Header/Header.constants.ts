@@ -1,13 +1,13 @@
-import { HeaderLi } from '../components/Header/types.ts';
-import MenuIcon from '../assets/header/icons/menu.svg?react';
-import HomeIcon from '../assets/header/icons/home.svg?react';
-import InfoIcon from '../assets/header/icons/info.svg?react';
-import NewspaperIcon from '../assets/header/icons/newspaper.svg?react';
-import MessageIcon from '../assets/header/icons/message.svg?react';
-import BookIcon from '../assets/header/icons/book.svg?react';
-import ShoppingCartIcon from '../assets/header/icons/shopping-cart.svg?react';
-import PaperPlaneIcon from '../assets/header/icons/paper-plane.svg?react';
-import CoinIcon from '../assets/header/icons/coin.svg?react';
+import { HeaderLi } from './Header.types.ts';
+import MenuIcon from '../../assets/header/icons/menu.svg?react';
+import HomeIcon from '../../assets/header/icons/home.svg?react';
+import InfoIcon from '../../assets/header/icons/info.svg?react';
+import NewspaperIcon from '../../assets/header/icons/newspaper.svg?react';
+import MessageIcon from '../../assets/header/icons/message.svg?react';
+import BookIcon from '../../assets/header/icons/book.svg?react';
+import ShoppingCartIcon from '../../assets/header/icons/shopping-cart.svg?react';
+import PaperPlaneIcon from '../../assets/header/icons/paper-plane.svg?react';
+import CoinIcon from '../../assets/header/icons/coin.svg?react';
 
 export const BottomHeaderItems: HeaderLi[] = [
   {
