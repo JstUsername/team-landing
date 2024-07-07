@@ -3,7 +3,6 @@ import { Box, Container, styled, Typography } from '@mui/material';
 import MuiTypography from '@mui/material/Typography';
 import KnowledgeInfo from './knowledge-info/KnowledgeInfo';
 import { knowledgeInfo } from './constants';
-import { ButtonType } from '../../commons/button/types';
 import Chart from './chart/Chart';
 import theme from '../../theme';
 import ButtonLink from '../../commons/button/ButtonLink';
@@ -22,12 +21,12 @@ const Knowledge: FC = () => {
           </KnowledgeText>
         </Box>
         <FlexButton>
-          <ButtonLink type={ButtonType.contained}>
+          <ButtonLink variant={'contained'}>
             <Typography variant={'button'} fontSize={{ xs: 14, lg: 20 }} textAlign={'center'} textTransform={'none'}>
               Для врачей
             </Typography>
           </ButtonLink>
-          <ButtonLink type={ButtonType.outlined}>
+          <ButtonLink variant={'outlined'}>
             <Typography variant={'button'} fontSize={{ xs: 14, lg: 20 }} textAlign={'center'} textTransform={'none'}>
               Для пациентов
             </Typography>

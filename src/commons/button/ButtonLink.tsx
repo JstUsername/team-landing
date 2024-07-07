@@ -1,18 +1,17 @@
 import { FC, PropsWithChildren } from 'react';
 import { ButtonProps, Link, styled } from '@mui/material';
-import MuiButton from '@mui/material/Button';
-import { IDefaultButton } from './types';
+import { Button as MUIButton } from '@mui/material';
 import { theme } from '../../theme';
 
-const ButtonLink: FC<PropsWithChildren<IDefaultButton>> = ({ type, children }) => {
+const ButtonLink: FC<PropsWithChildren<ButtonProps>> = ({ children, ...rest }) => {
   return (
-    <Button component={Link} variant={type} color={'info'}>
+    <Button component={rest.component ?? Link} color={rest.color ?? 'info'} {...rest}>
       {children}
     </Button>
   );
 };
 
-const Button = styled(MuiButton)<ButtonProps>(`
+const Button = styled(MUIButton)<ButtonProps>(`
   padding-inline: 32px;
   padding-block: 16px;
   border: 2px solid ${theme.palette.info.main};
