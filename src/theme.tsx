@@ -1,7 +1,24 @@
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    bodyS: {
+      fontSize: number;
+      fontWeight: number,
+      lineHeight: number;
+    };
+  }
 
-export const theme = createTheme({
+  interface TypographyVariantsOptions {
+    bodyS: {
+      fontSize?: number;
+      fontWeight?: number,
+      lineHeight?: number;
+    };
+  }
+}
+
+const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -79,6 +96,11 @@ export const theme = createTheme({
       lineHeight: 1.4,
       letterSpacing: '0em',
     },
+    bodyS: {
+      fontSize: 14,
+      fontWeight: 400,
+      lineHeight: 1.4,
+    },
     button: {
       fontSize: 20,
       lineHeight: 1,
@@ -99,6 +121,6 @@ export const theme = createTheme({
       xl: 1920,
     },
   },
-});
+}) 
 
 export default theme;

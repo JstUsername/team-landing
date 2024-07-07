@@ -1,100 +1,73 @@
-import {
-  Box,
-  Divider,
-  Container,
-  Grid,
-  styled,
-  Typography,
-  List,
-  ListItem,
-  Button,
-  Link,
-  SvgIcon,
-  CardMedia,
-} from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import { FC } from 'react';
+import styled from '@emotion/styled';
 import { useTheme } from '@mui/material/styles';
 import ArticleItem from './ArticleItem';
+import ArticlesData from './Data';
+import theme from '../../theme'
 
-const ArticlesData = [
-  {
-    title: 'Головная боль',
-    imgUrl: 'src/assets/articles/headache.jpg',
-    link: '#',
-    alt: 'Врач держит статоскоп в левой руке скрестив руки',
-    width: '',
-    height: '',
-    description: 'Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы',
-  },
-  {
-    title: 'Мигрень',
-    imgUrl: null,
-    link: '#',
-    alt: 'Врач держит статоскоп в левой руке скрестив руки',
-    width: '',
-    height: '',
-    description: 'Информация для пациентов. Мигрень. Симптомы, диагностика, лечение, профилактика',
-  },
-  {
-    title: 'Доказательная медицина',
-    imgUrl: 'src/assets/articles/roentgen.jpg',
-    link: '#',
-    alt: 'Рентгеновский снимок руки, которая показывает жест "Всё окей"',
-    width: '',
-    height: '',
-    description: 'Читая статьи, и получая консультации на нашем сайте, вы часто будете встречаться',
-  },
-  {
-    title: 'Антидепрессанты',
-    imgUrl: 'src/assets/articles/pills.jpg',
-    link: '#',
-    alt: 'Горсть разбросанных таблеток разного вида',
-    width: '',
-    height: '',
-    description: 'Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив',
-  },
-];
+const ArticleSection = styled.section`
+  background: #fff;
+`;
+
+const ArticlesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding: 80px;
+  align-items: center;
+
+  @media (max-width: ${theme.breakpoints.values.sm}px) {
+    padding: 16px 48px;
+  }
+`;
+
+const ArticlesList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: ${theme.breakpoints.values.sm}px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+`;
+
+const AllArticlesLink = styled(Link)`
+  :hover {
+    background-color: #1b6fe4;
+  }
+`;
 
 const Articles: FC = () => {
   const theme = useTheme();
+  console.log(theme.breakpoints)
 
   return (
-    <Box component={'section'} display={'flex'} bgcolor={'#FFF'} padding={'80px'}>
-      <Container
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '64px',
-          alignItems: 'center',
-        }}
-      >
+    <ArticleSection>
+      <ArticlesContainer>
         <Box display="flex" flexDirection={'column'} alignItems={'center'}>
-          <Typography variant={'caption'} mb="8px" color={theme.palette.primary.dark} sx={{
-
-          }}>
+          <Typography variant={'caption'} mb="8px" color={theme.palette.primary.dark}>
             Статьи
           </Typography>
           <Typography variant={'h2'} textAlign={'center'}>
-            Статьи для врачей, пациентов и их родственников, а также<br/>научно-популярные доклады о прорывах в медицине
+            Статьи для врачей, пациентов и их родственников, а также
+            <br />
+            научно-популярные доклады о прорывах в медицине
           </Typography>
         </Box>
         <Box>
-          <List
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: '16px',
-              p: 0,
-            }}
-          >
+          <ArticlesList>
             {ArticlesData.map((item, idx) => (
               <ArticleItem key={idx} {...item} />
             ))}
-          </List>
+          </ArticlesList>
         </Box>
 
-        <Link
+        <AllArticlesLink
           href="#"
           underline="none"
           sx={{
@@ -102,16 +75,12 @@ const Articles: FC = () => {
             backgroundColor: theme.palette.primary.main,
             p: '18px 32px',
             cursor: 'pointer',
-            
           }}
         >
-          <Typography>
-            Все статьи
-          </Typography>
-          
-        </Link>
-      </Container>
-    </Box>
+          <Typography>Все статьи</Typography>
+        </AllArticlesLink>
+      </ArticlesContainer>
+    </ArticleSection>
   );
 };
 
