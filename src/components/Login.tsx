@@ -183,14 +183,14 @@ const LeftColumnWrapper = styled(Box)`
   flex-direction: column;
   justify-content: center;
   gap: 48px;
-  @media (max-width: ${(props) => props.theme.breakpoints.values.sm}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
     height: 100%;
     gap: 32px;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.values.md}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
     padding: 32px 16px;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.values.md + 1}px) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.values.md + 1}px) {
     padding: 80px;
   }
 `;
@@ -206,10 +206,10 @@ const StyledTextField = styled(TextField)`
     border-radius: 0;
     padding-right: 0;
     font-size: 16px;
-    color: ${(props) => props.theme.palette.text.secondary};
+    color: ${({ theme }) => theme.palette.text.secondary};
     & .MuiInputBase-input {
       padding: 13px 16px;
-      background-color: ${(props) => props.theme.palette.secondary.light};
+      background-color: ${({ theme }) => theme.palette.secondary.light};
       &::placeholder {
         opacity: 1;
       }
@@ -219,10 +219,10 @@ const StyledTextField = styled(TextField)`
       border-bottom: 1px solid #c1c7cd;
     }
     &:hover fieldset {
-      border-color: ${(props) => props.theme.palette.secondary.dark};
+      border-color: ${({ theme }) => theme.palette.secondary.dark};
     }
     & .Mui-focused fieldset {
-      border-color: ${(props) => props.theme.palette.primary.main};
+      border-color: ${({ theme }) => theme.palette.primary.main};
       border-width: 1px;
     }
     & .MuiInputAdornment-root {
@@ -237,10 +237,10 @@ const StyledTextField = styled(TextField)`
 const StyledInputLabel = styled(InputLabel)`
   position: relative;
   margin-bottom: 8px;
-  ${theme.typography.body1};
+  ${({ theme }) => theme.typography.body1};
   font-size: 14px;
   transform: none;
-  color: ${theme.palette.text.primary};
+  color: ${({ theme }) => theme.palette.text.primary};
 `;
 
 const PasswordSubtitle = styled(Typography)`
@@ -248,7 +248,7 @@ const PasswordSubtitle = styled(Typography)`
   font-size: 12px;
   line-height: 1.4;
   margin-top: 4px;
-  color: ${(props) => props.theme.palette.text.secondary};
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 const AdditionalFields = styled(FormControl)`
@@ -263,9 +263,9 @@ const StyledCheckbox = styled('div')`
   height: 16px;
   padding: 2px;
   border: 1px solid;
-  color: ${(props) => props.theme.palette.text.primary};
+  color: ${({ theme }) => theme.palette.text.primary};
   :hover {
-    background-color: ${(props) => props.theme.palette.secondary.light};
+    background-color: ${({ theme }) => theme.palette.secondary.light};
   }
 `;
 
@@ -283,8 +283,8 @@ const StyledOutlinedButton = styled(Button)`
   text-transform: none;
   line-height: 1;
   border-width: 2px;
-  border-color: ${(props) => props.theme.palette.primary.main};
-  color: ${(props) => props.theme.palette.primary.main};
+  border-color: ${({ theme }) => theme.palette.primary.main};
+  color: ${({ theme }) => theme.palette.primary.main};
   flex: 1;
   & .MuiButton-startIcon {
     width: 24px;
