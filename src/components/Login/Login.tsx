@@ -6,13 +6,12 @@ import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import theme from '../../theme.tsx';
+import Input from '../Input/Input.tsx';
 
 interface LoginProps {
   typeLogin: string;
@@ -52,32 +51,21 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginPr
             {typeLogin === 'registration' && (
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <FormControl sx={{ flex: 1 }}>
-                  <StyledInputLabel shrink htmlFor="name-input">
-                    Имя
-                  </StyledInputLabel>
-                  <StyledTextField id="name-input" placeholder="Иван" />
+                  <Input inputId="name-input" inputLabel="Имя" inputPlaceholder="Иван" />
                 </FormControl>
                 <FormControl sx={{ flex: 1 }}>
-                  <StyledInputLabel shrink htmlFor="surname-input">
-                    Фамилия
-                  </StyledInputLabel>
-                  <StyledTextField id="surname-input" placeholder="Иванов" />
+                  <Input inputId="surname-input" inputLabel="Фамилия" inputPlaceholder="Иванов" />
                 </FormControl>
               </Box>
             )}
             <FormControl>
-              <StyledInputLabel shrink htmlFor="email-input">
-                Email
-              </StyledInputLabel>
-              <StyledTextField id="email-input" placeholder="example@email.com" />
+              <Input inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
             </FormControl>
             <FormControl>
-              <StyledInputLabel shrink htmlFor="password-input">
-                Пароль
-              </StyledInputLabel>
-              <StyledTextField
-                id="password-input"
-                placeholder="******"
+              <Input
+                inputId="password-input"
+                inputLabel="Пароль"
+                inputPlaceholder="******"
                 type={showPassword ? 'text' : 'password'}
                 InputProps={{
                   endAdornment: (
@@ -199,48 +187,6 @@ const FormWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: 16px;
-`;
-
-const StyledTextField = styled(TextField)`
-  & .MuiInputBase-root {
-    border-radius: 0;
-    padding-right: 0;
-    font-size: 16px;
-    color: ${({ theme }) => theme.palette.text.secondary};
-    & .MuiInputBase-input {
-      padding: 13px 16px;
-      background-color: ${({ theme }) => theme.palette.secondary.light};
-      &::placeholder {
-        opacity: 1;
-      }
-    }
-    & fieldset {
-      border: none;
-      border-bottom: 1px solid #c1c7cd;
-    }
-    &:hover fieldset {
-      border-color: ${({ theme }) => theme.palette.secondary.dark};
-    }
-    & .Mui-focused fieldset {
-      border-color: ${({ theme }) => theme.palette.primary.main};
-      border-width: 1px;
-    }
-    & .MuiInputAdornment-root {
-      position: absolute;
-      right: 0;
-      padding-right: 16px;
-      margin: 0;
-    }
-  }
-`;
-
-const StyledInputLabel = styled(InputLabel)`
-  position: relative;
-  margin-bottom: 8px;
-  ${({ theme }) => theme.typography.body1};
-  font-size: 14px;
-  transform: none;
-  color: ${({ theme }) => theme.palette.text.primary};
 `;
 
 const PasswordSubtitle = styled(Typography)`
