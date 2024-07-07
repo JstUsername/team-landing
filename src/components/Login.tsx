@@ -275,7 +275,6 @@ const StyledButton = styled(Button)`
   text-transform: none;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: 0.03em;
 `;
 
 const StyledOutlinedButton = styled(Button)`
@@ -283,7 +282,6 @@ const StyledOutlinedButton = styled(Button)`
   border-radius: 0;
   text-transform: none;
   line-height: 1;
-  letter-spacing: 0.5em;
   border-width: 2px;
   border-color: ${theme.palette.primary.main};
   color: ${theme.palette.primary.main};
