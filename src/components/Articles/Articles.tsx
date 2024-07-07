@@ -1,50 +1,11 @@
-import { Box, Typography, Link } from '@mui/material';
-import { FC } from 'react';
-import styled from '@emotion/styled';
+import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import ArticleItem from './ArticleItem';
-import ArticlesData from './Data';
-import theme from '../../theme'
+import ArticleItem from '../ArticlesItem/ArticleItem';
+import { ArticlesData } from './Articles.types';
+import { AllArticlesLink, ArticlesContainer, ArticleSection, ArticlesList, ArticleTitle } from './Articles.styled';
 
-const ArticleSection = styled.section`
-  background: #fff;
-`;
-
-const ArticlesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-  padding: 80px;
-  align-items: center;
-
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
-    padding: 16px 48px;
-  }
-`;
-
-const ArticlesList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  gap: 16px;
-  padding: 0;
-  margin: 0;
-
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-`;
-
-const AllArticlesLink = styled(Link)`
-  :hover {
-    background-color: #1b6fe4;
-  }
-`;
-
-const Articles: FC = () => {
+const Articles: React.FC = () => {
   const theme = useTheme();
-  console.log(theme.breakpoints)
 
   return (
     <ArticleSection>
@@ -53,11 +14,11 @@ const Articles: FC = () => {
           <Typography variant={'caption'} mb="8px" color={theme.palette.primary.dark}>
             Статьи
           </Typography>
-          <Typography variant={'h2'} textAlign={'center'}>
+          <ArticleTitle variant={'h2'} textAlign={'center'}>
             Статьи для врачей, пациентов и их родственников, а также
             <br />
             научно-популярные доклады о прорывах в медицине
-          </Typography>
+          </ArticleTitle>
         </Box>
         <Box>
           <ArticlesList>

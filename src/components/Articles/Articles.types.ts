@@ -1,6 +1,14 @@
-import IArticle from "./interface";
+export interface IArticle {
+  title: string;
+  imgUrl: string | null;
+  link: string;
+  alt: string;
+  width: string;
+  height: string;
+  description: string;
+}
 
-const ArticlesData: IArticle[] = [
+export const ArticlesData: IArticle[] = [
   {
     title: 'Головная боль',
     imgUrl: 'src/assets/articles/headache.jpg',
@@ -38,5 +46,3 @@ const ArticlesData: IArticle[] = [
     description: 'Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив',
   },
 ];
-
-export default ArticlesData;
