@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
-import Login from './components/Login.tsx';
+import Login from './components/Login/Login.tsx';
 import Header from './components/Header/Header.tsx';
 import { useState } from 'react';
 

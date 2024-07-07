@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import theme from '../theme.tsx';
+import theme from '../../theme.tsx';
 
 interface LoginProps {
   typeLogin: string;
