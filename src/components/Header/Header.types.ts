@@ -1,8 +1,4 @@
-import { Dispatch, SetStateAction, FunctionComponent, SVGProps } from 'react';
-
-export interface headerProps {
-  setOpenLogin: Dispatch<SetStateAction<boolean>>;
-}
+import { FunctionComponent, SVGProps } from 'react';
 
 export interface LiButtonProps {
   active: boolean;

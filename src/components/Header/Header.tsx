@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import theme from '../../theme.tsx';
 import { styled } from '@mui/material/styles';
-import { headerProps, LiButtonProps } from './Header.types.ts';
+import { LiButtonProps } from './Header.types.ts';
 import { BottomHeaderItems } from './Header.constants.ts';
 import Logo from '../../assets/header/logo.svg?react';
 import MapMarkerIcon from '../../assets/header/icons/map-marker.svg?react';
@@ -10,8 +11,13 @@ import ShoppingCartIcon from '../../assets/header/icons/shopping-cart.svg?react'
 import ChevronDownIcon from '../../assets/header/icons/chevron-down.svg?react';
 import SearchIcon from '../../assets/header/icons/search.svg?react';
 
-export default function Header({ setOpenLogin }: headerProps) {
+export default function Header() {
   const [isActive, setIsActive] = useState(BottomHeaderItems);
+
+  const navigate = useNavigate();
+  const goToLogin = () => {
+    navigate('/login');
+  };
 
   return (
     <header>
@@ -20,7 +26,7 @@ export default function Header({ setOpenLogin }: headerProps) {
           <MapMarkerIcon title="Map marker" />
           <span style={theme.typography.body2}>Москва</span>
         </HeaderTopBlock>
-        <HeaderTopBlock style={{ marginLeft: 'auto' }} onClick={() => setOpenLogin(true)}>
+        <HeaderTopBlock style={{ marginLeft: 'auto' }} onClick={goToLogin}>
           <UserIcon title="User" />
           <span style={theme.typography.body2}>Вход</span>
         </HeaderTopBlock>
