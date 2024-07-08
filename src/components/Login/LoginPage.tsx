@@ -17,7 +17,7 @@ interface LoginProps {
   typeLogin: string;
 }
 
-export default function Login({ typeLogin }: LoginProps) {
+export default function LoginPage({ typeLogin }: LoginProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
