@@ -25,7 +25,12 @@ export default function FormPasswordInput() {
               {!showPassword ? (
                 <EyeIcon title="Change password visibility" width="20px" height="20px" />
               ) : (
-                <EyeCloseIcon title="Change password visibility" width="20px" height="20px" />
+                <EyeCloseIcon
+                  title="Change password visibility"
+                  width="24px"
+                  height="24px"
+                  style={{ marginRight: '-2px' }}
+                />
               )}
             </IconButton>
           </InputAdornment>
