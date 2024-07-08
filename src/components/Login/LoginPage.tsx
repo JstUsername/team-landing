@@ -1,4 +1,4 @@
-import { useState, KeyboardEvent } from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -12,11 +12,11 @@ import { styled } from '@mui/material/styles';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
 import FormLink from '../../commons/FormLink/FormLink.tsx';
+import FormCheckbox from '../../commons/FormCheckbox/FormCheckbox.tsx';
 import loginImage from '../../assets/login/images/login.webp';
 import AppleIcon from '../../assets/login/icons/apple.svg?react';
 import EyeIcon from '../../assets/login/icons/eye.svg?react';
 import GoogleIcon from '../../assets/login/icons/google.svg?react';
-import UnionIcon from '../../assets/login/icons/union.svg?react';
 
 interface LoginProps {
   typeLogin: string;
@@ -24,18 +24,10 @@ interface LoginProps {
 
 export default function LoginPage({ typeLogin }: LoginProps) {
   const [showPassword, setShowPassword] = useState(false);
-  const [checked, setChecked] = useState(false);
 
   const navigate = useNavigate();
   const goToHome = () => {
     navigate('/');
-  };
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      setChecked((prev) => !prev);
-    }
   };
 
   return (
@@ -87,14 +79,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
             </FormControl>
             <AdditionalFields>
               <Box sx={{ display: 'flex', gap: 1 }}>
-                <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)} onKeyDown={handleKeyDown}>
-                  {checked && <UnionIcon title="Union" style={{ position: 'absolute', left: '3px', top: '5px' }} />}
-                </StyledCheckbox>
-                <Typography variant="body1" sx={{ fontSize: '14px' }}>
-                  {typeLogin === 'registration'
-                    ? 'Согласен с политикой обработки персональных данных'
-                    : 'Запомнить меня'}
-                </Typography>
+                <FormCheckbox typeLogin={typeLogin} />
               </Box>
               {typeLogin === 'authorization' && <FormLink linkTo="" linkText="Забыли пароль?" />}
             </AdditionalFields>
@@ -177,17 +162,6 @@ const AdditionalFields = styled(FormControl)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-`;
-
-const StyledCheckbox = styled('div')`
-  width: 16px;
-  height: 16px;
-  padding: 2px;
-  border: 1px solid;
-  color: ${({ theme }) => theme.palette.text.primary};
-  :hover {
-    background-color: ${({ theme }) => theme.palette.secondary.light};
-  }
 `;
 
 const StyledButton = styled(Button)`
