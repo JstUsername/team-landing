@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import theme from '../../theme.tsx';
-import Input from '../Input/Input.tsx';
+import FormInput from '../../commons/FormInput/FormInput.tsx';
 
 interface LoginProps {
   typeLogin: string;
@@ -46,18 +46,18 @@ export default function Login({ typeLogin }: LoginProps) {
             {typeLogin === 'registration' && (
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <FormControl sx={{ flex: 1 }}>
-                  <Input inputId="name-input" inputLabel="Имя" inputPlaceholder="Иван" />
+                  <FormInput inputId="name-input" inputLabel="Имя" inputPlaceholder="Иван" />
                 </FormControl>
                 <FormControl sx={{ flex: 1 }}>
-                  <Input inputId="surname-input" inputLabel="Фамилия" inputPlaceholder="Иванов" />
+                  <FormInput inputId="surname-input" inputLabel="Фамилия" inputPlaceholder="Иванов" />
                 </FormControl>
               </Box>
             )}
             <FormControl>
-              <Input inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
+              <FormInput inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
             </FormControl>
             <FormControl>
-              <Input
+              <FormInput
                 inputId="password-input"
                 inputLabel="Пароль"
                 inputPlaceholder="******"
