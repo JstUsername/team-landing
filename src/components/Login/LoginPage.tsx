@@ -6,11 +6,12 @@ import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
+import FormLink from '../../commons/FormLink/FormLink.tsx';
 import loginImage from '../../assets/login/images/login.webp';
 import AppleIcon from '../../assets/login/icons/apple.svg?react';
 import EyeIcon from '../../assets/login/icons/eye.svg?react';
@@ -95,13 +96,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
                     : 'Запомнить меня'}
                 </Typography>
               </Box>
-              {typeLogin === 'authorization' && (
-                <StyledLink to="">
-                  <Typography variant="body1" sx={{ fontSize: '14px' }}>
-                    Забыли пароль?
-                  </Typography>
-                </StyledLink>
-              )}
+              {typeLogin === 'authorization' && <FormLink linkTo="" linkText="Забыли пароль?" />}
             </AdditionalFields>
             <FormControl>
               <StyledButton variant="contained" onClick={goToHome}>
@@ -119,17 +114,9 @@ export default function LoginPage({ typeLogin }: LoginProps) {
           </Box>
           <Divider />
           {typeLogin === 'registration' ? (
-            <StyledLink to="/login">
-              <Typography variant="body1" sx={{ fontSize: '14px' }}>
-                Нет аккаунта? Зарегистрироваться
-              </Typography>
-            </StyledLink>
+            <FormLink linkTo="/login" linkText="Нет аккаунта? Зарегистрироваться" />
           ) : (
-            <StyledLink to="/registration">
-              <Typography variant="body1" sx={{ fontSize: '14px' }}>
-                Уже есть аккаунт?
-              </Typography>
-            </StyledLink>
+            <FormLink linkTo="/registration" linkText="Уже есть аккаунт?" />
           )}
         </LeftColumnWrapper>
       </Grid>
@@ -226,15 +213,5 @@ const StyledOutlinedButton = styled(Button)`
   }
   &:hover {
     border-width: 2px;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.palette.primary.dark};
-  display: inline-block;
-  width: fit-content;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
   }
 `;
