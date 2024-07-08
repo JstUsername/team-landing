@@ -150,7 +150,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
 const StyledGrid = styled(Grid)`
   height: 100vh;
   overflow: hidden;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     height: 100%;
     overflow: auto;
   }
@@ -162,14 +162,14 @@ const LeftColumnWrapper = styled(Box)`
   flex-direction: column;
   justify-content: center;
   gap: 48px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     height: 100%;
     gap: 32px;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down('md')} {
     padding: 32px 16px;
   }
-  @media (min-width: ${({ theme }) => theme.breakpoints.values.md + 1}px) {
+  ${({ theme }) => theme.breakpoints.up('md')} {
     padding: 80px;
   }
 `;
