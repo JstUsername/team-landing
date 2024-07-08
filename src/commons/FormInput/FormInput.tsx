@@ -1,3 +1,4 @@
+import { useState, ChangeEvent, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
@@ -9,15 +10,52 @@ interface FormInputProps {
   inputPlaceholder: string;
   type?: string;
   InputProps?: Partial<StandardInputProps>;
+  inputError?: boolean;
+  inputOnChange?: StandardInputProps['onChange'];
 }
 
-export default function FormInput({ inputId, inputLabel, inputPlaceholder, type, InputProps }: FormInputProps) {
+export default function FormInput({
+  inputId,
+  inputLabel,
+  inputPlaceholder,
+  type,
+  InputProps,
+  inputError,
+  inputOnChange,
+}: FormInputProps) {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
+
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  useEffect(() => {
+    if (email === '') {
+      setError(false);
+    } else {
+      validateEmail(email) ? setError(false) : setError(true);
+    }
+  }, [email]);
+
   return (
     <>
       <StyledInputLabel shrink htmlFor={inputId}>
         {inputLabel}
       </StyledInputLabel>
-      <StyledTextField id={inputId} placeholder={inputPlaceholder} type={type} InputProps={InputProps} />
+      <StyledTextField
+        id={inputId}
+        placeholder={inputPlaceholder}
+        type={type}
+        InputProps={InputProps}
+        error={inputId === 'email-input' ? error : inputId === 'password-input' ? inputError : undefined}
+        onChange={inputId === 'email-input' ? handleChange : inputId === 'password-input' ? inputOnChange : undefined}
+      />
     </>
   );
 }
@@ -48,8 +86,8 @@ const StyledTextField = styled(TextField)`
       border: none;
       border-bottom: 1px solid #c1c7cd;
     }
-    &:hover fieldset {
-      border-color: ${({ theme }) => theme.palette.secondary.dark};
+    & :hover fieldset {
+      border-bottom: 2px solid ${({ theme }) => theme.palette.secondary.dark};
     }
     & .Mui-focused fieldset {
       border-color: ${({ theme }) => theme.palette.primary.main};

@@ -47,7 +47,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
               <FormInput inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
             </FormControl>
             <FormControl>
-              <FormPasswordInput />
+              <FormPasswordInput typeLogin={typeLogin} />
               {typeLogin === 'registration' && (
                 <PasswordSubtitle>
                   Пароль должен содержать минимум 8 символов, строчные и прописные символы
