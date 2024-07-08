@@ -1,7 +1,9 @@
+import Header from '../Header/Header.tsx';
+
 function HomePage() {
   return (
     <div className="AppContent">
-      <h1>Add your component here</h1>
+      <Header />
     </div>
   );
 }
