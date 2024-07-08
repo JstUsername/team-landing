@@ -12,6 +12,7 @@ import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
+import loginImage from '../../assets/login/images/login.webp';
 import AppleIcon from '../../assets/login/icons/apple.svg?react';
 import EyeIcon from '../../assets/login/icons/eye.svg?react';
 import GoogleIcon from '../../assets/login/icons/google.svg?react';
@@ -137,7 +138,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
       </Grid>
       <Grid xs={0} sm={6}>
         <img
-          src="/src/assets/login/images/login.webp"
+          src={loginImage}
           alt="Decorative image from the login page"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
