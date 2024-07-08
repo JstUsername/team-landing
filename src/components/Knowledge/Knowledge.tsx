@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Box, Container, styled, Typography } from '@mui/material';
 import MuiTypography from '@mui/material/Typography';
-import KnowledgeInfo from './knowledge-info/KnowledgeInfo';
+import KnowledgeInfo from './KnowledgeInfo';
 import { knowledgeInfo } from './constants';
 import Chart from './chart/Chart';
 import theme from '../../theme';
@@ -59,7 +59,8 @@ const GridContainer = styled('div')`
   flex-direction: column;
   gap: 48px;
   margin-inline: 80px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {  
+  
+  ${theme.breakpoints.down('sm')} {  
     margin-inline: 0;  
   },`;
 
@@ -72,7 +73,8 @@ const KnowledgeText = styled(MuiTypography)`
   font-size: 42px;
   font-weight: 700;
   letter-spacing: 0;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+  
+  ${theme.breakpoints.down('sm')} {
     font-size: 24px;
   },
 `;
@@ -81,7 +83,8 @@ const FlexKnowledgeItem = styled('div')`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 80px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+
+  ${theme.breakpoints.down('lg')} {
     grid-template-columns: 100%;
     gap: 24px;
   },
@@ -91,7 +94,8 @@ const KnowledgeItemBox = styled('div')`
   border: 1px solid ${theme.palette.divider};
   height: 396px;
   max-width: 535px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.lg}px) {
+  
+  ${theme.breakpoints.down('lg')} {
     max-width: 1440px;
   },
 `;

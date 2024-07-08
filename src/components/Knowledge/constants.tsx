@@ -4,7 +4,7 @@ import Copy from '../../assets/Knowledge/copy.svg?react';
 import Pizza from '../../assets/Knowledge/pizza.svg?react';
 import People from '../../assets/Knowledge/people.svg?react';
 import theme from '../../theme';
-import { IKnowledgeInfo } from './types';
+import { IKnowledgeInfo } from './Knowledge.types';
 import { ChartOptions } from 'chart.js';
 
 export const knowledgeInfo: IKnowledgeInfo[] = [

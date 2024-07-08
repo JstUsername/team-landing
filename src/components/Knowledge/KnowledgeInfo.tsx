@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Box, styled, Typography } from '@mui/material';
-import { IKnowledgeInfo } from '../types';
+import { IKnowledgeInfo } from './Knowledge.types';
+import theme from '../../theme';
 
 const KnowledgeInfo: FC<Omit<IKnowledgeInfo, 'id'>> = ({ image, description, statistics }) => {
   return (
@@ -33,10 +34,11 @@ const GridContainer = styled('div')`
   align-items: flex-start;
   gap: 16px;
   height: 100%;
-  @media (max-width: ${({ theme }) => theme.breakpoints.values.sm}px) {
+
+  ${theme.breakpoints.down('sm')} {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  },
+  }
 `;
 export default KnowledgeInfo;

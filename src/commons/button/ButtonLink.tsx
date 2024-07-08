@@ -21,7 +21,7 @@ const Button = styled(MUIButton)<ButtonProps>(`
   :hover {
     border: 2px solid #3064ac;
   };
-  @media (max-width: 768px) {
+  ${theme.breakpoints.down('sm')} {
     padding-inline: 28px;
     padding-block: 14px;
   },
