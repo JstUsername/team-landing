@@ -1,21 +1,18 @@
-import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
 import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
+import FormPasswordInput from '../../commons/FormPasswordInput/FormPasswordInput.tsx';
 import FormLink from '../../commons/FormLink/FormLink.tsx';
 import FormCheckbox from '../../commons/FormCheckbox/FormCheckbox.tsx';
 import loginImage from '../../assets/login/images/login.webp';
 import AppleIcon from '../../assets/login/icons/apple.svg?react';
-import EyeIcon from '../../assets/login/icons/eye.svg?react';
 import GoogleIcon from '../../assets/login/icons/google.svg?react';
 
 interface LoginProps {
@@ -23,8 +20,6 @@ interface LoginProps {
 }
 
 export default function LoginPage({ typeLogin }: LoginProps) {
-  const [showPassword, setShowPassword] = useState(false);
-
   const navigate = useNavigate();
   const goToHome = () => {
     navigate('/');
@@ -52,25 +47,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
               <FormInput inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
             </FormControl>
             <FormControl>
-              <FormInput
-                inputId="password-input"
-                inputLabel="Пароль"
-                inputPlaceholder="******"
-                type={showPassword ? 'text' : 'password'}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => setShowPassword((show) => !show)}
-                        edge="end"
-                      >
-                        <EyeIcon title="Change password visibility" width="20px" height="20px" />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <FormPasswordInput />
               {typeLogin === 'registration' && (
                 <PasswordSubtitle>
                   Пароль должен содержать минимум 8 символов, строчные и прописные символы
