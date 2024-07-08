@@ -1,7 +1,7 @@
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
 
-export const theme = createTheme({
+const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -95,5 +95,14 @@ export const theme = createTheme({
     },
   },
 });
+
+theme.typography.h2 = {
+  [theme.breakpoints.up('sm')]: {
+    fontSize: theme.typography.h2.fontSize,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: theme.typography.h3.fontSize,
+  },
+};
 
 export default theme;
