@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import theme from '../../theme';
 
 export const ArticleSection = styled.section`
-  background: #fff;
+  background: ${theme.palette.background.default};
 `;
 
 export const ArticlesContainer = styled.div`
@@ -13,14 +13,14 @@ export const ArticlesContainer = styled.div`
   padding: 80px;
   align-items: center;
 
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
+  ${theme.breakpoints.down('sm')} {
     padding: 48px 16px;
     gap: 32px;
   }
 `;
 
 export const ArticleTitle = styled(Typography)`
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
+  ${theme.breakpoints.down('sm')} {
     font-size: 24px;
     line-height: 1.1;
   }
@@ -34,29 +34,19 @@ export const ArticlesList = styled.ul`
   padding: 0;
   margin: 0;
 
-  @media (max-width: ${theme.breakpoints.values.md}px) {
+  ${theme.breakpoints.down('md')} {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
 `;
 
 export const AllArticlesLink = styled(Link)`
+  color: ${theme.palette.background.default};
+  background-color: ${theme.palette.primary.main};
+  padding: 18px 32px;
+  cursor: pointer;
+
   :hover {
     background-color: #1b6fe4;
   }
-`;
-
-export const ArticleLoad = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 220px;
-`;
-export const LoadWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 37px;
-  background: linear-gradient(360deg, rgba(69, 143, 246, 0), rgba(69, 143, 246, 1) 100%);
 `;

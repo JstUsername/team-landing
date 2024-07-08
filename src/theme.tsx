@@ -4,7 +4,7 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     bodyS: {
       fontSize: number;
-      fontWeight: number,
+      fontWeight: number;
       lineHeight: number;
     };
   }
@@ -12,9 +12,19 @@ declare module '@mui/material/styles' {
   interface TypographyVariantsOptions {
     bodyS: {
       fontSize?: number;
-      fontWeight?: number,
+      fontWeight?: number;
       lineHeight?: number;
     };
+  }
+}
+
+declare module '@mui/material/styles' {
+  interface PaletteColor {
+    loading?: string;
+  }
+
+  interface TypeBackground {
+    loading?: string;
   }
 }
 
@@ -32,7 +42,8 @@ const theme = createTheme({
     },
     background: {
       paper: '#F2F4F8',
-
+      default: '#FFFFFF',
+      loading: '#F3F7FF',
     },
     text: {
       primary: '#21272A',
@@ -44,7 +55,7 @@ const theme = createTheme({
     success: {
       main: '#25A249',
     },
-    divider: '#DDE1E6'
+    divider: '#DDE1E6',
   },
   typography: {
     h1: {
@@ -109,18 +120,18 @@ const theme = createTheme({
     caption: {
       fontSize: 20,
       fontWeight: 700,
-      letterSpacing: 1
-    }
+      letterSpacing: 1,
+    },
   },
   breakpoints: {
     values: {
-      xs: 360,
+      xs: 0,
       sm: 768,
       md: 1024,
       lg: 1440,
       xl: 1920,
     },
   },
-}) 
+});
 
 export default theme;

@@ -1,36 +1,34 @@
-import { Box, ListItem, Link, CardMedia } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import arrowRight from '../../assets/articles/arrow-right.svg';
+/// <reference types="vite-plugin-svgr/client" />
+import { Box, Link, CardMedia } from '@mui/material';
 import { IArticle } from '../Articles/Articles.types';
-import { ArticleDescription, ArticleLinkText, ArticleTitle } from './ArticleItem.styled';
-import { ArticleLoad, LoadWrapper } from '../Articles/Articles.styled';
-import TLoad from '../../assets/articles/T.svg';
+import {
+  ArticleDescription,
+  ArticleLinkText,
+  ArticleTitle,
+  ArticleLoad,
+  ArticleLoadCenter,
+  ArticleLoadBox,
+  ArticleListItem,
+} from './ArticleItem.styled';
+import TLoadSvg from '../../assets/articles/T.svg?react';
+import ArrowRightSvg from '../../assets/articles/arrow-right.svg?react';
+import theme from '../../theme';
 
-const ArticleItem: React.FC<IArticle> = ({ title, imgUrl, alt, description }) => {
-  const theme = useTheme();
-
+const ArticleItem = ({ title, imgUrl, alt, description }: IArticle) => {
   const truncateText = (text: string) => (text.length <= 79 ? text : text.slice(0, 79) + '...');
 
   return (
-    <ListItem
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: '8px',
-        maxWidth: '308px',
-        overflow: 'hidden',
-        p: 0,
-      }}
-    >
-      <Box width={'100%'} bgcolor={'#F3F7FF'}>
+    <ArticleListItem>
+      <Box width="100%" bgcolor={theme.palette.background.loading}>
         {imgUrl ? (
           <CardMedia component="img" image={imgUrl} alt={alt} height="220" />
         ) : (
           <ArticleLoad>
-            <LoadWrapper>
-              <img src={TLoad} alt="" width={17} height={26} />
-            </LoadWrapper>
+            <ArticleLoadBox>
+              <ArticleLoadCenter>
+                <TLoadSvg />
+              </ArticleLoadCenter>
+            </ArticleLoadBox>
           </ArticleLoad>
         )}
       </Box>
@@ -53,11 +51,11 @@ const ArticleItem: React.FC<IArticle> = ({ title, imgUrl, alt, description }) =>
             Подробнее
           </ArticleLinkText>
           <Box padding={'5px'} marginLeft={'16px'} display={'flex'}>
-            <img src={arrowRight} alt="" />
+            <ArrowRightSvg />
           </Box>
         </Link>
       </Box>
-    </ListItem>
+    </ArticleListItem>
   );
 };
 

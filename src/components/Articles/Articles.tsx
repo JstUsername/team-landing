@@ -1,12 +1,10 @@
 import { Box, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import ArticleItem from '../ArticlesItem/ArticleItem';
-import { ArticlesData } from './Articles.types';
+import { ArticlesData } from './constants';
 import { AllArticlesLink, ArticlesContainer, ArticleSection, ArticlesList, ArticleTitle } from './Articles.styled';
+import theme from '../../theme';
 
-const Articles: React.FC = () => {
-  const theme = useTheme();
-
+const Articles = () => {
   return (
     <ArticleSection>
       <ArticlesContainer>
@@ -27,17 +25,7 @@ const Articles: React.FC = () => {
             ))}
           </ArticlesList>
         </Box>
-
-        <AllArticlesLink
-          href="#"
-          underline="none"
-          sx={{
-            color: '#FFF',
-            backgroundColor: theme.palette.primary.main,
-            p: '18px 32px',
-            cursor: 'pointer',
-          }}
-        >
+        <AllArticlesLink href="#" underline="none">
           <Typography>Все статьи</Typography>
         </AllArticlesLink>
       </ArticlesContainer>
