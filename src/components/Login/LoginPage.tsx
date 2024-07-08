@@ -12,6 +12,10 @@ import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
+import AppleIcon from '../../assets/login/icons/apple.svg?react';
+import EyeIcon from '../../assets/login/icons/eye.svg?react';
+import GoogleIcon from '../../assets/login/icons/google.svg?react';
+import UnionIcon from '../../assets/login/icons/union.svg?react';
 
 interface LoginProps {
   typeLogin: string;
@@ -70,11 +74,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
                         onClick={() => setShowPassword((show) => !show)}
                         edge="end"
                       >
-                        <img
-                          src="/src/assets/login/icons/eye.svg"
-                          alt="Change password visibility"
-                          style={{ width: 20, height: 20 }}
-                        />
+                        <EyeIcon title="Change password visibility" width="20px" height="20px" />
                       </IconButton>
                     </InputAdornment>
                   ),
@@ -89,13 +89,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
             <AdditionalFields>
               <Box sx={{ display: 'flex', gap: 1 }}>
                 <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)} onKeyDown={handleKeyDown}>
-                  {checked && (
-                    <img
-                      src="/src/assets/login/icons/union.svg"
-                      alt="Union"
-                      style={{ position: 'absolute', left: '3px', top: '5px' }}
-                    />
-                  )}
+                  {checked && <UnionIcon title="Union" style={{ position: 'absolute', left: '3px', top: '5px' }} />}
                 </StyledCheckbox>
                 <Typography variant="body1" sx={{ fontSize: '14px' }}>
                   {typeLogin === 'registration'
@@ -118,18 +112,10 @@ export default function LoginPage({ typeLogin }: LoginProps) {
             </FormControl>
           </FormWrapper>
           <Box sx={{ display: 'flex', gap: 2, [theme.breakpoints.down('lg')]: { flexDirection: 'column' } }}>
-            <StyledOutlinedButton
-              variant="outlined"
-              startIcon={<img src="/src/assets/login/icons/google.svg" alt="Google icon" />}
-              onClick={goToHome}
-            >
+            <StyledOutlinedButton variant="outlined" startIcon={<GoogleIcon title="Google icon" />} onClick={goToHome}>
               <Typography sx={{ paddingX: 2, fontSize: '16px' }}>Вход с помощью Google</Typography>
             </StyledOutlinedButton>
-            <StyledOutlinedButton
-              variant="outlined"
-              startIcon={<img src="/src/assets/login/icons/apple.svg" alt="Apple icon" />}
-              onClick={goToHome}
-            >
+            <StyledOutlinedButton variant="outlined" startIcon={<AppleIcon title="Apple icon" />} onClick={goToHome}>
               <Typography sx={{ paddingX: 2, fontSize: '16px' }}>Вход с помощью Apple</Typography>
             </StyledOutlinedButton>
           </Box>
