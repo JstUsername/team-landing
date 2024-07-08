@@ -3,7 +3,7 @@ import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import { InputProps as StandardInputProps } from '@mui/material/Input/Input';
 
-interface InputComponentProps {
+interface FormInputProps {
   inputId: string;
   inputLabel: string;
   inputPlaceholder: string;
@@ -11,7 +11,7 @@ interface InputComponentProps {
   InputProps?: Partial<StandardInputProps>;
 }
 
-export default function Input({ inputId, inputLabel, inputPlaceholder, type, InputProps }: InputComponentProps) {
+export default function FormInput({ inputId, inputLabel, inputPlaceholder, type, InputProps }: FormInputProps) {
   return (
     <>
       <StyledInputLabel shrink htmlFor={inputId}>
