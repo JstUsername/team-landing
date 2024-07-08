@@ -9,7 +9,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { Link, useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
 import loginImage from '../../assets/login/images/login.webp';
@@ -25,8 +24,6 @@ interface LoginProps {
 export default function LoginPage({ typeLogin }: LoginProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
-
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const navigate = useNavigate();
   const goToHome = () => {
@@ -44,7 +41,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
     <StyledGrid container spacing={0}>
       <Grid xs={12} sm={6}>
         <LeftColumnWrapper>
-          <Typography variant={isSmallScreen ? 'h3' : 'h2'} sx={{ margin: 0 }}>
+          <Typography variant="h2" sx={{ margin: 0 }}>
             {typeLogin === 'registration' ? 'Регистрация' : 'Вход'}
           </Typography>
           <FormWrapper component="form">
