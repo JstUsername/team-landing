@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction, KeyboardEvent } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -6,7 +6,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import Link from '@mui/material/Link';
+import { Link, useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -15,15 +15,18 @@ import Input from '../Input/Input.tsx';
 
 interface LoginProps {
   typeLogin: string;
-  setTypeLogin: Dispatch<SetStateAction<string>>;
-  setOpenLogin: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginProps) {
+export default function Login({ typeLogin }: LoginProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const navigate = useNavigate();
+  const goToHome = () => {
+    navigate('/');
+  };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -101,7 +104,7 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginPr
                 </Typography>
               </Box>
               {typeLogin === 'authorization' && (
-                <StyledLink href="#" underline="hover" color="primary.dark">
+                <StyledLink to="">
                   <Typography variant="body1" sx={{ fontSize: '14px' }}>
                     Забыли пароль?
                   </Typography>
@@ -109,7 +112,7 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginPr
               )}
             </AdditionalFields>
             <FormControl>
-              <StyledButton variant="contained" onClick={() => setOpenLogin(false)}>
+              <StyledButton variant="contained" onClick={goToHome}>
                 {typeLogin === 'registration' ? 'Зарегистрироваться' : 'Вход'}
               </StyledButton>
             </FormControl>
@@ -118,27 +121,27 @@ export default function Login({ typeLogin, setTypeLogin, setOpenLogin }: LoginPr
             <StyledOutlinedButton
               variant="outlined"
               startIcon={<img src="/src/assets/login/icons/google.svg" alt="Google icon" />}
-              onClick={() => setOpenLogin(false)}
+              onClick={goToHome}
             >
               <Typography sx={{ paddingX: 2, fontSize: '16px' }}>Вход с помощью Google</Typography>
             </StyledOutlinedButton>
             <StyledOutlinedButton
               variant="outlined"
               startIcon={<img src="/src/assets/login/icons/apple.svg" alt="Apple icon" />}
-              onClick={() => setOpenLogin(false)}
+              onClick={goToHome}
             >
               <Typography sx={{ paddingX: 2, fontSize: '16px' }}>Вход с помощью Apple</Typography>
             </StyledOutlinedButton>
           </Box>
           <Divider />
           {typeLogin === 'registration' ? (
-            <StyledLink href="#" underline="hover" color="primary.dark" onClick={() => setTypeLogin('authorization')}>
+            <StyledLink to="/login">
               <Typography variant="body1" sx={{ fontSize: '14px' }}>
                 Нет аккаунта? Зарегистрироваться
               </Typography>
             </StyledLink>
           ) : (
-            <StyledLink href="#" underline="hover" color="primary.dark" onClick={() => setTypeLogin('registration')}>
+            <StyledLink to="/registration">
               <Typography variant="body1" sx={{ fontSize: '14px' }}>
                 Уже есть аккаунт?
               </Typography>
@@ -243,6 +246,11 @@ const StyledOutlinedButton = styled(Button)`
 `;
 
 const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.palette.primary.dark};
   display: inline-block;
   width: fit-content;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
