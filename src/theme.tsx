@@ -1,6 +1,44 @@
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
 
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    bodyS: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+    };
+    buttonM: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+      letterSpacing: string;
+    };
+  }
+
+  interface TypographyVariantsOptions {
+    bodyS: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+    };
+    buttonM?: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+      letterSpacing?: string;
+    };
+  }
+
+  interface PaletteColor {
+    underline: string;
+  }
+
+  interface TypeBackground {
+    underline?: string;
+  }
+}
+
 const theme = createTheme({
   palette: {
     mode: 'light',
@@ -15,6 +53,8 @@ const theme = createTheme({
     },
     background: {
       paper: '#F2F4F8',
+      default: '#FFFFFF',
+      underline: '#C1C7CD',
     },
     text: {
       primary: '#21272A',
@@ -78,15 +118,26 @@ const theme = createTheme({
       lineHeight: 1.4,
       letterSpacing: '0em',
     },
+    bodyS: {
+      fontSize: 14,
+      fontWeight: 400,
+      lineHeight: 1.4,
+    },
     button: {
       fontSize: 20,
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
+    buttonM: {
+      fontSize: 16,
+      fontWeight: 500,
+      lineHeight: 1,
+      letterSpacing: '0.5px',
+    },
   },
   breakpoints: {
     values: {
-      xs: 360,
+      xs: 0,
       sm: 768,
       md: 1024,
       lg: 1440,

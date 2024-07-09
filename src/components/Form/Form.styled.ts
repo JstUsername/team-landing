@@ -1,104 +1,94 @@
-import styled from '@emotion/styled';
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, styled } from '@mui/material';
 import formBg from '../Assets/form-bg.jpg';
 import chevronDown from '../Assets/chevron-down.svg';
-import theme from '../../theme';
 
-export const Section = styled.section`
+export const Section = styled('section')`
   background-image: url(${formBg});
   background-repeat: no-repeat;
   background-size: 100%;
 `;
 
-export const Container = styled.div`
+export const Container = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 244px;
   padding-bottom: 80px;
 
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 151px 16px 48px;
   }
 `;
 
-export const FormBlock = styled.form`
+export const FormBlock = styled('form')`
   display: flex;
   flex-direction: column;
   gap: 48px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.palette.background.default};
   padding: 48px;
   max-width: 712px;
   width: 100%;
-  border: 1px solid #dde1e6;
+  border: 1px solid ${({ theme }) => theme.palette.divider};
   border-radius: 8px;
 
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 24px 16px;
   }
 `;
 
 export const FormTitle = styled(Typography)`
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
-    font-size: 32px;
-    line-height: 1.1;
-    font-weight: 700;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    ${({ theme }) => theme.typography.h3};
   }
 `;
 
 export const FormSubTitle = styled(Typography)`
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 400;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    ${({ theme }) => theme.typography.body2};
   }
 `;
 
-export const TypographyWrapper = styled.div`
+export const TypographyWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 16px;
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled('div')`
   display: flex;
   gap: 16px;
 `;
 
-export const LabelBlock = styled.label`
+export const LabelBlock = styled('label')`
   display: flex;
   flex-direction: column;
   gap: 8px;
   flex-grow: 1;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
+  ${({ theme }) => theme.typography.bodyS};
 
   & input,
   & textarea,
   & select {
     width: 100%;
     padding: 13px 16px;
-    background-color: #f2f4f8;
+    background-color: ${({ theme }) => theme.palette.background.paper};
     border: none;
-    border-bottom: 1px solid #c1c7cd;
+    border-bottom: 1px solid ${({ theme }) => theme.palette.background.underline};
 
     :focus-visible {
       outline: none;
     }
 
     ::placeholder {
-      color: #697077;
+      color: ${({ theme }) => theme.palette.text.secondary};
       font-family: Roboto;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.4;
+      ${({ theme }) => theme.typography.body2};
     }
   }
 
@@ -137,13 +127,10 @@ export const StyledFormButton = styled(Button)`
   padding: 16px 28px;
   border: none;
   border-radius: 0px;
-  background-color: #458ff6;
+  background-color: ${({ theme }) => theme.palette.info.main};
   cursor: pointer;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  color: ${({ theme }) => theme.palette.background.default};
+  ${({ theme }) => theme.typography.buttonM};
   text-transform: capitalize;
 
   :hover {
@@ -151,7 +138,7 @@ export const StyledFormButton = styled(Button)`
   }
 `;
 
-export const Popup = styled.div`
+export const Popup = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,19 +147,17 @@ export const Popup = styled.div`
   max-width: 736px;
   gap: 16px;
   padding: 212px 48px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.palette.background.default};
   border-radius: 8px;
-  border: 1px solid #dde1e6;
+  border: 1px solid ${({ theme }) => theme.palette.divider};
 
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 24px 16px;
   }
 `;
 
 export const PopupTitle = styled(Typography)`
-  @media (max-width: ${theme.breakpoints.values.sm}px) {
-    font-size: 24px;
-    line-height: 1.1;
-    font-weight: 700;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    ${({ theme }) => theme.typography.h4}
   }
 `;
