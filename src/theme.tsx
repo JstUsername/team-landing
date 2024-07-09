@@ -113,6 +113,7 @@ const theme = createTheme({
     },
     button: {
       fontSize: 20,
+      fontWeight: 500,
       lineHeight: 1,
       letterSpacing: '0.03em',
     },

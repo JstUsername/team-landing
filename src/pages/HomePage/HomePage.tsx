@@ -1,7 +1,9 @@
+import Knowledge from '../../components/Knowledge/Knowledge';
+
 function HomePage() {
   return (
     <div className="AppContent">
-      <h1>Add your component here</h1>
+      <Knowledge />
     </div>
   );
 }
