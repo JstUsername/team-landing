@@ -18,6 +18,10 @@ interface DropdownMenuProps {
   visible: boolean;
 }
 
+interface ShoppingCartProps {
+  count: number;
+}
+
 export default function HeaderMobile({ goToLogin, isActive, setIsActive }: HeaderMobileProps) {
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -49,7 +53,9 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
         <Logo title="Logo" width="100px" height="24px" />
         <NavBarMobile>
           <UserIcon onClick={goToLogin} />
-          <ShoppingCartIcon />
+          <ShoppingCart count={9}>
+            <ShoppingCartIcon />
+          </ShoppingCart>
           <MenuIcon onClick={() => setOpenMenu(true)} />
         </NavBarMobile>
         <DropdownMenu visible={openMenu}>
@@ -191,4 +197,35 @@ const MobileCloseButton = styled('button')`
   cursor: pointer;
   align-self: stretch;
   text-align: center;
+`;
+
+const ShoppingCart = styled('div')<ShoppingCartProps>`
+  position: relative;
+  width: 24px;
+  height: 24px;
+  ::before {
+    width: 18px;
+    height: 18px;
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 16px;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.palette.error.main};
+  }
+  ::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    content: '${(props) => props.count}';
+    position: absolute;
+    top: -4px;
+    left: 16px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    color: ${({ theme }) => theme.palette.background.default};
+  }
 `;
