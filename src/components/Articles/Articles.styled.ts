@@ -19,8 +19,7 @@ export const ArticlesContainer = styled('div')`
 
 export const ArticleTitle = styled(Typography)`
   ${({ theme }) => theme.breakpoints.down('sm')} {
-    font-size: 24px;
-    line-height: 1.1;
+    ${({ theme }) => theme.typography.h4}
   }
 `;
 

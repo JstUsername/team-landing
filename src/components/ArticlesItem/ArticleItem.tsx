@@ -18,7 +18,7 @@ const ArticleItem = ({ title, imgUrl, alt, description }: IArticle) => {
 
   return (
     <ArticleListItem>
-      <Box width="100%" bgcolor='background.loading'>
+      <Box width="100%" bgcolor="background.loading">
         {imgUrl ? (
           <CardMedia component="img" image={imgUrl} alt={alt} height="220" />
         ) : (

@@ -26,8 +26,7 @@ export const ArticleDescription = styled(Typography)`
 
 export const ArticleLinkText = styled(Typography)`
   ${({ theme }) => theme.breakpoints.down('sm')} {
-    font-size: 14px;
-    line-height: 1.1;
+    ${({ theme }) => theme.typography.buttonS};
   }
 `;
 

@@ -7,6 +7,12 @@ declare module '@mui/material/styles' {
       fontWeight: number;
       lineHeight: number;
     };
+    buttonS: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+      letterSpacing: string;
+    };
   }
 
   interface TypographyVariantsOptions {
@@ -14,6 +20,12 @@ declare module '@mui/material/styles' {
       fontSize?: number;
       fontWeight?: number;
       lineHeight?: number;
+    };
+    buttonS?: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+      letterSpacing?: string;
     };
   }
 }
@@ -116,6 +128,12 @@ const theme = createTheme({
       fontSize: 20,
       lineHeight: 1,
       letterSpacing: '0.03em',
+    },
+    buttonS: {
+      fontSize: 14,
+      fontWeight: 500,
+      lineHeight: 1,
+      letterSpacing: '0.5px',
     },
     caption: {
       fontSize: 20,
