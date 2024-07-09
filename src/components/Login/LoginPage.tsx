@@ -35,17 +35,16 @@ export default function LoginPage({ typeLogin }: LoginProps) {
           <FormWrapper component="form">
             {typeLogin === 'registration' && (
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <FormControl sx={{ flex: 1 }}>
-                  <FormInput inputId="name-input" inputLabel="Имя" inputPlaceholder="Иван" />
-                </FormControl>
-                <FormControl sx={{ flex: 1 }}>
-                  <FormInput inputId="surname-input" inputLabel="Фамилия" inputPlaceholder="Иванов" />
-                </FormControl>
+                <FormInput inputId="name-input" inputLabel="Имя" inputPlaceholder="Иван" inputSx={{ flex: 1 }} />
+                <FormInput
+                  inputId="surname-input"
+                  inputLabel="Фамилия"
+                  inputPlaceholder="Иванов"
+                  inputSx={{ flex: 1 }}
+                />
               </Box>
             )}
-            <FormControl>
-              <FormInput inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
-            </FormControl>
+            <FormInput inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
             <FormControl>
               <FormPasswordInput typeLogin={typeLogin} />
               {typeLogin === 'registration' && (
