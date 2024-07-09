@@ -5,21 +5,9 @@ import FaqDotsGroup from '../../assets/FAQ/FaqDotsGroup.svg?react';
 
 const FAQComponent = () => {
   return (
-    <Stack
-      component={'section'}
-      sx={{
-        color: 'text.primary',
-        position: 'relative',
-      }}
-    >
+    <Stack component="section" color="text.primary" position="relative">
       <StyledFAQBody>
-        <Stack
-          sx={{
-            gap: '8px',
-            alignItems: 'center',
-            textAlign: 'center',
-          }}
-        >
+        <Stack gap="8px" alignItems="center" textAlign="center">
           <Typography variant="sectionSubHeader">вопросы</Typography>
           <Typography variant="sectionHeader">Ответы на частые вопросы</Typography>
         </Stack>
