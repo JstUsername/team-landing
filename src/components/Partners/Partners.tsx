@@ -43,10 +43,12 @@ export default function Partners() {
 const PartnersSection = styled('section')`
   display: flex;
   gap: 16px;
+  row-gap: 32px;
   align-items: center;
   justify-content: center;
   padding: 80px;
   background: ${({ theme }) => theme.palette.gradients.mainGradient};
+  flex-wrap: wrap;
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
