@@ -1,5 +1,28 @@
+import { CSSProperties } from 'react';
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
+
+declare module '@mui/material/styles' {
+  interface Palette {
+    gradients: Gradients;
+  }
+  interface PaletteOptions {
+    gradients?: Gradients;
+  }
+  interface Gradients {}
+  interface TypographyVariants {
+    formHeader: CSSProperties;
+  }
+  interface TypographyVariantsOptions {
+    formHeader: CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    formHeader: true;
+  }
+}
 
 const theme = createTheme({
   breakpoints: {
@@ -93,10 +116,21 @@ const theme = createTheme({
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
+    formHeader: {},
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          formHeader: 'h2',
+        },
+      },
+    },
   },
 });
 
-theme.typography.h2 = {
+theme.typography.formHeader = {
+  ...theme.typography.h2,
   [theme.breakpoints.up('sm')]: {
     fontSize: theme.typography.h2.fontSize,
   },

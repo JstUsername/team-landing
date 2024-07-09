@@ -29,7 +29,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
     <StyledGrid container spacing={0}>
       <Grid xs={12} sm={6}>
         <LeftColumnWrapper>
-          <Typography variant="h2" sx={{ margin: 0 }}>
+          <Typography variant="formHeader" sx={{ margin: 0 }}>
             {typeLogin === 'registration' ? 'Регистрация' : 'Вход'}
           </Typography>
           <FormWrapper component="form">
