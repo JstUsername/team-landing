@@ -1,6 +1,5 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { styled, Theme } from '@mui/material/styles';
-import { validateEmail } from '../../utils/validate.ts';
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import { InputProps } from '@mui/material/Input/Input';
@@ -16,6 +15,7 @@ interface FormInputProps {
   inputError?: boolean;
   inputOnChange?: InputProps['onChange'];
   inputSx?: SxProps<Theme>;
+  children?: ReactNode;
 }
 
 export default function FormInput({
@@ -27,22 +27,8 @@ export default function FormInput({
   inputError,
   inputOnChange,
   inputSx,
+  children,
 }: FormInputProps) {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState(false);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  useEffect(() => {
-    if (email === '') {
-      setError(false);
-    } else {
-      validateEmail(email) ? setError(false) : setError(true);
-    }
-  }, [email]);
-
   return (
     <FormControl sx={inputSx}>
       <StyledInputLabel shrink htmlFor={inputId}>
@@ -53,9 +39,10 @@ export default function FormInput({
         placeholder={inputPlaceholder}
         type={type}
         InputProps={inputProps}
-        error={inputId === 'email-input' ? error : inputId === 'password-input' ? inputError : undefined}
-        onChange={inputId === 'email-input' ? handleChange : inputId === 'password-input' ? inputOnChange : undefined}
+        error={inputError}
+        onChange={inputOnChange}
       />
+      {children}
     </FormControl>
   );
 }
