@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import theme from '../../theme.tsx';
 import { styled } from '@mui/material/styles';
 import { LiButtonProps } from './Header.types.ts';
-import { BottomHeaderItems } from './Header.constants.ts';
+import { HeaderListItems } from './Header.constants.ts';
+import HeaderMobile from './HeaderMobile/HeaderMobile.tsx';
 import Logo from '../../assets/header/logo.svg?react';
 import MapMarkerIcon from '../../assets/header/icons/map-marker.svg?react';
 import UserIcon from '../../assets/header/icons/user.svg?react';
@@ -12,7 +13,7 @@ import ChevronDownIcon from '../../assets/header/icons/chevron-down.svg?react';
 import SearchIcon from '../../assets/header/icons/search.svg?react';
 
 export default function Header() {
-  const [isActive, setIsActive] = useState(BottomHeaderItems);
+  const [isActive, setIsActive] = useState(HeaderListItems);
 
   const navigate = useNavigate();
   const goToLogin = () => {
@@ -20,71 +21,80 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <HeaderTop>
-        <HeaderTopBlock>
-          <MapMarkerIcon title="Map marker" />
-          <span style={theme.typography.body2}>Москва</span>
-        </HeaderTopBlock>
-        <HeaderTopBlock style={{ marginLeft: 'auto' }} onClick={goToLogin}>
-          <UserIcon title="User" />
-          <span style={theme.typography.body2}>Вход</span>
-        </HeaderTopBlock>
-        <HeaderTopBlock>
-          <ShoppingCartIcon title="Shopping cart" />
-          <span style={theme.typography.body2}>Корзина</span>
-          <ChevronDownIcon title="Chevron down" />
-        </HeaderTopBlock>
-      </HeaderTop>
-      <HeaderMiddle>
-        <Logo title="Logo" />
-        <Search>
-          <StyledSearchIcon title="Search" />
-          <StyledInput id="input-search" placeholder="Поиск по ..." />
-          <CategoriesButton>
-            Все категории
-            <CategoriesButtonIcon title="Chevron down" />
-          </CategoriesButton>
-        </Search>
-        <StyledButton>Поиск</StyledButton>
-      </HeaderMiddle>
-      <HeaderBottom>
-        <nav>
-          <HeaderUl>
-            {BottomHeaderItems.map((listItem, itemIndex) => (
-              <li key={itemIndex}>
-                <LiButton
-                  active={isActive[itemIndex].active}
-                  icon={isActive[itemIndex].icon}
-                  onClick={() =>
-                    setIsActive((prev) =>
-                      prev.map((prevListItem, prevItemIndex) =>
-                        prevItemIndex === itemIndex
-                          ? {
-                              label: prevListItem.label,
-                              active: true,
-                              icon: BottomHeaderItems[itemIndex].icon,
-                            }
-                          : { label: prevListItem.label, active: false, icon: undefined },
-                      ),
-                    )
-                  }
-                >
-                  {listItem.label}
-                  {listItem.icon && (
-                    <LiButtonIcon>
-                      <listItem.icon width="24px" height="24px" />
-                    </LiButtonIcon>
-                  )}
-                </LiButton>
-              </li>
-            ))}
-          </HeaderUl>
-        </nav>
-      </HeaderBottom>
-    </header>
+    <>
+      <DesktopHeaderWrapper>
+        <HeaderTop>
+          <HeaderTopBlock>
+            <MapMarkerIcon title="Map marker" />
+            <span style={theme.typography.body2}>Москва</span>
+          </HeaderTopBlock>
+          <HeaderTopBlock style={{ marginLeft: 'auto' }} onClick={goToLogin}>
+            <UserIcon title="User" />
+            <span style={theme.typography.body2}>Вход</span>
+          </HeaderTopBlock>
+          <HeaderTopBlock>
+            <ShoppingCartIcon title="Shopping cart" />
+            <span style={theme.typography.body2}>Корзина</span>
+            <ChevronDownIcon title="Chevron down" />
+          </HeaderTopBlock>
+        </HeaderTop>
+        <HeaderMiddle>
+          <DesktopLogo title="Logo" />
+          <Search>
+            <StyledSearchIcon title="Search" />
+            <StyledInput id="input-search" placeholder="Поиск по ..." />
+            <CategoriesButton>
+              Все категории
+              <CategoriesButtonIcon title="Chevron down" />
+            </CategoriesButton>
+          </Search>
+          <StyledButton>Поиск</StyledButton>
+        </HeaderMiddle>
+        <HeaderBottom>
+          <nav>
+            <HeaderUl>
+              {HeaderListItems.map((listItem, itemIndex) => (
+                <li key={itemIndex}>
+                  <LiButton
+                    active={isActive[itemIndex].active}
+                    icon={isActive[itemIndex].icon}
+                    onClick={() =>
+                      setIsActive((prev) =>
+                        prev.map((prevListItem, prevItemIndex) =>
+                          prevItemIndex === itemIndex
+                            ? {
+                                label: prevListItem.label,
+                                active: true,
+                                icon: HeaderListItems[itemIndex].icon,
+                              }
+                            : { label: prevListItem.label, active: false, icon: undefined },
+                        ),
+                      )
+                    }
+                  >
+                    {listItem.label}
+                    {listItem.icon && (
+                      <LiButtonIcon>
+                        <listItem.icon width="24px" height="24px" />
+                      </LiButtonIcon>
+                    )}
+                  </LiButton>
+                </li>
+              ))}
+            </HeaderUl>
+          </nav>
+        </HeaderBottom>
+      </DesktopHeaderWrapper>
+      <HeaderMobile goToLogin={goToLogin} isActive={isActive} setIsActive={setIsActive} />
+    </>
   );
 }
+
+const DesktopHeaderWrapper = styled('header')`
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    display: none;
+  }
+`;
 
 const HeaderTop = styled('div')`
   display: flex;
@@ -117,6 +127,12 @@ const HeaderTopBlock = styled('button')`
   background: none;
   border: none;
   cursor: pointer;
+`;
+
+const DesktopLogo = styled(Logo)`
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    display: none;
+  }
 `;
 
 const Search = styled('div')`
@@ -203,14 +219,15 @@ const StyledButton = styled('button')`
 `;
 
 const HeaderUl = styled('ul')`
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 0;
-  padding: 0;
+  flex-wrap: wrap;
 `;
 
 const LiButton = styled('button')<LiButtonProps>`
