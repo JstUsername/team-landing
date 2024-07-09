@@ -9,7 +9,7 @@ import ShoppingCartIcon from '../../assets/header/icons/shopping-cart.svg?react'
 import PaperPlaneIcon from '../../assets/header/icons/paper-plane.svg?react';
 import CoinIcon from '../../assets/header/icons/coin.svg?react';
 
-export const BottomHeaderItems: HeaderLi[] = [
+export const HeaderListItems: HeaderLi[] = [
   {
     label: 'Меню',
     active: true,
