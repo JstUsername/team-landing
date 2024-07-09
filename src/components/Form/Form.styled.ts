@@ -1,6 +1,6 @@
 import { Typography, Button, styled } from '@mui/material';
-import formBg from '../Assets/form-bg.jpg';
-import chevronDown from '../Assets/chevron-down.svg';
+import formBg from '../assets/form-bg.jpg';
+import chevronDown from '../assets/chevron-down.svg';
 
 export const Section = styled('section')`
   background-image: url(${formBg});

@@ -1,3 +1,4 @@
+/// <reference types="vite-plugin-svgr/client" />
 import { Typography, Box, Link } from '@mui/material';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import {
@@ -15,8 +16,8 @@ import {
   FormSubTitle,
   PopupTitle,
 } from './Form.styled';
-import arrowRight from '../Assets/arrow-right.svg';
-import popupSuccess from '../Assets/popup-success.svg';
+import ArrowRight from '../assets/arrow-right.svg?react';
+import PopupSuccess from '../assets/popup-success.svg?react';
 import { IFormData } from './Form.types';
 
 const initialFormData: IFormData = {
@@ -27,8 +28,8 @@ const initialFormData: IFormData = {
   groups: '',
 };
 
-const Form: React.FC = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+const Form = () => {
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [formData, setFormData] = useState<IFormData>(initialFormData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -51,7 +52,7 @@ const Form: React.FC = () => {
         {isSuccess ? (
           <Popup>
             <PopupTitle variant="h3">Форма успешно отправлена</PopupTitle>
-            <img src={popupSuccess} width={128} height={128} />
+            <PopupSuccess />
             <Box paddingTop={'16px'} paddingBottom={'16px'}>
               <Link
                 href="#"
@@ -65,7 +66,7 @@ const Form: React.FC = () => {
               >
                 <Typography>Вернуться к форме</Typography>
                 <Box padding={'5px'} marginLeft={'16px'} display={'flex'}>
-                  <img src={arrowRight} alt="Стрелка вправо" />
+                  <ArrowRight />
                 </Box>
               </Link>
             </Box>
@@ -121,7 +122,7 @@ const Form: React.FC = () => {
                 <select id="groups-select" name="groups" onChange={handleChange} required>
                   <option>Группы</option>
                   <option value="group-1">1 группа</option>
-                  <option value="group-1">2 группа</option>
+                  <option value="group-2">2 группа</option>
                 </select>
               </LabelBlock>
               <LabelBlockCheckbox htmlFor="politicCheckbox">
