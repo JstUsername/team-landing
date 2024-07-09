@@ -5,12 +5,15 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import EyeIcon from '../../assets/login/icons/eye.svg?react';
 import EyeCloseIcon from '../../assets/login/icons/eye-close.svg?react';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 interface FormPasswordInputProps {
   typeLogin: string;
+  passwordSubtitle: string;
 }
 
-export default function FormPasswordInput({ typeLogin }: FormPasswordInputProps) {
+export default function FormPasswordInput({ typeLogin, passwordSubtitle }: FormPasswordInputProps) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
@@ -57,6 +60,16 @@ export default function FormPasswordInput({ typeLogin }: FormPasswordInputProps)
           </InputAdornment>
         ),
       }}
-    />
+    >
+      {typeLogin === 'registration' && <PasswordSubtitle>{passwordSubtitle}</PasswordSubtitle>}
+    </FormInput>
   );
 }
+
+const PasswordSubtitle = styled(Typography)`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: 4px;
+  color: ${({ theme }) => theme.palette.text.secondary};
+`;

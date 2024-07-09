@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../theme.tsx';
 import FormInput from '../../commons/FormInput/FormInput.tsx';
 import FormPasswordInput from '../../commons/FormPasswordInput/FormPasswordInput.tsx';
+import FormEmailInput from '../../commons/FormEmailInput/FormEmailInput.tsx';
 import FormLink from '../../commons/FormLink/FormLink.tsx';
 import FormCheckbox from '../../commons/FormCheckbox/FormCheckbox.tsx';
 import loginImage from '../../assets/login/images/login.webp';
@@ -44,15 +45,11 @@ export default function LoginPage({ typeLogin }: LoginProps) {
                 />
               </Box>
             )}
-            <FormInput inputId="email-input" inputLabel="Email" inputPlaceholder="example@email.com" />
-            <FormControl>
-              <FormPasswordInput typeLogin={typeLogin} />
-              {typeLogin === 'registration' && (
-                <PasswordSubtitle>
-                  Пароль должен содержать минимум 8 символов, строчные и прописные символы
-                </PasswordSubtitle>
-              )}
-            </FormControl>
+            <FormEmailInput />
+            <FormPasswordInput
+              typeLogin={typeLogin}
+              passwordSubtitle="Пароль должен содержать минимум 8 символов, строчные и прописные символы"
+            />
             <AdditionalFields>
               <Box sx={{ display: 'flex', gap: 1 }}>
                 <FormCheckbox typeLogin={typeLogin} />
@@ -123,14 +120,6 @@ const FormWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: 16px;
-`;
-
-const PasswordSubtitle = styled(Typography)`
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.4;
-  margin-top: 4px;
-  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 const AdditionalFields = styled(FormControl)`
