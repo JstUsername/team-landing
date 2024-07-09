@@ -1,12 +1,10 @@
-import { Typography } from '@mui/material';
-import styled from '@emotion/styled';
-import theme from '../../theme';
+import { Typography, styled } from '@mui/material';
 import { keyframes } from '@emotion/react';
 
-export const ArticleListItem = styled.li`
+export const ArticleListItem = styled('li')`
   display: flex;
   flex-direction: column;
-  border: 1px solid ${theme.palette.divider};
+  border: 1px solid ${({ theme }) => theme.palette.divider};
   border-radius: 8px;
   max-width: 308px;
   overflow: hidden;
@@ -14,27 +12,26 @@ export const ArticleListItem = styled.li`
 `;
 
 export const ArticleTitle = styled(Typography)`
-  ${theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     font-size: 16px;
     line-height: 1.1;
   }
 `;
 
 export const ArticleDescription = styled(Typography)`
-  ${theme.breakpoints.down('sm')} {
-    font-size: 14px;
-    line-height: 1.1;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    ${({ theme }) => theme.typography.bodyS};
   }
 `;
 
 export const ArticleLinkText = styled(Typography)`
-  ${theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     font-size: 14px;
     line-height: 1.1;
   }
 `;
 
-export const ArticleLoad = styled.div`
+export const ArticleLoad = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,17 +137,17 @@ const rotateGradient = keyframes`
   }
 `;
 
-export const ArticleLoadBox = styled.div`
+export const ArticleLoadBox = styled('div')`
   width: 56px;
   height: 37px;
   position: relative;
   animation: ${rotateGradient} 1s infinite;
 `;
 
-export const ArticleLoadCenter = styled.div`
+export const ArticleLoadCenter = styled('div')`
   width: 50px;
   height: 31px;
-  background-color: #f3f7ff;
+  background-color: ${({ theme }) => theme.palette.background.loading};
   position: absolute;
   display: flex;
   align-items: center;

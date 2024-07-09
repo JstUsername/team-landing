@@ -12,14 +12,13 @@ import {
 } from './ArticleItem.styled';
 import TLoadSvg from '../../assets/articles/T.svg?react';
 import ArrowRightSvg from '../../assets/articles/arrow-right.svg?react';
-import theme from '../../theme';
 
 const ArticleItem = ({ title, imgUrl, alt, description }: IArticle) => {
   const truncateText = (text: string) => (text.length <= 79 ? text : text.slice(0, 79) + '...');
 
   return (
     <ArticleListItem>
-      <Box width="100%" bgcolor={theme.palette.background.loading}>
+      <Box width="100%" bgcolor='background.loading'>
         {imgUrl ? (
           <CardMedia component="img" image={imgUrl} alt={alt} height="220" />
         ) : (
@@ -43,7 +42,6 @@ const ArticleItem = ({ title, imgUrl, alt, description }: IArticle) => {
           <ArticleLinkText
             variant="button"
             letterSpacing={'0.5px'}
-            textTransform={'lowercase'}
             sx={{
               textTransform: 'capitalize',
             }}

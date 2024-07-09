@@ -2,14 +2,13 @@ import { Box, Typography } from '@mui/material';
 import ArticleItem from '../ArticlesItem/ArticleItem';
 import { ArticlesData } from './constants';
 import { AllArticlesLink, ArticlesContainer, ArticleSection, ArticlesList, ArticleTitle } from './Articles.styled';
-import theme from '../../theme';
 
 const Articles = () => {
   return (
     <ArticleSection>
       <ArticlesContainer>
         <Box display="flex" flexDirection={'column'} alignItems={'center'}>
-          <Typography variant={'caption'} mb="8px" color={theme.palette.primary.dark}>
+          <Typography variant={'caption'} mb="8px" color='primary.dark'>
             Статьи
           </Typography>
           <ArticleTitle variant={'h2'} textAlign={'center'}>
