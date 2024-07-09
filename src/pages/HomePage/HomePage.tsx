@@ -1,5 +1,5 @@
-import Header from '../Header/Header.tsx';
-import Partners from '../Partners/Partners.tsx';
+import Header from '../../components/Header/Header.tsx';
+import Partners from '../../components/Partners/Partners.tsx';
 
 function HomePage() {
   return (
