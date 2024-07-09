@@ -145,7 +145,7 @@ const FooterWrapper = styled('footer')`
   gap: 48px;
   padding: 48px 80px;
   background: ${({ theme }) => theme.palette.gradients.mainGradient};
-  ${({ theme }) => theme.breakpoints.down('md')} {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 48px 16px;
     gap: 32px;
   }
@@ -167,6 +167,9 @@ const FooterMiddle = styled('div')`
   grid-template-rows: auto;
   gap: 48px;
   ${({ theme }) => theme.breakpoints.down('md')} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
   }
@@ -259,7 +262,7 @@ const ListTitle = styled('h6')`
   margin: 0;
   padding: 12px 0;
   color: ${({ theme }) => theme.palette.background.default};
-  ${({ theme }) => theme.breakpoints.down('md')} {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     text-align: center;
   }
 `;
@@ -272,7 +275,7 @@ const FooterUl = styled('ul')`
   flex-direction: column;
   justify-content: left;
   gap: 16px;
-  ${({ theme }) => theme.breakpoints.down('md')} {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     align-items: center;
     justify-content: center;
   }
