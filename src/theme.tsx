@@ -1,7 +1,39 @@
+import { CSSProperties } from 'react';
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
 
-export const theme = createTheme({
+declare module '@mui/material/styles' {
+  interface Palette {
+    gradients: Gradients;
+  }
+  interface PaletteOptions {
+    gradients?: Gradients;
+  }
+  interface Gradients {}
+  interface TypographyVariants {
+    formHeader: CSSProperties;
+  }
+  interface TypographyVariantsOptions {
+    formHeader: CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    formHeader: true;
+  }
+}
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 768,
+      md: 1024,
+      lg: 1440,
+      xl: 1920,
+    },
+  },
   palette: {
     mode: 'light',
     primary: {
@@ -14,6 +46,7 @@ export const theme = createTheme({
       dark: '#697077',
     },
     background: {
+      default: '#FFFFFF',
       paper: '#F2F4F8',
     },
     text: {
@@ -83,7 +116,27 @@ export const theme = createTheme({
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
+    formHeader: {},
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          formHeader: 'h2',
+        },
+      },
+    },
   },
 });
+
+theme.typography.formHeader = {
+  ...theme.typography.h2,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: theme.typography.h2.fontSize,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: theme.typography.h3.fontSize,
+  },
+};
 
 export default theme;
