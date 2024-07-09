@@ -9,7 +9,9 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     gradients?: Gradients;
   }
-  interface Gradients {}
+  interface Gradients {
+    mainGradient: string;
+  }
   interface TypographyVariants {
     formHeader: CSSProperties;
   }
@@ -60,6 +62,9 @@ const theme = createTheme({
       main: '#25A249',
     },
     divider: '#DDE1E6',
+    gradients: {
+      mainGradient: 'linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%)',
+    },
   },
   typography: {
     h1: {

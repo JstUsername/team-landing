@@ -46,7 +46,7 @@ const PartnersSection = styled('section')`
   align-items: center;
   justify-content: center;
   padding: 80px;
-  background: linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%);
+  background: ${({ theme }) => theme.palette.gradients.mainGradient};
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
