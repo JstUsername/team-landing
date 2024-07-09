@@ -3,8 +3,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './components/Login/LoginPage.tsx';
-import HomePage from './components/HomePage/HomePage.tsx';
+import LoginPage from './pages/Login/LoginPage.tsx';
+import HomePage from './pages/HomePage/HomePage.tsx';
 
 function App() {
   return (

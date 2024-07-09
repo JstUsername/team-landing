@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { validateEmail } from '../../utils/validate.ts';
+import { validateEmail } from '../../../utils/validate.ts';
 import FormInput from '../FormInput/FormInput.tsx';
 
 export default function FormEmailInput() {

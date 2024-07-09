@@ -1,10 +1,10 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import FormInput from '../FormInput/FormInput.tsx';
-import { validatePassword } from '../../utils/validate.ts';
+import { validatePassword } from '../../../utils/validate.ts';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
-import EyeIcon from '../../assets/login/icons/eye.svg?react';
-import EyeCloseIcon from '../../assets/login/icons/eye-close.svg?react';
+import EyeIcon from '../../../assets/login/icons/eye.svg?react';
+import EyeCloseIcon from '../../../assets/login/icons/eye-close.svg?react';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
