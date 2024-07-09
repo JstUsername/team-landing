@@ -63,6 +63,9 @@ const theme = createTheme({
     success: {
       main: '#25A249',
     },
+    error: {
+      main: '#DA1E28',
+    },
     divider: '#DDE1E6',
     divider2: '#C1C7CD',
     gradients: {
