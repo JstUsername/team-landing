@@ -142,7 +142,7 @@ const AdditionalFields = styled(FormControl)`
 `;
 
 const StyledButton = styled(Button)`
-  padding: 14px 12px 14px 12px;
+  padding: 14px 12px;
   border-radius: 0;
   text-transform: none;
   font-size: 16px;
