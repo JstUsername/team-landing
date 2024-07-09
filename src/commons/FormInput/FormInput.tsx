@@ -1,19 +1,20 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { styled, Theme } from '@mui/material/styles';
+import { validateEmail } from '../../utils/validate.ts';
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
-import { InputProps as StandardInputProps } from '@mui/material/Input/Input';
-import FormControl from '@mui/material/FormControl';
+import { InputProps } from '@mui/material/Input/Input';
 import { SxProps } from '@mui/system';
+import FormControl from '@mui/material/FormControl';
 
 interface FormInputProps {
   inputId: string;
   inputLabel: string;
   inputPlaceholder: string;
   type?: string;
-  inputProps?: Partial<StandardInputProps>;
+  inputProps?: Partial<InputProps>;
   inputError?: boolean;
-  inputOnChange?: StandardInputProps['onChange'];
+  inputOnChange?: InputProps['onChange'];
   inputSx?: SxProps<Theme>;
 }
 
@@ -29,11 +30,6 @@ export default function FormInput({
 }: FormInputProps) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(false);
-
-  const validateEmail = (email: string) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
