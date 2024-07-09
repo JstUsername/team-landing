@@ -50,7 +50,7 @@ export default function Header() {
       </HeaderMiddle>
       <HeaderBottom>
         <nav>
-          <StyledUl>
+          <HeaderUl>
             {BottomHeaderItems.map((listItem, itemIndex) => (
               <li key={itemIndex}>
                 <LiButton
@@ -79,7 +79,7 @@ export default function Header() {
                 </LiButton>
               </li>
             ))}
-          </StyledUl>
+          </HeaderUl>
         </nav>
       </HeaderBottom>
     </header>
@@ -133,7 +133,8 @@ const StyledSearchIcon = styled(SearchIcon)`
 
 const StyledInput = styled('input')`
   height: 48px;
-  padding-left: 48px;
+  margin: 0;
+  padding: 0 0 0 48px;
   border-radius: 0;
   border: 1px solid ${({ theme }) => theme.palette.secondary.dark};
   background-color: ${({ theme }) => theme.palette.secondary.light};
@@ -155,8 +156,7 @@ const StyledInput = styled('input')`
 
 const CategoriesButton = styled('button')`
   position: relative;
-  padding-left: 16px;
-  padding-right: 48px;
+  padding: 0 48px 0 16px;
   border-radius: 0;
   border: 1px solid ${({ theme }) => theme.palette.secondary.dark};
   background-color: ${({ theme }) => theme.palette.secondary.light};
@@ -164,6 +164,7 @@ const CategoriesButton = styled('button')`
   ${({ theme }) => theme.typography.subtitle2};
   color: ${({ theme }) => theme.palette.text.secondary};
   transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.palette.divider};
   }
@@ -186,12 +187,12 @@ const StyledButton = styled('button')`
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.03em;
   color: ${({ theme }) => theme.palette.background.default};
   background-color: ${({ theme }) => theme.palette.primary.main};
   border: none;
   padding: 16px 28px;
   transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.dark};
   }
@@ -201,7 +202,7 @@ const StyledButton = styled('button')`
   }
 `;
 
-const StyledUl = styled('ul')`
+const HeaderUl = styled('ul')`
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -218,12 +219,14 @@ const LiButton = styled('button')<LiButtonProps>`
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0;
+  text-wrap: nowrap;
   color: ${({ theme }) => theme.palette.text.primary};
   border: none;
   padding: ${(props) => (props.icon && props.active ? '8px 16px 8px 48px' : '8px 16px')};
   background: ${(props) => (props.active ? `${props.theme.palette.background.default}` : 'none')};
   box-shadow: ${(props) => (props.active ? `0 0 0 1px ${props.theme.palette.secondary.dark}` : 'none')};
   transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.palette.background.default};
   }
