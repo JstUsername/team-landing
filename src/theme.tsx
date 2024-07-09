@@ -5,9 +5,11 @@ import { createTheme } from '@mui/material/styles';
 declare module '@mui/material/styles' {
   interface Palette {
     gradients: Gradients;
+    divider2: string;
   }
   interface PaletteOptions {
     gradients?: Gradients;
+    divider2: string;
   }
   interface Gradients {
     mainGradient: string;
@@ -62,6 +64,7 @@ const theme = createTheme({
       main: '#25A249',
     },
     divider: '#DDE1E6',
+    divider2: '#C1C7CD',
     gradients: {
       mainGradient: 'linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%)',
     },
@@ -92,6 +95,11 @@ const theme = createTheme({
     },
     h5: {
       fontSize: 20,
+      fontWeight: 700,
+      lineHeight: 1.1,
+    },
+    h6: {
+      fontSize: 18,
       fontWeight: 700,
       lineHeight: 1.1,
     },
