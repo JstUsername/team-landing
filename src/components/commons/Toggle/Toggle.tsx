@@ -22,6 +22,10 @@ const ToggleContainer = styled('label')`
   align-items: center;
 
   position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ToggleInput = styled('input')`
@@ -46,7 +50,10 @@ const ToggleSwitch = styled('div')<{ active: boolean }>`
   padding: 0 2px;
   border: 0;
   border-radius: 33px;
-  background-color: ${(props) => (props.active ? '#458FF6' : '#A2A9B0')};
+  background-color: ${(props) => {
+    const { theme, active } = props;
+    return active ? theme.palette.primary.main : theme.palette.secondary.main;
+  }};
 `;
 
 const ToggleSwitchDot = styled('div')<{ active: boolean }>`
@@ -54,7 +61,7 @@ const ToggleSwitchDot = styled('div')<{ active: boolean }>`
   width: 12px;
   height: 12px;
   border: 0;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.palette.background.default};
   border-radius: 50%;
 
   margin-left: ${(props) => (props.active ? 'auto' : 0)};

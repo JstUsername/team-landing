@@ -1,26 +1,26 @@
-import { Stack, Typography, Button, styled, useTheme } from '@mui/material';
+import { Stack, Typography, Button, styled } from '@mui/material';
 import Chip from '../commons/StyledChip/Chip';
-import { Service } from './types';
-import { SectionDescription } from '../commons/StyledSectionHeaders/SectionHeaders';
+import { Service } from './PriceList.types';
 
 const PricingElem = ({ service }: { service: Service }) => {
-  const theme = useTheme();
   const { name, desc, price, sale, features, isPopular } = service;
   return (
     <PriceElemContainer>
       {isPopular && (
         <PriceElemChip>
-          <Typography fontSize={'14px'}>Популярное</Typography>
+          <Typography fontSize="14px">Популярное</Typography>
         </PriceElemChip>
       )}
-      <Stack gap={'8px'}>
+      <Stack gap="8px">
         <Typography variant="h3">{name}</Typography>
-        <SectionDescription variant="body1">{desc}</SectionDescription>
+        <Typography variant="sectionDescription">{desc}</Typography>
       </Stack>
-      <Stack gap={'8px'}>
-        <PriceText sx={{ color: theme.palette.secondary.main, textDecoration: 'line-through' }}>{price}</PriceText>
-        <PriceText>{sale}</PriceText>
-        <Typography fontSize={'14px'}>{!sale ? price : sale} за каждый месяц</Typography>
+      <Stack gap="8px">
+        <Typography variant="h1" color="text.secondary">
+          {price}
+        </Typography>
+        {sale && <Typography variant="h1">{sale}</Typography>}
+        <Typography fontSize="14px">{!sale ? price : sale} USD каждый месяц</Typography>
       </Stack>
       <Button
         variant="contained"
@@ -31,14 +31,14 @@ const PricingElem = ({ service }: { service: Service }) => {
           textTransform: 'none',
         }}
       >
-        <Typography variant={'button'} sx={{ padding: '0 16px', textTransform: 'capitalize' }}>
+        <Typography variant="button" paddingX="16px" textTransform="capitalize">
           Начать
         </Typography>
       </Button>
       <FeatureList sx={{ textAlign: 'start' }}>
         {features.map((feature, ind) => (
           <FeatureElement key={ind}>
-            <Typography component="span" sx={{ marginLeft: '8px' }}>
+            <Typography component="span" marginLeft="8px">
               {feature}
             </Typography>
           </FeatureElement>
@@ -58,7 +58,7 @@ const PriceElemContainer = styled(Stack)`
   align-items: center;
 `;
 
-const FeatureList = styled('menu')`
+const FeatureList = styled('ul')`
   display: flex;
   flex-direction: column;
   margin-block: 0;
@@ -74,12 +74,6 @@ const PriceElemChip = styled(Chip)`
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 100;
-`;
-
-const PriceText = styled(Typography)`
-  font-size: ${(props) => props.theme.typography.h1.fontSize}px;
-  line-height: ${(props) => props.theme.typography.h1.lineHeight}em;
-  font-weight: ${(props) => props.theme.typography.h1.fontWeight};
 `;
 
 const FeatureElement = styled('li')`

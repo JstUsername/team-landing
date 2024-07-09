@@ -3,7 +3,7 @@ import { styled } from '@mui/material';
 const StyledChip = styled('div')`
   padding: 2px 12px;
   border-radius: 12px;
-  background-color: ${(props) => props.theme.palette.background.paper};
+  background-color: ${({ theme }) => theme.palette.background.paper};
 `;
 
 export default StyledChip;

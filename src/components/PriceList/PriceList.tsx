@@ -1,41 +1,34 @@
-import { Box, Stack, StackProps, Typography, styled, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack, StackProps, Typography, styled } from '@mui/material';
 import PricingElem from './PriceElem';
-import { Services } from './constants';
+import { Services } from './PriceList.constants';
 import Toggle from '../commons/Toggle/Toggle';
 import { useState } from 'react';
 import StyledChip from '../commons/StyledChip/Chip';
-import {
-  StyledSectionDescription,
-  StyledSectionHeader,
-  StyledSectionSubHeader,
-} from '../commons/StyledSectionHeaders/SectionHeaders';
 
 const PriceList = () => {
-  const theme = useTheme();
   const [isToggleChecked, setIsToggleChecked] = useState(true);
-  const matches = useMediaQuery(`(width < ${theme.breakpoints.values.md}px)`);
 
   return (
     <StyledPriceList component="section">
-      <Stack sx={{ textAlign: 'center' }} gap={matches ? '24px' : '48px'}>
-        <Stack gap={'8px'}>
-          <StyledSectionSubHeader>цены</StyledSectionSubHeader>
-          <StyledSectionHeader variant={'h2'}>Лучший источник медицинской информации</StyledSectionHeader>
+      <SectoinHeaderBlock>
+        <Stack gap="8px">
+          <Typography variant="sectionSubHeader">цены</Typography>
+          <Typography variant="sectionHeader">Лучший источник медицинской информации</Typography>
         </Stack>
-        <StyledSectionDescription>
+        <Typography variant="sectionDescription">
           Сервис для врачей, доступный на разных устройствах по подписке на эксклюзивные статьи от ведущих экспертов в
           сфере здравоохранения и охраны здоровья
-        </StyledSectionDescription>
-      </Stack>
-      <Stack alignItems="center" position={'relative'}>
+        </Typography>
+      </SectoinHeaderBlock>
+      <Stack alignItems="center" position="relative">
         <SaleChip visible={isToggleChecked.toString()}>
-          <Typography fontSize={'12px'} lineHeight={1.1}>
+          <Typography fontSize="12px" lineHeight={1.1}>
             20% дешевле
           </Typography>
         </SaleChip>
         <Box display="flex" alignItems="center" gap="16px">
           <Typography variant="subtitle1">Год</Typography>
-          <Box display={'flex'} alignItems={'center'} sx={{ transform: 'rotate(180deg)' }}>
+          <Box display="flex" alignItems="center" sx={{ transform: 'rotate(180deg)' }}>
             <Toggle checked={isToggleChecked} setChecked={setIsToggleChecked} />
           </Box>
           <Typography variant="subtitle1">Месяц</Typography>
@@ -53,9 +46,9 @@ const PriceList = () => {
 const StyledPriceList = styled(Stack)<StackProps>`
   padding: 80px;
   gap: 48px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.palette.background.default};
 
-  @media (width < 1024px) {
+  ${({ theme }) => theme.breakpoints.down('md')} {
     padding: 48px 16px;
     gap: 32px;
   }
@@ -66,7 +59,7 @@ const ServiceList = styled('div')`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
 
-  @media (width < ${(props) => props.theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down('md')} {
     grid-template-columns: 1fr;
   }
 `;
@@ -76,6 +69,14 @@ const SaleChip = styled(StyledChip)<{ visible: string }>`
   position: absolute;
   left: 50%;
   transform: translate(-50%, -120%);
+`;
+
+const SectoinHeaderBlock = styled(Stack)`
+  text-align: center;
+  gap: 48px;
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    gap: 24px;
+  }
 `;
 
 export default PriceList;

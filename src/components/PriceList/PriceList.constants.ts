@@ -1,4 +1,4 @@
-import { Service } from './types';
+import { Service } from './PriceList.types';
 
 const baseFeatures = ['Инфекции', 'Общая медицина', 'Травмы', 'Терапия', 'Неврология'];
 const advancedFeatures = [...baseFeatures, 'Эндокринология', 'Фтизиатрия', 'Флебология'];
