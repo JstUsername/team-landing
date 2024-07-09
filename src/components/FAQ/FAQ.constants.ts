@@ -1,4 +1,4 @@
-import { QA } from '../../interfaces/FAQ/QA';
+import { QA } from './FAQ.types';
 
 export const questions: QA[] = [
   {

@@ -1,17 +1,14 @@
-import { Stack, styled } from '@mui/material';
+import { Stack, styled, Typography } from '@mui/material';
 import { Dropdown } from './Dropdown';
-import { useTheme } from '@mui/material';
-import { questions } from './constants';
-import { StyledSectionHeader, StyledSectionSubHeader } from '../commons/SectionHeaders/SectionHeaders';
-import FaqDotsGroup from '../../assets/FAQ/FaqDotsGroup.svg';
+import { questions } from './FAQ.constants';
+import FaqDotsGroup from '../../assets/FAQ/FaqDotsGroup.svg?react';
 
 const FAQComponent = () => {
-  const theme = useTheme();
   return (
     <Stack
       component={'section'}
       sx={{
-        color: theme.palette.text.primary,
+        color: 'text.primary',
         position: 'relative',
       }}
     >
@@ -23,8 +20,8 @@ const FAQComponent = () => {
             textAlign: 'center',
           }}
         >
-          <StyledSectionSubHeader>вопросы</StyledSectionSubHeader>
-          <StyledSectionHeader variant="h2">Ответы на частые вопросы</StyledSectionHeader>
+          <Typography variant="sectionSubHeader">вопросы</Typography>
+          <Typography variant="sectionHeader">Ответы на частые вопросы</Typography>
         </Stack>
         <StyledFaqDropdowns>
           {questions.map((qa, idx) => (
@@ -36,19 +33,21 @@ const FAQComponent = () => {
       </StyledFAQBody>
       <StyledFaqBackground>
         <StyledDots
-          src={FaqDotsGroup}
           sx={{
             top: '4px',
             left: '0',
           }}
-        />
+        >
+          <FaqDotsGroup />
+        </StyledDots>
         <StyledDots
-          src={FaqDotsGroup}
           sx={{
             bottom: '4px',
             right: '0',
           }}
-        />
+        >
+          <FaqDotsGroup />
+        </StyledDots>
       </StyledFaqBackground>
     </Stack>
   );
@@ -63,14 +62,14 @@ const StyledFAQBody = styled(Stack)`
 
   padding: 80px;
 
-  @media (width < ${(props) => props.theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down('md')} {
     gap: 32px;
     padding: 48px 16px;
   }
 `;
 
 const StyledFaqBackground = styled('div')`
-  background: linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%);
+  background: ${({ theme }) => theme.palette.gradients.blueGradient};
   position: absolute;
   height: 100%;
   width: 100%;
@@ -78,10 +77,10 @@ const StyledFaqBackground = styled('div')`
   left: 0;
 `;
 
-const StyledDots = styled('img')`
+const StyledDots = styled('div')`
   position: absolute;
 
-  @media (width < ${(props) => props.theme.breakpoints.values.md}px) {
+  ${({ theme }) => theme.breakpoints.down('md')} {
     display: none;
   }
 `;

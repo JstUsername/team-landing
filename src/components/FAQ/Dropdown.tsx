@@ -1,12 +1,11 @@
-import { Stack, StackProps, Typography, styled, useTheme } from '@mui/material';
+import { Stack, StackProps, Typography, styled } from '@mui/material';
 import { useState } from 'react';
-import { DropdownProps } from '../../interfaces/FAQ/DropdownProps';
-import MinusIcon from '../../assets/FAQ/MinusIcon.svg';
-import PlusIcon from '../../assets/FAQ/PlusIcon.svg';
+import { DropdownProps } from './FAQ.types';
+import MinusIcon from '../../assets/FAQ/MinusIcon.svg?react';
+import PlusIcon from '../../assets/FAQ/PlusIcon.svg?react';
 
 export const Dropdown = ({ qa, active = false }: DropdownProps) => {
   const [isActive, setIsActive] = useState<boolean>(active);
-  const theme = useTheme();
 
   const { question, answer } = qa;
 
@@ -16,13 +15,12 @@ export const Dropdown = ({ qa, active = false }: DropdownProps) => {
       onKeyDown={(e) => {
         e.key === 'Enter' && setIsActive((state) => !state);
       }}
-      theme={theme}
       aria-expanded={isActive}
       tabIndex={0}
     >
       <StyledDropdownHead>
-        <StyledDropdownHeader>{question}</StyledDropdownHeader>
-        <StyledDropdownIcon src={isActive ? MinusIcon : PlusIcon} />
+        <Typography variant="dropdownHeader">{question}</Typography>
+        {isActive ? <MinusIcon /> : <PlusIcon />}
       </StyledDropdownHead>
       {isActive && <Typography variant="body2">{answer}</Typography>}
     </StyledDropdown>
@@ -33,31 +31,18 @@ const StyledDropdown = styled(Stack)<StackProps>`
   gap: 24px;
   width: 100%;
 
-  background-color: #fff;
-  border: 1px solid ${(props) => props.theme.palette.divider};
+  background-color: ${({ theme }) => theme.palette.background.default};
+  border: 1px solid ${({ theme }) => theme.palette.divider};
   border-radius: 8px;
   padding: 16px;
 
   box-sizing: border-box;
 `;
 
-const StyledDropdownIcon = styled('img')`
-  margin-left: auto;
-`;
-
 const StyledDropdownHead = styled('div')`
   display: flex;
   width: 100%;
   gap: 8px;
-`;
-
-const StyledDropdownHeader = styled(Typography)`
-  font-size: ${(props) => props.theme.typography.h5.fontSize}px;
-  line-height: ${(props) => props.theme.typography.h5.lineHeight}em;
-  font-weight: ${(props) => props.theme.typography.h5.fontWeight};
-
-  @media (width < ${(props) => props.theme.breakpoints.values.md}px) {
-    font-size: 18px;
-    line-height: 1.1;
-  }
+  justify-content: space-between;
+  align-items: center;
 `;
