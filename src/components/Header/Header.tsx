@@ -15,6 +15,20 @@ import SearchIcon from '../../assets/header/icons/search.svg?react';
 export default function Header() {
   const [isActive, setIsActive] = useState(HeaderListItems);
 
+  const handlePageSection = (itemIndex: number) => {
+    setIsActive((prev) =>
+      prev.map((prevListItem, prevItemIndex) =>
+        prevItemIndex === itemIndex
+          ? {
+              label: prevListItem.label,
+              active: true,
+              icon: HeaderListItems[itemIndex].icon,
+            }
+          : { label: prevListItem.label, active: false, icon: undefined },
+      ),
+    );
+  };
+
   const navigate = useNavigate();
   const goToLogin = () => {
     navigate('/login');
@@ -58,19 +72,7 @@ export default function Header() {
                   <LiButton
                     active={isActive[itemIndex].active}
                     icon={isActive[itemIndex].icon}
-                    onClick={() =>
-                      setIsActive((prev) =>
-                        prev.map((prevListItem, prevItemIndex) =>
-                          prevItemIndex === itemIndex
-                            ? {
-                                label: prevListItem.label,
-                                active: true,
-                                icon: HeaderListItems[itemIndex].icon,
-                              }
-                            : { label: prevListItem.label, active: false, icon: undefined },
-                        ),
-                      )
-                    }
+                    onClick={() => handlePageSection(itemIndex)}
                   >
                     {listItem.label}
                     {listItem.icon && (

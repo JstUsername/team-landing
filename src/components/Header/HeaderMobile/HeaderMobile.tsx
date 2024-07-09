@@ -21,6 +21,21 @@ interface DropdownMenuProps {
 export default function HeaderMobile({ goToLogin, isActive, setIsActive }: HeaderMobileProps) {
   const [openMenu, setOpenMenu] = useState(false);
 
+  const handlePageSection = (itemIndex: number) => {
+    setIsActive((prev) =>
+      prev.map((prevListItem, prevItemIndex) =>
+        prevItemIndex === itemIndex
+          ? {
+              label: prevListItem.label,
+              active: true,
+              icon: HeaderListItems[itemIndex].icon,
+            }
+          : { label: prevListItem.label, active: false, icon: undefined },
+      ),
+    );
+    setOpenMenu(false);
+  };
+
   useEffect(() => {
     openMenu ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = '');
     return () => {
@@ -46,22 +61,7 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
           <MobileHeaderUl>
             {HeaderListItems.map((listItem, itemIndex) => (
               <li key={itemIndex} style={{ alignSelf: 'stretch' }}>
-                <MobileLiButton
-                  active={isActive[itemIndex].active}
-                  onClick={() =>
-                    setIsActive((prev) =>
-                      prev.map((prevListItem, prevItemIndex) =>
-                        prevItemIndex === itemIndex
-                          ? {
-                              label: prevListItem.label,
-                              active: true,
-                              icon: HeaderListItems[itemIndex].icon,
-                            }
-                          : { label: prevListItem.label, active: false, icon: undefined },
-                      ),
-                    )
-                  }
-                >
+                <MobileLiButton active={isActive[itemIndex].active} onClick={() => handlePageSection(itemIndex)}>
                   {listItem.label}
                 </MobileLiButton>
               </li>
