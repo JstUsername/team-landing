@@ -1,17 +1,20 @@
 import { useState, ChangeEvent, useEffect } from 'react';
-import { styled } from '@mui/material/styles';
+import { styled, Theme } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import { InputProps as StandardInputProps } from '@mui/material/Input/Input';
+import FormControl from '@mui/material/FormControl';
+import { SxProps } from '@mui/system';
 
 interface FormInputProps {
   inputId: string;
   inputLabel: string;
   inputPlaceholder: string;
   type?: string;
-  InputProps?: Partial<StandardInputProps>;
+  inputProps?: Partial<StandardInputProps>;
   inputError?: boolean;
   inputOnChange?: StandardInputProps['onChange'];
+  inputSx?: SxProps<Theme>;
 }
 
 export default function FormInput({
@@ -19,9 +22,10 @@ export default function FormInput({
   inputLabel,
   inputPlaceholder,
   type,
-  InputProps,
+  inputProps,
   inputError,
   inputOnChange,
+  inputSx,
 }: FormInputProps) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(false);
@@ -44,7 +48,7 @@ export default function FormInput({
   }, [email]);
 
   return (
-    <>
+    <FormControl sx={inputSx}>
       <StyledInputLabel shrink htmlFor={inputId}>
         {inputLabel}
       </StyledInputLabel>
@@ -52,11 +56,11 @@ export default function FormInput({
         id={inputId}
         placeholder={inputPlaceholder}
         type={type}
-        InputProps={InputProps}
+        InputProps={inputProps}
         error={inputId === 'email-input' ? error : inputId === 'password-input' ? inputError : undefined}
         onChange={inputId === 'email-input' ? handleChange : inputId === 'password-input' ? inputOnChange : undefined}
       />
-    </>
+    </FormControl>
   );
 }
 
