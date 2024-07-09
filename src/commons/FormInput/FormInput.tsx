@@ -76,7 +76,7 @@ const StyledTextField = styled(TextField)`
     font-size: 16px;
     color: ${({ theme }) => theme.palette.text.secondary};
     & .MuiInputBase-input {
-      padding: 13px 16px;
+      padding: 12px 16px;
       background-color: ${({ theme }) => theme.palette.secondary.light};
       &::placeholder {
         opacity: 1;
