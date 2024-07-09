@@ -1,4 +1,4 @@
-import { Link, Typography, styled } from '@mui/material';
+import { Link, styled } from '@mui/material';
 
 export const ArticleSection = styled('section')`
   background-color: ${({ theme }) => theme.palette.background.default};
@@ -14,12 +14,6 @@ export const ArticlesContainer = styled('div')`
   ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 48px 16px;
     gap: 32px;
-  }
-`;
-
-export const ArticleTitle = styled(Typography)`
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    ${({ theme }) => theme.typography.h4}
   }
 `;
 
@@ -44,6 +38,6 @@ export const AllArticlesLink = styled(Link)`
   cursor: pointer;
 
   :hover {
-    background-color: #1b6fe4;
+    opacity: 0.8;
   }
 `;

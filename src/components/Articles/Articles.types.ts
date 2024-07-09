@@ -1,4 +1,4 @@
-export interface IArticle {
+export interface Type Article {
   title: string;
   imgUrl: string | null;
   link: string;

@@ -1,54 +1,28 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { Box, Link, CardMedia } from '@mui/material';
-import { IArticle } from '../Articles/Articles.types';
-import {
-  ArticleDescription,
-  ArticleLinkText,
-  ArticleTitle,
-  ArticleLoad,
-  ArticleLoadCenter,
-  ArticleLoadBox,
-  ArticleListItem,
-} from './ArticleItem.styled';
-import TLoadSvg from '../../assets/articles/T.svg?react';
+import { Box, Link, CardMedia, Typography } from '@mui/material';
+import { TypeArticle } from '../Articles/Articles.types';
+import { ArticleListItem } from './ArticleItem.styled';
 import ArrowRightSvg from '../../assets/articles/arrow-right.svg?react';
+import Loader from '../Loader/Loader';
 
-const ArticleItem = ({ title, imgUrl, alt, description }: IArticle) => {
-  const truncateText = (text: string) => (text.length <= 79 ? text : text.slice(0, 79) + '...');
-
+const ArticleItem = ({ title, imgUrl, alt, description }: TypeArticle) => {
   return (
     <ArticleListItem>
       <Box width="100%" bgcolor="background.loading">
-        {imgUrl ? (
-          <CardMedia component="img" image={imgUrl} alt={alt} height="220" />
-        ) : (
-          <ArticleLoad>
-            <ArticleLoadBox>
-              <ArticleLoadCenter>
-                <TLoadSvg />
-              </ArticleLoadCenter>
-            </ArticleLoadBox>
-          </ArticleLoad>
-        )}
+        {imgUrl ? <CardMedia component="img" image={imgUrl} alt={alt} height="220" /> : <Loader />}
       </Box>
-      <Box sx={{ p: '24px 16px 16px' }}>
-        <ArticleTitle variant={'h5'} mb={'16px'}>
+      <Box padding="24px 16px 16px">
+        <Typography variant="articleTitle" mb="16px">
           {title}
-        </ArticleTitle>
-        <ArticleDescription variant={'body2'}>{truncateText(description)}</ArticleDescription>
+        </Typography>
+        <Typography variant="articleDescription">{description}</Typography>
       </Box>
-      <Box padding={'16px'} width={'100%'} marginTop={'auto'}>
-        <Link href="#" underline="none" display={'inline-flex'} alignItems={'center'} sx={{ cursor: 'pointer' }}>
-          <ArticleLinkText
-            variant="button"
-            letterSpacing={'0.5px'}
-            sx={{
-              textTransform: 'capitalize',
-            }}
-          >
+      <Box padding="16px" width="100%" marginTop="auto">
+        <Link href="#" underline="none" display="inline-flex" alignItems="center" sx={{ cursor: 'pointer' }}>
+          <Typography variant="articleLinkText" textTransform="capitalize">
             Подробнее
-          </ArticleLinkText>
-          <Box padding={'5px'} marginLeft={'16px'} display={'flex'}>
+          </Typography>
+          <Box display="flex" padding="5px" marginLeft="16px">
             <ArrowRightSvg />
           </Box>
         </Link>

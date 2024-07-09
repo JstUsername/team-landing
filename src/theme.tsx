@@ -1,5 +1,6 @@
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
+
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     bodyS: {
@@ -13,6 +14,10 @@ declare module '@mui/material/styles' {
       lineHeight: number;
       letterSpacing: string;
     };
+    articleMainTitle: React.CSSProperties;
+    articleTitle: React.CSSProperties;
+    articleDescription: React.CSSProperties;
+    articleLinkText: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
@@ -27,10 +32,12 @@ declare module '@mui/material/styles' {
       lineHeight?: number;
       letterSpacing?: string;
     };
+    articleMainTitle: React.CSSProperties;
+    articleTitle: React.CSSProperties;
+    articleDescription: React.CSSProperties;
+    articleLinkText: React.CSSProperties;
   }
-}
 
-declare module '@mui/material/styles' {
   interface PaletteColor {
     loading?: string;
   }
@@ -40,7 +47,25 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    articleMainTitle: true;
+    articleTitle: true;
+    articleDescription: true;
+    articleLinkText: true;
+  }
+}
+
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 768,
+      md: 1024,
+      lg: 1440,
+      xl: 1920,
+    },
+  },
   palette: {
     mode: 'light',
     primary: {
@@ -140,16 +165,52 @@ const theme = createTheme({
       fontWeight: 700,
       letterSpacing: 1,
     },
+    articleMainTitle: {},
+    articleTitle: {},
+    articleDescription: {},
+    articleLinkText: {},
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 768,
-      md: 1024,
-      lg: 1440,
-      xl: 1920,
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          articleMainTitle: 'h2',
+          articleTitle: 'h5',
+          articleDescription: 'p',
+        },
+      },
     },
   },
 });
+
+theme.typography.articleMainTitle = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h4,
+  },
+};
+
+theme.typography.articleTitle = {
+  ...theme.typography.h5,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '16px',
+    fontWeight: 700,
+    lineHeight: 1.1,
+  },
+};
+
+theme.typography.articleDescription = {
+  ...theme.typography.body2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.bodyS,
+  },
+};
+
+theme.typography.articleLinkText = {
+  ...theme.typography.button,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.buttonS,
+  },
+};
 
 export default theme;

@@ -1,26 +1,26 @@
 import { Box, Typography } from '@mui/material';
 import ArticleItem from '../ArticlesItem/ArticleItem';
-import { ArticlesData } from './constants';
-import { AllArticlesLink, ArticlesContainer, ArticleSection, ArticlesList, ArticleTitle } from './Articles.styled';
+import { ArticlesData } from './Articles.constants';
+import { AllArticlesLink, ArticlesContainer, ArticleSection, ArticlesList } from './Articles.styled';
 
 const Articles = () => {
   return (
     <ArticleSection>
       <ArticlesContainer>
-        <Box display="flex" flexDirection={'column'} alignItems={'center'}>
-          <Typography variant={'caption'} mb="8px" color="primary.dark">
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Typography variant="caption" mb="8px" color="primary.dark">
             Статьи
           </Typography>
-          <ArticleTitle variant={'h2'} textAlign={'center'}>
+          <Typography variant="articleMainTitle" textAlign="center">
             Статьи для врачей, пациентов и их родственников, а также
             <br />
             научно-популярные доклады о прорывах в медицине
-          </ArticleTitle>
+          </Typography>
         </Box>
         <Box>
           <ArticlesList>
-            {ArticlesData.map((item, idx) => (
-              <ArticleItem key={idx} {...item} />
+            {ArticlesData.map((item, index) => (
+              <ArticleItem key={index} {...item} />
             ))}
           </ArticlesList>
         </Box>
