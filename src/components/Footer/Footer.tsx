@@ -31,88 +31,88 @@ export default function Footer() {
           <div>
             <ListTitle>Для взрослых</ListTitle>
             <FooterUl>
-              <FooterLi>
+              <li>
                 <FooterListLink href="">Кардиология</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Терапия</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Флебология</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Травмы</FooterListLink>
-              </FooterLi>
+              </li>
             </FooterUl>
           </div>
           <div>
             <ListTitle>Для детей</ListTitle>
             <FooterUl>
-              <FooterLi>
+              <li>
                 <FooterListLink href="">Педиатрия</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Инфекции</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Неврология</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Фтизиатрия</FooterListLink>
-              </FooterLi>
+              </li>
             </FooterUl>
           </div>
           <div>
             <ListTitle>Новости</ListTitle>
             <FooterUl>
-              <FooterLi>
+              <li>
                 <FooterListLink href="">Новости здравоохранения</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Открытия </FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Документы</FooterListLink>
-              </FooterLi>
-              <FooterLi>
+              </li>
+              <li>
                 <FooterListLink href="">Справочники</FooterListLink>
-              </FooterLi>
+              </li>
             </FooterUl>
           </div>
           <div>
             <div style={{ marginBottom: '24px' }}>
               <ListTitle>Контакты</ListTitle>
               <FooterUl style={{ flexDirection: 'row', gap: '8px' }}>
-                <FooterLi>
+                <li>
                   <StoreButton style={{ width: '120px' }}>
                     <AppStore />
                   </StoreButton>
-                </FooterLi>
-                <FooterLi>
+                </li>
+                <li>
                   <StoreButton style={{ width: '135px' }}>
                     <GooglePlay />
                   </StoreButton>
-                </FooterLi>
+                </li>
               </FooterUl>
             </div>
             <div>
               <ListTitle>Присоединиться к нам</ListTitle>
               <FooterUl style={{ flexDirection: 'row', marginTop: '8px' }}>
-                <FooterLi>
+                <li>
                   <YoutubeIcon />
-                </FooterLi>
-                <FooterLi>
+                </li>
+                <li>
                   <FacebookIcon />
-                </FooterLi>
-                <FooterLi>
+                </li>
+                <li>
                   <TwitterIcon />
-                </FooterLi>
-                <FooterLi>
+                </li>
+                <li>
                   <InstagramIcon />
-                </FooterLi>
-                <FooterLi>
+                </li>
+                <li>
                   <LinkedinIcon />
-                </FooterLi>
+                </li>
               </FooterUl>
             </div>
           </div>
@@ -123,15 +123,15 @@ export default function Footer() {
         <Copyright>Тестовая компания @ 2023. Все права защищены.</Copyright>
         <nav>
           <FooterUl style={{ flexDirection: 'row', marginTop: '0px' }}>
-            <FooterLi>
+            <li>
               <FooterListLink href="">Медицина</FooterListLink>
-            </FooterLi>
-            <FooterLi>
+            </li>
+            <li>
               <FooterListLink href="">Наука</FooterListLink>
-            </FooterLi>
-            <FooterLi>
+            </li>
+            <li>
               <FooterListLink href="">Инновации</FooterListLink>
-            </FooterLi>
+            </li>
           </FooterUl>
         </nav>
       </FooterBottom>
@@ -283,8 +283,6 @@ const FooterUl = styled('ul')`
     cursor: pointer;
   }
 `;
-
-const FooterLi = styled('li')``;
 
 const FooterListLink = styled('a')`
   ${({ theme }) => theme.typography.body2};
