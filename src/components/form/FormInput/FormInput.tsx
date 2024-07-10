@@ -1,22 +1,8 @@
-import { ReactNode } from 'react';
-import { styled, Theme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+import { FormInputProps } from '../FormEmailInput/FormEmailInput.types.ts';
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
-import { InputProps } from '@mui/material/Input/Input';
-import { SxProps } from '@mui/system';
 import FormControl from '@mui/material/FormControl';
-
-interface FormInputProps {
-  inputId: string;
-  inputLabel: string;
-  inputPlaceholder: string;
-  type?: string;
-  inputProps?: Partial<InputProps>;
-  inputError?: boolean;
-  inputOnChange?: InputProps['onChange'];
-  inputSx?: SxProps<Theme>;
-  children?: ReactNode;
-}
 
 export default function FormInput({
   inputId,

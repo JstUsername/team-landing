@@ -1,11 +1,8 @@
 import { KeyboardEvent, useState } from 'react';
 import { styled } from '@mui/material/styles';
+import { FormCheckboxProps } from './FormCheckbox.types.ts';
 import Typography from '@mui/material/Typography';
 import UnionIcon from '../../../assets/login/icons/union.svg?react';
-
-interface FormCheckboxProps {
-  typeLogin: string;
-}
 
 export default function FormCheckbox({ typeLogin }: FormCheckboxProps) {
   const [checked, setChecked] = useState(false);

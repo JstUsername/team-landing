@@ -1,11 +1,7 @@
+import { FormLinkProps } from './FormLink.types.ts';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-
-interface FormLinkProps {
-  linkTo: string;
-  linkText: string;
-}
 
 export default function FormLink({ linkTo, linkText }: FormLinkProps) {
   return (

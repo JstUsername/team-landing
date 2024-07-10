@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { FormPasswordInputProps } from './FormPasswordInput.types.ts';
 import FormInput from '../FormInput/FormInput.tsx';
 import { validatePassword } from '../../../utils/validate.ts';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -7,11 +8,6 @@ import EyeIcon from '../../../assets/login/icons/eye.svg?react';
 import EyeClose from '../../../assets/login/icons/eye-close.svg?react';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-
-interface FormPasswordInputProps {
-  typeLogin: string;
-  passwordSubtitle: string;
-}
 
 export default function FormPasswordInput({ typeLogin, passwordSubtitle }: FormPasswordInputProps) {
   const [password, setPassword] = useState('');
