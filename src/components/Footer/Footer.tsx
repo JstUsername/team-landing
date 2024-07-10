@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { useMediaQuery, useTheme, Theme, Box, List } from '@mui/material';
+import ButtonLink from '../../commons/button/ButtonLink.tsx';
 import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
@@ -22,7 +23,9 @@ export default function Footer() {
             id="input-mail"
             placeholder={useMediaQuery(theme.breakpoints.down('sm')) ? 'Подписаться...' : 'Подписаться на рассылку'}
           />
-          <StyledButton>Подписаться</StyledButton>
+          <StyledButton component="button" variant="contained">
+            <ButtonText>Подписаться</ButtonText>
+          </StyledButton>
         </Search>
       </FooterTop>
       <Divider />
@@ -229,22 +232,20 @@ const StyledInput = styled('input')`
   }
 `;
 
-const StyledButton = styled('button')`
+const ButtonText = styled('span')`
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
-  color: ${({ theme }) => theme.palette.background.default};
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  border: none;
+`;
+
+const StyledButton = styled(ButtonLink)`
+  display: block;
   padding: 16px 28px;
-  transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.dark};
-  }
-  &:active {
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    transition: none;
+  border: none;
+  margin: 0;
+  align-self: stretch;
+  :hover {
+    border: none;
   }
 `;
 

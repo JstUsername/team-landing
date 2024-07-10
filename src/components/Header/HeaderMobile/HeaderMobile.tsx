@@ -8,6 +8,7 @@ import UserIcon from '../../../assets/header/icons/user.svg?react';
 import ShoppingCartIcon from '../../../assets/header/icons/shopping-cart.svg?react';
 import MenuIcon from '../../../assets/header/icons/menu.svg?react';
 import SearchIcon from '../../../assets/header/icons/search.svg?react';
+import ButtonLink from '../../../commons/button/ButtonLink.tsx';
 
 export default function HeaderMobile({ goToLogin, isActive, setIsActive }: HeaderMobileProps) {
   const [openMenu, setOpenMenu] = useState(false);
@@ -60,7 +61,9 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
               </MobileHeaderLi>
             ))}
           </MobileHeaderUl>
-          <MobileCloseButton onClick={() => setOpenMenu(false)}>Закрыть меню</MobileCloseButton>
+          <StyledButton component="button" variant="outlined" onClick={() => setOpenMenu(false)}>
+            <ButtonText>Закрыть меню</ButtonText>
+          </StyledButton>
         </DropdownMenu>
       </MobileHeader>
     </MobileHeaderWrapper>
@@ -172,18 +175,21 @@ const MobileLiButton = styled('button')<LiButtonProps>`
   text-align: left;
 `;
 
-const MobileCloseButton = styled('button')`
-  ${({ theme }) => theme.typography.body2};
-  width: 100%;
-  position: relative;
-  padding: 16px 0;
-  margin-top: 32px;
-  color: ${({ theme }) => theme.palette.primary.main};
-  background: none;
-  border: 2px solid ${({ theme }) => theme.palette.primary.main};
-  cursor: pointer;
+const ButtonText = styled('span')`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+`;
+
+const StyledButton = styled(ButtonLink)`
+  display: block;
+  padding: 16px 28px;
+  margin: 0;
   align-self: stretch;
-  text-align: center;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding-inline: 28px;
+    padding-block: 16px;
+  },
 `;
 
 const ShoppingCart = styled('div')<ShoppingCartProps>`

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ButtonLink from '../../commons/button/ButtonLink.tsx';
 import { LiButtonProps } from './Header.types.ts';
 import { HeaderListItems } from './Header.constants.ts';
 import HeaderMobile from './HeaderMobile/HeaderMobile.tsx';
@@ -63,7 +64,9 @@ export default function Header() {
               <CategoriesButtonIcon title="Chevron down" />
             </CategoriesButton>
           </Search>
-          <StyledButton>Поиск</StyledButton>
+          <StyledButton component="button" variant="contained">
+            <ButtonText>Поиск</ButtonText>
+          </StyledButton>
         </HeaderMiddle>
         <HeaderBottom>
           <nav>
@@ -182,7 +185,7 @@ const CategoriesButton = styled('button')`
   border-left: none;
   ${({ theme }) => theme.typography.subtitle2};
   color: ${({ theme }) => theme.palette.text.secondary};
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.palette.divider};
@@ -202,22 +205,19 @@ const CategoriesButtonIcon = styled(ChevronDownIcon)`
   }
 `;
 
-const StyledButton = styled('button')`
+const ButtonText = styled('span')`
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
-  color: ${({ theme }) => theme.palette.background.default};
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  border: none;
+`;
+
+const StyledButton = styled(ButtonLink)`
+  display: block;
   padding: 16px 28px;
-  transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.dark};
-  }
-  &:active {
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    transition: none;
+  border: none;
+  margin: 0;
+  :hover {
+    border: none;
   }
 `;
 
