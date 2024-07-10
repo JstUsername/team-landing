@@ -1,12 +1,12 @@
+import { useNavigate } from 'react-router-dom';
+import { Theme, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
-import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-import theme from '../../theme.tsx';
 import FormInput from '../../components/form/FormInput/FormInput.tsx';
 import FormPasswordInput from '../../components/form/FormPasswordInput/FormPasswordInput.tsx';
 import FormEmailInput from '../../components/form/FormEmailInput/FormEmailInput.tsx';
@@ -21,6 +21,7 @@ interface LoginProps {
 }
 
 export default function LoginPage({ typeLogin }: LoginProps) {
+  const theme = useTheme<Theme>();
   const navigate = useNavigate();
   const goToHome = () => {
     navigate('/');
