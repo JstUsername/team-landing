@@ -5,10 +5,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/Login/LoginPage.tsx';
 import HomePage from './pages/HomePage/HomePage.tsx';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/Login/LoginPage.tsx';
-import HomePage from './pages/HomePage/HomePage.tsx';
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
