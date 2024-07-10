@@ -12,15 +12,55 @@ declare module '@mui/material/styles' {
   interface Gradients {}
   interface TypographyVariants {
     formHeader: CSSProperties;
+    bodyS: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+    };
+    buttonS: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+      letterSpacing: string;
+    };
+    articleMainTitle: React.CSSProperties;
+    articleTitle: React.CSSProperties;
+    articleDescription: React.CSSProperties;
+    articleLinkText: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     formHeader: CSSProperties;
+    bodyS: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+    };
+    buttonS?: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+      letterSpacing?: string;
+    };
+    articleMainTitle: React.CSSProperties;
+    articleTitle: React.CSSProperties;
+    articleDescription: React.CSSProperties;
+    articleLinkText: React.CSSProperties;
+  }
+  interface PaletteColor {
+    loading?: string;
+  }
+  interface TypeBackground {
+    loading?: string;
   }
 }
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     formHeader: true;
+    articleMainTitle: true;
+    articleTitle: true;
+    articleDescription: true;
+    articleLinkText: true;
   }
 }
 
@@ -48,6 +88,7 @@ const theme = createTheme({
     background: {
       default: '#FFFFFF',
       paper: '#F2F4F8',
+      loading: '#F3F7FF',
     },
     text: {
       primary: '#21272A',
@@ -111,19 +152,42 @@ const theme = createTheme({
       lineHeight: 1.4,
       letterSpacing: '0em',
     },
+    bodyS: {
+      fontSize: 14,
+      fontWeight: 400,
+      lineHeight: 1.4,
+    },
     button: {
       fontSize: 20,
       fontWeight: 500,
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
+    buttonS: {
+      fontSize: 14,
+      fontWeight: 500,
+      lineHeight: 1,
+      letterSpacing: '0.5px',
+    },
+    caption: {
+      fontSize: 20,
+      fontWeight: 700,
+      letterSpacing: 1,
+    },
     formHeader: {},
+    articleMainTitle: {},
+    articleTitle: {},
+    articleDescription: {},
+    articleLinkText: {},
   },
   components: {
     MuiTypography: {
       defaultProps: {
         variantMapping: {
           formHeader: 'h2',
+          articleMainTitle: 'h2',
+          articleTitle: 'h5',
+          articleDescription: 'p',
         },
       },
     },
@@ -137,6 +201,36 @@ theme.typography.formHeader = {
   },
   [theme.breakpoints.down('sm')]: {
     fontSize: theme.typography.h3.fontSize,
+  },
+};
+
+theme.typography.articleMainTitle = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h4,
+  },
+};
+
+theme.typography.articleTitle = {
+  ...theme.typography.h5,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '16px',
+    fontWeight: 700,
+    lineHeight: 1.1,
+  },
+};
+
+theme.typography.articleDescription = {
+  ...theme.typography.body2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.bodyS,
+  },
+};
+
+theme.typography.articleLinkText = {
+  ...theme.typography.button,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.buttonS,
   },
 };
 
