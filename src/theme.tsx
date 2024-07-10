@@ -115,6 +115,9 @@ const theme = createTheme({
       main: '#25A249',
     },
     divider: '#DDE1E6',
+    gradients: {
+      blueGradient: 'linear-gradient(180deg, #67C3F4 0%, #5A98F2 100%)',
+    },
   },
   typography: {
     h1: {
