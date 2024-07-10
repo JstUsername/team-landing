@@ -1,4 +1,4 @@
-import { SocialMediaIconsType } from './Footer.types.ts';
+import { SocialMediaIconsType, FooterMiddleUlType } from './Footer.types.ts';
 import YoutubeIcon from '../../assets/footer/icons/youtube.svg?react';
 import FacebookIcon from '../../assets/footer/icons/facebook.svg?react';
 import TwitterIcon from '../../assets/footer/icons/twitter.svg?react';
@@ -26,4 +26,25 @@ export const footerSocialMediaItems: SocialMediaIconsType[] = [
     label: 'LinkedIn',
     icon: LinkedinIcon,
   },
+];
+
+export const adultFooterListItems: FooterMiddleUlType[] = [
+  { href: '', text: 'Кардиология' },
+  { href: '', text: 'Терапия' },
+  { href: '', text: 'Флебология' },
+  { href: '', text: 'Травмы' },
+];
+
+export const childFooterListItems: FooterMiddleUlType[] = [
+  { href: '', text: 'Педиатрия' },
+  { href: '', text: 'Инфекции' },
+  { href: '', text: 'Неврология' },
+  { href: '', text: 'Фтизиатрия' },
+];
+
+export const newsFooterListItems: FooterMiddleUlType[] = [
+  { href: '', text: 'Новости здравоохранения' },
+  { href: '', text: 'Открытия' },
+  { href: '', text: 'Документы' },
+  { href: '', text: 'Справочники' },
 ];

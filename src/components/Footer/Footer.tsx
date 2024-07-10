@@ -5,7 +5,12 @@ import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
 import GooglePlay from '../../assets/footer/google-play.svg?react';
-import { footerSocialMediaItems } from './Footer.constants.ts';
+import {
+  footerSocialMediaItems,
+  newsFooterListItems,
+  childFooterListItems,
+  adultFooterListItems,
+} from './Footer.constants.ts';
 
 export default function Footer() {
   const theme = useTheme<Theme>();
@@ -30,52 +35,31 @@ export default function Footer() {
           <div>
             <ListTitle>Для взрослых</ListTitle>
             <FooterUl>
-              <li>
-                <FooterListLink href="">Кардиология</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Терапия</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Флебология</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Травмы</FooterListLink>
-              </li>
+              {adultFooterListItems.map((adultListItem, adultItemIndex) => (
+                <li key={adultItemIndex}>
+                  <FooterListLink href={adultListItem.href}>{adultListItem.text}</FooterListLink>
+                </li>
+              ))}
             </FooterUl>
           </div>
           <div>
             <ListTitle>Для детей</ListTitle>
             <FooterUl>
-              <li>
-                <FooterListLink href="">Педиатрия</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Инфекции</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Неврология</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Фтизиатрия</FooterListLink>
-              </li>
+              {childFooterListItems.map((childListItem, childItemIndex) => (
+                <li key={childItemIndex}>
+                  <FooterListLink href={childListItem.href}>{childListItem.text}</FooterListLink>
+                </li>
+              ))}
             </FooterUl>
           </div>
           <div>
             <ListTitle>Новости</ListTitle>
             <FooterUl>
-              <li>
-                <FooterListLink href="">Новости здравоохранения</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Открытия </FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Документы</FooterListLink>
-              </li>
-              <li>
-                <FooterListLink href="">Справочники</FooterListLink>
-              </li>
+              {newsFooterListItems.map((newsListItem, newsItemIndex) => (
+                <li key={newsItemIndex}>
+                  <FooterListLink href={newsListItem.href}>{newsListItem.text}</FooterListLink>
+                </li>
+              ))}
             </FooterUl>
           </div>
           <div>
