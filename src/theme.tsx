@@ -9,7 +9,9 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     gradients?: Gradients;
   }
-  interface Gradients {}
+  interface Gradients {
+    blueGradient: string;
+  }
   interface TypographyVariants {
     formHeader: CSSProperties;
     bodyS: {
@@ -27,6 +29,10 @@ declare module '@mui/material/styles' {
     articleTitle: React.CSSProperties;
     articleDescription: React.CSSProperties;
     articleLinkText: React.CSSProperties;
+    sectionHeader: React.CSSProperties;
+    sectionSubHeader: React.CSSProperties;
+    sectionDescription: React.CSSProperties;
+    dropdownHeader: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     formHeader: CSSProperties;
@@ -45,6 +51,10 @@ declare module '@mui/material/styles' {
     articleTitle: React.CSSProperties;
     articleDescription: React.CSSProperties;
     articleLinkText: React.CSSProperties;
+    sectionHeader: React.CSSProperties;
+    sectionSubHeader: React.CSSProperties;
+    sectionDescription: React.CSSProperties;
+    dropdownHeader: React.CSSProperties;
   }
   interface PaletteColor {
     loading?: string;
@@ -61,6 +71,10 @@ declare module '@mui/material/Typography' {
     articleTitle: true;
     articleDescription: true;
     articleLinkText: true;
+    sectionHeader: true;
+    sectionSubHeader: true;
+    sectionDescription: true;
+    dropdownHeader: true;
   }
 }
 
@@ -101,6 +115,9 @@ const theme = createTheme({
       main: '#25A249',
     },
     divider: '#DDE1E6',
+    gradients: {
+      blueGradient: 'linear-gradient(180deg, #67C3F4 0%, #5A98F2 100%)',
+    },
   },
   typography: {
     h1: {
@@ -179,6 +196,17 @@ const theme = createTheme({
     articleTitle: {},
     articleDescription: {},
     articleLinkText: {},
+    sectionSubHeader: {
+      fontSize: 20,
+      lineHeight: 1,
+      letterSpacing: '1px',
+      textTransform: 'uppercase',
+      fontWeight: 700,
+      color: '#001D6C',
+    },
+    sectionHeader: {},
+    sectionDescription: {},
+    dropdownHeader: {},
   },
   components: {
     MuiTypography: {
@@ -188,6 +216,10 @@ const theme = createTheme({
           articleMainTitle: 'h2',
           articleTitle: 'h5',
           articleDescription: 'p',
+          sectionHeader: 'h2',
+          sectionSubHeader: 'span',
+          sectionDescription: 'p',
+          dropdownHeader: 'h5',
         },
       },
     },
@@ -231,6 +263,27 @@ theme.typography.articleLinkText = {
   ...theme.typography.button,
   [theme.breakpoints.down('sm')]: {
     ...theme.typography.buttonS,
+  },
+};
+
+theme.typography.sectionHeader = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down('md')]: {
+    fontSize: theme.typography.h4.fontSize,
+  },
+};
+
+theme.typography.sectionDescription = {
+  ...theme.typography.body1,
+  [theme.breakpoints.down('md')]: {
+    ...theme.typography.body2,
+  },
+};
+
+theme.typography.dropdownHeader = {
+  ...theme.typography.h5,
+  [theme.breakpoints.down('md')]: {
+    fontSize: theme.typography.h6.fontSize,
   },
 };
 
