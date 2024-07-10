@@ -5,7 +5,7 @@ import TwitterIcon from '../../assets/footer/icons/twitter.svg?react';
 import InstagramIcon from '../../assets/footer/icons/instagram.svg?react';
 import LinkedinIcon from '../../assets/footer/icons/linkedin.svg?react';
 
-export const FooterSocialMediaItems: SocialMediaIconsType[] = [
+export const footerSocialMediaItems: SocialMediaIconsType[] = [
   {
     label: 'YouTube',
     icon: YoutubeIcon,

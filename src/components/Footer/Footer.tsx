@@ -5,7 +5,7 @@ import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
 import GooglePlay from '../../assets/footer/google-play.svg?react';
-import { FooterSocialMediaItems } from './Footer.constants.ts';
+import { footerSocialMediaItems } from './Footer.constants.ts';
 
 export default function Footer() {
   const theme = useTheme<Theme>();
@@ -97,7 +97,7 @@ export default function Footer() {
             <div>
               <ListTitle>Присоединиться к нам</ListTitle>
               <FooterUl sx={{ flexDirection: 'row', marginTop: '8px' }}>
-                {FooterSocialMediaItems.map((iconItem, iconIndex) => (
+                {footerSocialMediaItems.map((iconItem, iconIndex) => (
                   <li key={iconIndex}>
                     <iconItem.icon>
                       <title>{iconItem.label}</title>

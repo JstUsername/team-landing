@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ButtonLink from '../../commons/button/ButtonLink.tsx';
 import { LiButtonProps } from './Header.types.ts';
-import { HeaderListItems } from './Header.constants.ts';
+import { headerListItems } from './Header.constants.ts';
 import HeaderMobile from './HeaderMobile/HeaderMobile.tsx';
 import Logo from '../../assets/header/logo.svg?react';
 import MapMarkerIcon from '../../assets/header/icons/map-marker.svg?react';
@@ -16,7 +16,7 @@ import ChevronDownIcon from '../../assets/header/icons/chevron-down.svg?react';
 import SearchIcon from '../../assets/header/icons/search.svg?react';
 
 export default function Header() {
-  const [isActive, setIsActive] = useState(HeaderListItems);
+  const [isActive, setIsActive] = useState(headerListItems);
 
   const handlePageSection = (itemIndex: number) => {
     setIsActive((prev) =>
@@ -25,7 +25,7 @@ export default function Header() {
           ? {
               label: prevListItem.label,
               active: true,
-              icon: HeaderListItems[itemIndex].icon,
+              icon: headerListItems[itemIndex].icon,
             }
           : { label: prevListItem.label, active: false, icon: undefined },
       ),
@@ -75,7 +75,7 @@ export default function Header() {
           <HeaderBottom>
             <nav>
               <HeaderUl>
-                {HeaderListItems.map((listItem, itemIndex) => (
+                {headerListItems.map((listItem, itemIndex) => (
                   <li key={itemIndex}>
                     <LiButton
                       active={isActive[itemIndex].active}

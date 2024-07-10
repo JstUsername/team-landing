@@ -9,7 +9,7 @@ import TagIcon from '../../assets/header/icons/tag.svg?react';
 import PaperPlaneIcon from '../../assets/header/icons/paper-plane.svg?react';
 import CoinIcon from '../../assets/header/icons/coin.svg?react';
 
-export const HeaderListItems: HeaderLiType[] = [
+export const headerListItems: HeaderLiType[] = [
   {
     label: 'Меню',
     active: true,
