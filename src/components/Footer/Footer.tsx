@@ -5,11 +5,7 @@ import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
 import GooglePlay from '../../assets/footer/google-play.svg?react';
-import YoutubeIcon from '../../assets/footer/icons/youtube.svg?react';
-import FacebookIcon from '../../assets/footer/icons/facebook.svg?react';
-import TwitterIcon from '../../assets/footer/icons/twitter.svg?react';
-import InstagramIcon from '../../assets/footer/icons/instagram.svg?react';
-import LinkedinIcon from '../../assets/footer/icons/linkedin.svg?react';
+import { FooterSocialMediaItems } from './Footer.constants.ts';
 
 export default function Footer() {
   const theme = useTheme<Theme>();
@@ -101,21 +97,13 @@ export default function Footer() {
             <div>
               <ListTitle>Присоединиться к нам</ListTitle>
               <FooterUl sx={{ flexDirection: 'row', marginTop: '8px' }}>
-                <li>
-                  <YoutubeIcon />
-                </li>
-                <li>
-                  <FacebookIcon />
-                </li>
-                <li>
-                  <TwitterIcon />
-                </li>
-                <li>
-                  <InstagramIcon />
-                </li>
-                <li>
-                  <LinkedinIcon />
-                </li>
+                {FooterSocialMediaItems.map((iconItem, iconIndex) => (
+                  <li key={iconIndex}>
+                    <iconItem.icon>
+                      <title>{iconItem.label}</title>
+                    </iconItem.icon>
+                  </li>
+                ))}
               </FooterUl>
             </div>
           </div>
