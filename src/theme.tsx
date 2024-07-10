@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
 
@@ -5,32 +6,71 @@ declare module '@mui/material/styles' {
   interface Palette {
     gradients: Gradients;
   }
-
   interface PaletteOptions {
     gradients?: Gradients;
   }
-
   interface Gradients {
     blueGradient: string;
   }
-
   interface TypographyVariants {
+    formHeader: CSSProperties;
+    bodyS: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+    };
+    buttonS: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+      letterSpacing: string;
+    };
+    articleMainTitle: React.CSSProperties;
+    articleTitle: React.CSSProperties;
+    articleDescription: React.CSSProperties;
+    articleLinkText: React.CSSProperties;
     sectionHeader: React.CSSProperties;
     sectionSubHeader: React.CSSProperties;
     sectionDescription: React.CSSProperties;
     dropdownHeader: React.CSSProperties;
   }
-
   interface TypographyVariantsOptions {
+    formHeader: CSSProperties;
+    bodyS: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+    };
+    buttonS?: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+      letterSpacing?: string;
+    };
+    articleMainTitle: React.CSSProperties;
+    articleTitle: React.CSSProperties;
+    articleDescription: React.CSSProperties;
+    articleLinkText: React.CSSProperties;
     sectionHeader: React.CSSProperties;
     sectionSubHeader: React.CSSProperties;
     sectionDescription: React.CSSProperties;
     dropdownHeader: React.CSSProperties;
+  }
+  interface PaletteColor {
+    loading?: string;
+  }
+  interface TypeBackground {
+    loading?: string;
   }
 }
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
+    formHeader: true;
+    articleMainTitle: true;
+    articleTitle: true;
+    articleDescription: true;
+    articleLinkText: true;
     sectionHeader: true;
     sectionSubHeader: true;
     sectionDescription: true;
@@ -38,7 +78,7 @@ declare module '@mui/material/Typography' {
   }
 }
 
-export const theme = createTheme({
+const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -62,6 +102,7 @@ export const theme = createTheme({
     background: {
       default: '#FFFFFF',
       paper: '#F2F4F8',
+      loading: '#F3F7FF',
     },
     text: {
       primary: '#21272A',
@@ -74,9 +115,6 @@ export const theme = createTheme({
       main: '#25A249',
     },
     divider: '#DDE1E6',
-    gradients: {
-      blueGradient: 'linear-gradient(180deg, #67C3F3 0%, #5A98F2 100%)',
-    },
   },
   typography: {
     h1: {
@@ -128,11 +166,33 @@ export const theme = createTheme({
       lineHeight: 1.4,
       letterSpacing: '0em',
     },
+    bodyS: {
+      fontSize: 14,
+      fontWeight: 400,
+      lineHeight: 1.4,
+    },
     button: {
       fontSize: 20,
+      fontWeight: 500,
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
+    buttonS: {
+      fontSize: 14,
+      fontWeight: 500,
+      lineHeight: 1,
+      letterSpacing: '0.5px',
+    },
+    caption: {
+      fontSize: 20,
+      fontWeight: 700,
+      letterSpacing: 1,
+    },
+    formHeader: {},
+    articleMainTitle: {},
+    articleTitle: {},
+    articleDescription: {},
+    articleLinkText: {},
     sectionSubHeader: {
       fontSize: 20,
       lineHeight: 1,
@@ -149,6 +209,10 @@ export const theme = createTheme({
     MuiTypography: {
       defaultProps: {
         variantMapping: {
+          formHeader: 'h2',
+          articleMainTitle: 'h2',
+          articleTitle: 'h5',
+          articleDescription: 'p',
           sectionHeader: 'h2',
           sectionSubHeader: 'span',
           sectionDescription: 'p',
@@ -158,6 +222,46 @@ export const theme = createTheme({
     },
   },
 });
+
+theme.typography.formHeader = {
+  ...theme.typography.h2,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: theme.typography.h2.fontSize,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: theme.typography.h3.fontSize,
+  },
+};
+
+theme.typography.articleMainTitle = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h4,
+  },
+};
+
+theme.typography.articleTitle = {
+  ...theme.typography.h5,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '16px',
+    fontWeight: 700,
+    lineHeight: 1.1,
+  },
+};
+
+theme.typography.articleDescription = {
+  ...theme.typography.body2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.bodyS,
+  },
+};
+
+theme.typography.articleLinkText = {
+  ...theme.typography.button,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.buttonS,
+  },
+};
 
 theme.typography.sectionHeader = {
   ...theme.typography.h2,
