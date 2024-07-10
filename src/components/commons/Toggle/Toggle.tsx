@@ -1,12 +1,13 @@
-import { SxProps, styled } from '@mui/material';
+import { styled } from '@mui/material';
 import { Dispatch, SetStateAction } from 'react';
 
 type ToggleProps = {
+  id: string;
   checked: boolean;
   setChecked: Dispatch<SetStateAction<boolean>>;
 };
 
-const Toggle = ({ checked, setChecked }: ToggleProps & SxProps) => {
+const Toggle = ({ checked, setChecked }: ToggleProps) => {
   return (
     <ToggleContainer>
       <ToggleInput type="checkbox" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
@@ -16,17 +17,6 @@ const Toggle = ({ checked, setChecked }: ToggleProps & SxProps) => {
     </ToggleContainer>
   );
 };
-
-const ToggleContainer = styled('label')`
-  display: inline-flex;
-  align-items: center;
-
-  position: relative;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
 
 const ToggleInput = styled('input')`
   position: absolute;
@@ -39,6 +29,14 @@ const ToggleInput = styled('input')`
 
   z-index: 1;
   opacity: 0;
+  cursor: pointer;
+`;
+
+const ToggleContainer = styled('label')`
+  display: inline-flex;
+  align-items: center;
+
+  position: relative;
 `;
 
 const ToggleSwitch = styled('div')<{ active: boolean }>`
@@ -50,10 +48,7 @@ const ToggleSwitch = styled('div')<{ active: boolean }>`
   padding: 0 2px;
   border: 0;
   border-radius: 33px;
-  background-color: ${(props) => {
-    const { theme, active } = props;
-    return active ? theme.palette.primary.main : theme.palette.secondary.main;
-  }};
+  background-color: ${({ theme, active }) => (active ? theme.palette.primary.main : theme.palette.secondary.main)};
 `;
 
 const ToggleSwitchDot = styled('div')<{ active: boolean }>`
@@ -64,7 +59,7 @@ const ToggleSwitchDot = styled('div')<{ active: boolean }>`
   background-color: ${({ theme }) => theme.palette.background.default};
   border-radius: 50%;
 
-  margin-left: ${(props) => (props.active ? 'auto' : 0)};
+  margin-left: ${({ active }) => (active ? 'auto' : 0)};
 `;
 
 export default Toggle;

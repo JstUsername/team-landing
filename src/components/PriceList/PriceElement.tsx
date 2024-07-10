@@ -1,8 +1,13 @@
-import { Stack, Typography, Button, styled } from '@mui/material';
+import { Stack, Typography, styled, Button, ButtonProps } from '@mui/material';
 import Chip from '../commons/StyledChip/Chip';
 import { Service } from './PriceList.types';
+import SvgCheck from '../../assets/PriceList/Check.svg?react';
 
-const PricingElem = ({ service }: { service: Service }) => {
+type PriceElementProps = {
+  service: Service;
+};
+
+const PriceElement = ({ service }: PriceElementProps) => {
   const { name, desc, price, sale, features, isPopular } = service;
   return (
     <PriceElemContainer>
@@ -16,31 +21,22 @@ const PricingElem = ({ service }: { service: Service }) => {
         <Typography variant="sectionDescription">{desc}</Typography>
       </Stack>
       <Stack gap="8px">
-        <Typography variant="h1" color="text.secondary">
+        <Typography variant="h1" color="text.secondary" sx={{ textDecoration: sale && 'line-through' }}>
           {price}
         </Typography>
         {sale && <Typography variant="h1">{sale}</Typography>}
         <Typography fontSize="14px">{!sale ? price : sale} USD каждый месяц</Typography>
       </Stack>
-      <Button
-        variant="contained"
-        sx={{
-          padding: '16px',
-          border: '2px',
-          borderRadius: 0,
-          textTransform: 'none',
-        }}
-      >
-        <Typography variant="button" paddingX="16px" textTransform="capitalize">
+      <ButtonLink variant="contained" component={'a'}>
+        <Typography paddingX="16px" variant="button" textTransform="capitalize">
           Начать
         </Typography>
-      </Button>
+      </ButtonLink>
       <FeatureList sx={{ textAlign: 'start' }}>
-        {features.map((feature, ind) => (
-          <FeatureElement key={ind}>
-            <Typography component="span" marginLeft="8px">
-              {feature}
-            </Typography>
+        {features.map((feature, index) => (
+          <FeatureElement key={index}>
+            <SvgCheck />
+            <Typography component="span">{feature}</Typography>
           </FeatureElement>
         ))}
       </FeatureList>
@@ -50,7 +46,7 @@ const PricingElem = ({ service }: { service: Service }) => {
 
 const PriceElemContainer = styled(Stack)`
   position: relative;
-  border: 1px solid ${(props) => props.theme.palette.divider};
+  border: 1px solid ${({ theme }) => theme.palette.divider};
   gap: 32px;
   padding: 48px 24px;
   border-radius: 8px;
@@ -62,8 +58,8 @@ const FeatureList = styled('ul')`
   display: flex;
   flex-direction: column;
   margin-block: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding-inline-start: 0;
   gap: 8px;
 `;
@@ -77,9 +73,18 @@ const PriceElemChip = styled(Chip)`
 `;
 
 const FeatureElement = styled('li')`
-  &::marker {
-    content: url('../../src/assets/PriceList/Check.svg');
-  }
+  display: flex;
+  align-content: center;
+  list-style-type: none;
+  gap: 8px;
 `;
 
-export default PricingElem;
+const ButtonLink = styled(Button)<ButtonProps>`
+  padding: 16px;
+  border: 2px;
+  border-radius: 0;
+  box-shadow: 0;
+  background-color: ${({ theme }) => theme.palette.info.main};
+`;
+
+export default PriceElement;
