@@ -1,17 +1,17 @@
 import { FC, TouchEventHandler, useRef, useState } from 'react';
 import { Container, styled, useMediaQuery } from '@mui/material';
-import { swiperData } from './constants';
-import SwiperCard from './SwiperCard';
-import ButtonLeft from '../../assets/Swiper/swiperButtonLeft.svg';
-import ButtonRight from '../../assets/Swiper/swiperButtonRight.svg';
-import theme from '../../theme';
+import { medicalInformationData } from './constants';
+import MedicalInformationCard from './MedicalInformationCard';
+import ButtonLeft from '../../assets/MedicalInformation/swiperButtonLeft.svg';
+import ButtonRight from '../../assets/MedicalInformation/swiperButtonRight.svg';
+import { Theme } from '@mui/material/styles';
 
-const Swiper: FC = () => {
+const MedicalInformation: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const ref = useRef<number | null>(null);
 
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const lastIndex = isSmallScreen ? swiperData.length - 1 : swiperData.length - 2;
+  const isSmallScreen = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'));
+  const lastIndex = isSmallScreen ? medicalInformationData.length - 1 : medicalInformationData.length - 2;
 
   const prevSlide = () => {
     if (activeIndex === 0) {
@@ -58,17 +58,8 @@ const Swiper: FC = () => {
               <img src={ButtonLeft} alt="стрелка влево" />
             </SwiperButton>
             <SwiperCardGrid onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
-              {swiperData.map(({ image, title, name, text, icon, profession }, index) => (
-                <SwiperCard
-                  key={index}
-                  image={image}
-                  title={title}
-                  text={text}
-                  icon={icon}
-                  name={name}
-                  activeIndex={activeIndex}
-                  profession={profession}
-                />
+              {medicalInformationData.map((item, index) => (
+                <MedicalInformationCard key={index} {...item} activeIndex={activeIndex} />
               ))}
             </SwiperCardGrid>
             <SwiperButton onClick={nextSlide}>
@@ -82,15 +73,15 @@ const Swiper: FC = () => {
 };
 
 const Section = styled('section')`
-  background: linear-gradient(180deg, #67c3f3 0%, #5a98f2 100%);
+  background: ${({ theme }) => theme.palette.gradients.blueGradient};
 `;
 
-const GridContainer = styled('div')({
-  'marginInline': 80,
-  '@media (max-width: 768px)': {
-    marginInline: 0,
-  },
-});
+const GridContainer = styled('div')`
+  margin-inline: 80px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-inline: 0;
+  }
+`;
 
 const SwiperCardGrid = styled('div')`
   display: flex;
@@ -98,20 +89,19 @@ const SwiperCardGrid = styled('div')`
   overflow: hidden;
 `;
 
-const SwiperBox = styled('div')({
-  display: 'flex',
-  gap: 16,
-  justifyContent: 'center',
-  alignItems: 'center',
-});
+const SwiperBox = styled('div')`
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+`;
 
-const SwiperButton = styled('button')({
-  border: 'none',
-  borderColor: 'transparent',
-  backgroundColor: 'transparent',
-  width: 24,
-  height: 24,
-  cursor: 'pointer',
-});
+const SwiperButton = styled('button')`
+  border: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
 
-export default Swiper;
+export default MedicalInformation;

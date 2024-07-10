@@ -1,10 +1,10 @@
 /// <reference types="vite-plugin-svgr/client" />
-import ArtVenueLogo from '../../assets/Swiper/artVenueLogo.svg?react';
-import ZoomerLogo from '../../assets/Swiper/zoomerLogo.svg?react';
-import SwiperProfile from '../../assets/Swiper/profile.png';
-import { ISwiperCard } from './types';
+import ArtVenueLogo from '../../assets/MedicalInformation/artVenueLogo.svg?react';
+import ZoomerLogo from '../../assets/MedicalInformation/zoomerLogo.svg?react';
+import SwiperProfile from '../../assets/MedicalInformation/profile.png';
+import { TypeMedicalInformationCard } from './MedicalInformation.types';
 
-export const swiperData: ISwiperCard[] = [
+export const medicalInformationData: TypeMedicalInformationCard[] = [
   {
     image: <ArtVenueLogo width={32} height={32} />,
     title: 'ArtVenue',
