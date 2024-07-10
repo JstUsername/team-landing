@@ -1,8 +1,17 @@
+import { CSSProperties } from 'react';
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
+  interface Palette {
+    gradients: Gradients;
+  }
+  interface PaletteOptions {
+    gradients?: Gradients;
+  }
+  interface Gradients {}
   interface TypographyVariants {
+    formHeader: CSSProperties;
     bodyS: {
       fontSize: number;
       fontWeight: number;
@@ -19,8 +28,8 @@ declare module '@mui/material/styles' {
     articleDescription: React.CSSProperties;
     articleLinkText: React.CSSProperties;
   }
-
   interface TypographyVariantsOptions {
+    formHeader: CSSProperties;
     bodyS: {
       fontSize?: number;
       fontWeight?: number;
@@ -37,11 +46,9 @@ declare module '@mui/material/styles' {
     articleDescription: React.CSSProperties;
     articleLinkText: React.CSSProperties;
   }
-
   interface PaletteColor {
     loading?: string;
   }
-
   interface TypeBackground {
     loading?: string;
   }
@@ -49,6 +56,7 @@ declare module '@mui/material/styles' {
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
+    formHeader: true;
     articleMainTitle: true;
     articleTitle: true;
     articleDescription: true;
@@ -78,8 +86,8 @@ const theme = createTheme({
       dark: '#697077',
     },
     background: {
-      paper: '#F2F4F8',
       default: '#FFFFFF',
+      paper: '#F2F4F8',
       loading: '#F3F7FF',
     },
     text: {
@@ -151,6 +159,7 @@ const theme = createTheme({
     },
     button: {
       fontSize: 20,
+      fontWeight: 500,
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
@@ -165,6 +174,7 @@ const theme = createTheme({
       fontWeight: 700,
       letterSpacing: 1,
     },
+    formHeader: {},
     articleMainTitle: {},
     articleTitle: {},
     articleDescription: {},
@@ -174,6 +184,7 @@ const theme = createTheme({
     MuiTypography: {
       defaultProps: {
         variantMapping: {
+          formHeader: 'h2',
           articleMainTitle: 'h2',
           articleTitle: 'h5',
           articleDescription: 'p',
@@ -182,6 +193,16 @@ const theme = createTheme({
     },
   },
 });
+
+theme.typography.formHeader = {
+  ...theme.typography.h2,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: theme.typography.h2.fontSize,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: theme.typography.h3.fontSize,
+  },
+};
 
 theme.typography.articleMainTitle = {
   ...theme.typography.h2,
