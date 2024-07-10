@@ -86,6 +86,7 @@ export default function Header() {
                       {listItem.icon && (
                         <LiButtonIcon>
                           <listItem.icon width="24px" height="24px" />
+                          <title>{listItem.label}</title>
                         </LiButtonIcon>
                       )}
                     </LiButton>
