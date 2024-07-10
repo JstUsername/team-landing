@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import theme from '../../theme.tsx';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { LiButtonProps } from './Header.types.ts';
 import { HeaderListItems } from './Header.constants.ts';
 import HeaderMobile from './HeaderMobile/HeaderMobile.tsx';
@@ -40,15 +40,15 @@ export default function Header() {
         <HeaderTop>
           <HeaderTopBlock>
             <MapMarkerIcon title="Map marker" />
-            <span style={theme.typography.body2}>Москва</span>
+            <Typography variant="body2">Москва</Typography>
           </HeaderTopBlock>
           <HeaderTopBlock style={{ marginLeft: 'auto' }} onClick={goToLogin}>
             <UserIcon title="User" />
-            <span style={theme.typography.body2}>Вход</span>
+            <Typography variant="body2">Вход</Typography>
           </HeaderTopBlock>
           <HeaderTopBlock>
             <ShoppingCartIcon title="Shopping cart" />
-            <span style={theme.typography.body2}>Корзина</span>
+            <Typography variant="body2">Корзина</Typography>
             <ChevronDownIcon title="Chevron down" />
           </HeaderTopBlock>
         </HeaderTop>
