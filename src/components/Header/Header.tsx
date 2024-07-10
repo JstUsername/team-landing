@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import { LiButtonProps } from './Header.types.ts';
 import { HeaderListItems } from './Header.constants.ts';
 import HeaderMobile from './HeaderMobile/HeaderMobile.tsx';
@@ -42,7 +43,7 @@ export default function Header() {
             <MapMarkerIcon title="Map marker" />
             <Typography variant="body2">Москва</Typography>
           </HeaderTopBlock>
-          <HeaderTopBlock style={{ marginLeft: 'auto' }} onClick={goToLogin}>
+          <HeaderTopBlock sx={{ marginLeft: 'auto' }} onClick={goToLogin}>
             <UserIcon title="User" />
             <Typography variant="body2">Вход</Typography>
           </HeaderTopBlock>
@@ -120,7 +121,7 @@ const HeaderBottom = styled('div')`
   background-color: ${({ theme }) => theme.palette.background.paper};
 `;
 
-const HeaderTopBlock = styled('button')`
+const HeaderTopBlock = styled(Box)`
   display: flex;
   flex-direction: row;
   align-items: center;
