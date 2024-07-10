@@ -246,7 +246,7 @@ const LiButton = styled('button')<LiButtonProps>`
   padding: ${(props) => (props.icon && props.active ? '8px 16px 8px 48px' : '8px 16px')};
   background: ${(props) => (props.active ? `${props.theme.palette.background.default}` : 'none')};
   box-shadow: ${(props) => (props.active ? `0 0 0 1px ${props.theme.palette.secondary.dark}` : 'none')};
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.palette.background.default};
