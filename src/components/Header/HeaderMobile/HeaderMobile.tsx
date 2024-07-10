@@ -36,49 +36,40 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
   }, [openMenu]);
 
   return (
-    <MobileHeaderWrapper>
-      <MobileHeader>
-        <Logo title="Logo" width="100px" height="24px" />
-        <NavBarMobile>
-          <UserIcon onClick={goToLogin} />
-          <ShoppingCart count={9}>
-            <ShoppingCartIcon />
-          </ShoppingCart>
-          <MenuIcon onClick={() => setOpenMenu(true)} />
-        </NavBarMobile>
-        <DropdownMenu visible={openMenu}>
-          <DropdownMenuLogo title="Logo" width="224" height="40" />
-          <Search>
-            <StyledInput id="input-search-mobile" placeholder="Поиск по ..." />
-            <StyledSearchIcon />
-          </Search>
-          <MobileHeaderUl>
-            {HeaderListItems.map((listItem, itemIndex) => (
-              <MobileHeaderLi key={itemIndex}>
-                <MobileLiButton active={isActive[itemIndex].active} onClick={() => handlePageSection(itemIndex)}>
-                  {listItem.label}
-                </MobileLiButton>
-              </MobileHeaderLi>
-            ))}
-          </MobileHeaderUl>
-          <StyledButton component="button" variant="outlined" onClick={() => setOpenMenu(false)}>
-            <ButtonText>Закрыть меню</ButtonText>
-          </StyledButton>
-        </DropdownMenu>
-      </MobileHeader>
-    </MobileHeaderWrapper>
+    <MobileHeader>
+      <Logo title="Logo" width="100px" height="24px" />
+      <NavBarMobile>
+        <UserIcon onClick={goToLogin} />
+        <ShoppingCart count={9}>
+          <ShoppingCartIcon />
+        </ShoppingCart>
+        <MenuIcon onClick={() => setOpenMenu(true)} />
+      </NavBarMobile>
+      <DropdownMenu visible={openMenu}>
+        <DropdownMenuLogo title="Logo" width="224" height="40" />
+        <Search>
+          <StyledInput id="input-search-mobile" placeholder="Поиск по ..." />
+          <StyledSearchIcon />
+        </Search>
+        <MobileHeaderUl>
+          {HeaderListItems.map((listItem, itemIndex) => (
+            <MobileHeaderLi key={itemIndex}>
+              <MobileLiButton active={isActive[itemIndex].active} onClick={() => handlePageSection(itemIndex)}>
+                {listItem.label}
+              </MobileLiButton>
+            </MobileHeaderLi>
+          ))}
+        </MobileHeaderUl>
+        <StyledButton component="button" variant="outlined" onClick={() => setOpenMenu(false)}>
+          <ButtonText>Закрыть меню</ButtonText>
+        </StyledButton>
+      </DropdownMenu>
+    </MobileHeader>
   );
 }
 
-const MobileHeaderWrapper = styled('header')`
-  display: none;
-  padding: 28px 16px;
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    display: block;
-  }
-`;
-
 const MobileHeader = styled('div')`
+  padding: 28px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
