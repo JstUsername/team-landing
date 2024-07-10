@@ -1,36 +1,32 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { Typography, Box, Link } from '@mui/material';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import {
   Section,
   Container,
   FormBlock,
-  TypographyWrapper,
-  FormWrapper,
-  InputWrapper,
   LabelBlock,
   LabelBlockCheckbox,
   StyledFormButton,
-  Popup,
-  FormTitle,
-  FormSubTitle,
-  PopupTitle,
+  FormInput,
+  FormTextarea,
+  FormSelect,
 } from './Form.styled';
-import ArrowRight from '../assets/arrow-right.svg?react';
-import PopupSuccess from '../assets/popup-success.svg?react';
-import { IFormData } from './Form.types';
+import { TypeFormData } from './Form.types';
+import { NAME, SECOND_NAME, CONVERSATION_THEME, QUESTIONS, GROUPS } from './Form.constants';
+import PopupForm from '../PopupForm/PopupForm';
+import { Box, Typography } from '@mui/material';
 
-const initialFormData: IFormData = {
-  name: '',
-  secondName: '',
-  conversationTheme: '',
-  questions: '',
-  groups: '',
+const initialFormData: TypeFormData = {
+  [NAME]: '',
+  [SECOND_NAME]: '',
+  [CONVERSATION_THEME]: '',
+  [QUESTIONS]: '',
+  [GROUPS]: '',
 };
 
 const Form = () => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [formData, setFormData] = useState<IFormData>(initialFormData);
+  const [formData, setFormData] = useState<TypeFormData>(initialFormData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -46,47 +42,30 @@ const Form = () => {
     setFormData(initialFormData);
   };
 
+  const handleReturnForm: () => void = () => {
+    setIsSuccess(false);
+  };
+
   return (
     <Section>
       <Container>
         {isSuccess ? (
-          <Popup>
-            <PopupTitle variant="h3">Форма успешно отправлена</PopupTitle>
-            <PopupSuccess />
-            <Box paddingTop={'16px'} paddingBottom={'16px'}>
-              <Link
-                href="#"
-                underline="none"
-                display={'inline-flex'}
-                alignItems={'center'}
-                sx={{ cursor: 'pointer' }}
-                onClick={() => {
-                  setIsSuccess(false);
-                }}
-              >
-                <Typography>Вернуться к форме</Typography>
-                <Box padding={'5px'} marginLeft={'16px'} display={'flex'}>
-                  <ArrowRight />
-                </Box>
-              </Link>
-            </Box>
-          </Popup>
+          <PopupForm handleReturnForm={handleReturnForm} />
         ) : (
           <FormBlock onSubmit={onSubmit}>
-            <TypographyWrapper>
-              <FormTitle variant="h2">Начать использование</FormTitle>
-              <FormSubTitle variant="body1">Хотите начать сотрудничество? Напишите нам</FormSubTitle>
-            </TypographyWrapper>
-
-            <FormWrapper>
-              <InputWrapper>
+            <Box display="flex" flexDirection="column" gap="8px">
+              <Typography variant="formTitle">Начать использование</Typography>
+              <Typography variant="formSubTitle">Хотите начать сотрудничество? Напишите нам</Typography>
+            </Box>
+            <Box display="flex" flexDirection="column" gap="16px">
+              <Box display="flex" gap="16px">
                 <LabelBlock htmlFor="name">
                   <span>Имя</span>
-                  <input type="text" id="name" name="name" placeholder="Иван" onChange={handleChange} required />
+                  <FormInput type="text" id="name" name="name" placeholder="Иван" onChange={handleChange} required />
                 </LabelBlock>
                 <LabelBlock htmlFor="secondName">
                   <span>Фамилия</span>
-                  <input
+                  <FormInput
                     type="text"
                     id="secondName"
                     name="secondName"
@@ -95,10 +74,10 @@ const Form = () => {
                     required
                   />
                 </LabelBlock>
-              </InputWrapper>
+              </Box>
               <LabelBlock htmlFor="conversationTheme">
                 <span>Тема</span>
-                <input
+                <FormInput
                   type="text"
                   id="conversationTheme"
                   name="conversationTheme"
@@ -109,28 +88,28 @@ const Form = () => {
               </LabelBlock>
               <LabelBlock htmlFor="questions">
                 <span>Вопросы</span>
-                <textarea
+                <FormTextarea
                   id="questions"
                   name="questions"
                   placeholder="Ваш вопрос ..."
                   onChange={handleChange}
                   required
-                ></textarea>
+                ></FormTextarea>
               </LabelBlock>
               <LabelBlock htmlFor="groups-select">
                 <span>Группы</span>
-                <select id="groups-select" name="groups" onChange={handleChange} required>
+                <FormSelect id="groups-select" name="groups" onChange={handleChange} required>
                   <option>Группы</option>
                   <option value="group-1">1 группа</option>
                   <option value="group-2">2 группа</option>
-                </select>
+                </FormSelect>
               </LabelBlock>
               <LabelBlockCheckbox htmlFor="politicCheckbox">
                 <span>Согласен с политикой обработки данных</span>
-                <input type="checkbox" id="politicCheckbox" required />
+                <FormInput type="checkbox" id="politicCheckbox" required />
               </LabelBlockCheckbox>
               <StyledFormButton type="submit">Отправить</StyledFormButton>
-            </FormWrapper>
+            </Box>
           </FormBlock>
         )}
       </Container>

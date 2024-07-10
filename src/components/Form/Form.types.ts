@@ -1,4 +1,4 @@
-export interface IFormData { 
+export interface TypeFormData { 
 	name: string;
   secondName: string;
   conversationTheme: string,

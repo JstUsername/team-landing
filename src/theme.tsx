@@ -14,6 +14,9 @@ declare module '@mui/material/styles' {
       lineHeight: number;
       letterSpacing: string;
     };
+    formTitle: React.CSSProperties;
+    formSubTitle: React.CSSProperties;
+    popupTitle: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
@@ -28,6 +31,9 @@ declare module '@mui/material/styles' {
       lineHeight?: number;
       letterSpacing?: string;
     };
+    formTitle: React.CSSProperties;
+    formSubTitle: React.CSSProperties;
+    popupTitle: React.CSSProperties;
   }
 
   interface PaletteColor {
@@ -39,7 +45,24 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    formTitle: true;
+    formSubTitle: true;
+    popupTitle: true;
+  }
+}
+
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 768,
+      md: 1024,
+      lg: 1440,
+      xl: 1920,
+    },
+  },
   palette: {
     mode: 'light',
     primary: {
@@ -134,16 +157,42 @@ const theme = createTheme({
       lineHeight: 1,
       letterSpacing: '0.5px',
     },
+    formTitle: {},
+    formSubTitle: {},
+    popupTitle: {},
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 768,
-      md: 1024,
-      lg: 1440,
-      xl: 1920,
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          formTitle: 'h2',
+          formSubTitle: '',
+          popupTitle: 'h3',
+        },
+      },
     },
   },
 });
+
+theme.typography.formTitle = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h3,
+  },
+};
+
+theme.typography.formSubTitle = {
+  ...theme.typography.body1,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.body2,
+  },
+};
+
+theme.typography.popupTitle = {
+  ...theme.typography.h3,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h4,
+  },
+};
 
 export default theme;

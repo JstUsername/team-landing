@@ -9,8 +9,6 @@ function App() {
       <CssBaseline />
       <div className="App">
         <Form />
-
-        
       </div>
     </ThemeProvider>
   );
