@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { HeaderMobileProps, DropdownMenuProps, ShoppingCartProps } from './HeaderMobile.types.ts';
 import { LiButtonProps } from '../Header.types.ts';
-import { HeaderListItems } from '../Header.constants.ts';
+import { headerListItems } from '../Header.constants.ts';
 import Logo from '../../../assets/header/logo.svg?react';
 import UserIcon from '../../../assets/header/icons/user.svg?react';
 import ShoppingCartIcon from '../../../assets/header/icons/shopping-cart.svg?react';
@@ -20,7 +20,7 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
           ? {
               label: prevListItem.label,
               active: true,
-              icon: HeaderListItems[itemIndex].icon,
+              icon: headerListItems[itemIndex].icon,
             }
           : { label: prevListItem.label, active: false, icon: undefined },
       ),
@@ -52,7 +52,7 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
           <StyledSearchIcon />
         </Search>
         <MobileHeaderUl>
-          {HeaderListItems.map((listItem, itemIndex) => (
+          {headerListItems.map((listItem, itemIndex) => (
             <MobileHeaderLi key={itemIndex}>
               <MobileLiButton active={isActive[itemIndex].active} onClick={() => handlePageSection(itemIndex)}>
                 {listItem.label}
