@@ -5,7 +5,7 @@ export interface LiButtonProps {
   icon?: FunctionComponent<SVGProps<SVGSVGElement>> | undefined;
 }
 
-export interface HeaderLi {
+export interface HeaderLiType {
   label: string;
   active: boolean;
   icon: FunctionComponent<SVGProps<SVGSVGElement>> | undefined;

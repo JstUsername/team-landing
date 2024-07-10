@@ -1,6 +1,6 @@
 import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { styled } from '@mui/material/styles';
-import { HeaderLi, LiButtonProps } from '../Header.types.ts';
+import { HeaderLiType, LiButtonProps } from '../Header.types.ts';
 import { HeaderListItems } from '../Header.constants.ts';
 import Logo from '../../../assets/header/logo.svg?react';
 import UserIcon from '../../../assets/header/icons/user.svg?react';
@@ -10,8 +10,8 @@ import SearchIcon from '../../../assets/header/icons/search.svg?react';
 
 interface HeaderMobileProps {
   goToLogin: () => void;
-  isActive: HeaderLi[];
-  setIsActive: Dispatch<SetStateAction<HeaderLi[]>>;
+  isActive: HeaderLiType[];
+  setIsActive: Dispatch<SetStateAction<HeaderLiType[]>>;
 }
 
 interface DropdownMenuProps {

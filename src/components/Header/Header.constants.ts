@@ -1,4 +1,4 @@
-import { HeaderLi } from './Header.types.ts';
+import { HeaderLiType } from './Header.types.ts';
 import MenuIcon from '../../assets/header/icons/menu.svg?react';
 import HomeIcon from '../../assets/header/icons/home.svg?react';
 import InfoIcon from '../../assets/header/icons/info.svg?react';
@@ -9,7 +9,7 @@ import TagIcon from '../../assets/header/icons/tag.svg?react';
 import PaperPlaneIcon from '../../assets/header/icons/paper-plane.svg?react';
 import CoinIcon from '../../assets/header/icons/coin.svg?react';
 
-export const HeaderListItems: HeaderLi[] = [
+export const HeaderListItems: HeaderLiType[] = [
   {
     label: 'Меню',
     active: true,
