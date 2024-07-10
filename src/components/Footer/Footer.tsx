@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
-import theme from '../../theme.tsx';
+import { useMediaQuery, useTheme, Theme } from '@mui/material';
 import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
@@ -12,6 +11,7 @@ import InstagramIcon from '../../assets/footer/icons/instagram.svg?react';
 import LinkedinIcon from '../../assets/footer/icons/linkedin.svg?react';
 
 export default function Footer() {
+  const theme = useTheme<Theme>();
   return (
     <FooterWrapper>
       <FooterTop>
