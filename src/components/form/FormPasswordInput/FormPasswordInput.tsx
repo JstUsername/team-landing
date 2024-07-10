@@ -4,7 +4,7 @@ import { validatePassword } from '../../../utils/validate.ts';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import EyeIcon from '../../../assets/login/icons/eye.svg?react';
-import EyeCloseIcon from '../../../assets/login/icons/eye-close.svg?react';
+import EyeClose from '../../../assets/login/icons/eye-close.svg?react';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
@@ -49,12 +49,7 @@ export default function FormPasswordInput({ typeLogin, passwordSubtitle }: FormP
               {!showPassword ? (
                 <EyeIcon title="Change password visibility" width="20px" height="20px" />
               ) : (
-                <EyeCloseIcon
-                  title="Change password visibility"
-                  width="24px"
-                  height="24px"
-                  style={{ marginRight: '-2px' }}
-                />
+                <EyeCloseIcon title="Change password visibility" width="24px" height="24px" />
               )}
             </IconButton>
           </InputAdornment>
@@ -72,4 +67,8 @@ const PasswordSubtitle = styled(Typography)`
   line-height: 1.4;
   margin-top: 4px;
   color: ${({ theme }) => theme.palette.text.secondary};
+`;
+
+const EyeCloseIcon = styled(EyeClose)`
+  margin-right: -2px;
 `;

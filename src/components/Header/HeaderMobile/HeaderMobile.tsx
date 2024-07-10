@@ -59,18 +59,18 @@ export default function HeaderMobile({ goToLogin, isActive, setIsActive }: Heade
           <MenuIcon onClick={() => setOpenMenu(true)} />
         </NavBarMobile>
         <DropdownMenu visible={openMenu}>
-          <Logo title="Logo" width="224" height="40" style={{ flexShrink: '0' }} />
+          <DropdownMenuLogo title="Logo" width="224" height="40" />
           <Search>
             <StyledInput id="input-search-mobile" placeholder="Поиск по ..." />
             <StyledSearchIcon />
           </Search>
           <MobileHeaderUl>
             {HeaderListItems.map((listItem, itemIndex) => (
-              <li key={itemIndex} style={{ alignSelf: 'stretch' }}>
+              <MobileHeaderLi key={itemIndex}>
                 <MobileLiButton active={isActive[itemIndex].active} onClick={() => handlePageSection(itemIndex)}>
                   {listItem.label}
                 </MobileLiButton>
-              </li>
+              </MobileHeaderLi>
             ))}
           </MobileHeaderUl>
           <MobileCloseButton onClick={() => setOpenMenu(false)}>Закрыть меню</MobileCloseButton>
@@ -228,4 +228,12 @@ const ShoppingCart = styled('div')<ShoppingCartProps>`
     line-height: 1;
     color: ${({ theme }) => theme.palette.background.default};
   }
+`;
+
+const DropdownMenuLogo = styled(Logo)`
+  flex-shrink: 0;
+`;
+
+const MobileHeaderLi = styled('li')`
+  align-self: stretch;
 `;

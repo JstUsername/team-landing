@@ -20,7 +20,7 @@ export default function FormCheckbox({ typeLogin }: FormCheckboxProps) {
   return (
     <>
       <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)} onKeyDown={handleKeyDown}>
-        {checked && <UnionIcon title="Union" style={{ position: 'absolute', left: '3px', top: '5px' }} />}
+        {checked && <CheckboxIcon title="Union" />}
       </StyledCheckbox>
       <Typography variant="body1" sx={{ fontSize: '14px' }}>
         {typeLogin === 'registration' ? 'Согласен с политикой обработки персональных данных' : 'Запомнить меня'}
@@ -35,7 +35,14 @@ const StyledCheckbox = styled('div')`
   padding: 2px;
   border: 1px solid;
   color: ${({ theme }) => theme.palette.text.primary};
+  cursor: pointer;
   :hover {
     background-color: ${({ theme }) => theme.palette.secondary.light};
   }
+`;
+
+const CheckboxIcon = styled(UnionIcon)`
+  position: absolute;
+  left: 3px;
+  top: 5px;
 `;

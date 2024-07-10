@@ -80,11 +80,7 @@ export default function LoginPage({ typeLogin }: LoginProps) {
         </LeftColumnWrapper>
       </Grid>
       <Grid xs={0} sm={6}>
-        <img
-          src={loginImage}
-          alt="Decorative image from the login page"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
+        <SplitImage src={loginImage} alt="Decorative image from the login page" />
       </Grid>
     </StyledGrid>
   );
@@ -154,4 +150,10 @@ const StyledOutlinedButton = styled(Button)`
   &:hover {
     border-width: 2px;
   }
+`;
+
+const SplitImage = styled('img')`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;

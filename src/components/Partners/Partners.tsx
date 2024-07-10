@@ -1,40 +1,46 @@
 import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import ShellsLogo from '../../assets/partners/SHELLS-logo.svg?react';
 import SmartFinderLogo from '../../assets/partners/SmartFinder-logo.svg?react';
 import ZoomerrLogo from '../../assets/partners/Zoomerr-logo.svg?react';
 import ArtVenueLogo from '../../assets/partners/ArtVenue-logo.svg?react';
 import KontrastrLogo from '../../assets/partners/kontrastr-logo.svg?react';
 import WavesmarathonLogo from '../../assets/partners/WAVESMARATHON-logo.svg?react';
+import Typography from '@mui/material/Typography';
 
 export default function Partners() {
   return (
     <PartnersSection>
       <PartnerItem>
         <ShellsLogo title={'SHELLS'} />
-        <LogoTitle>SHELLS</LogoTitle>
+        <LogoTitle variant="h4">SHELLS</LogoTitle>
       </PartnerItem>
       <PartnerItem>
         <SmartFinderLogo title={'SmartFinder'} />
-        <LogoTitle>SmartFinder</LogoTitle>
+        <LogoTitle variant="h4">SmartFinder</LogoTitle>
       </PartnerItem>
       <PartnerItem>
         <ZoomerrLogo title={'Zoomerr'} />
-        <LogoTitle>Zoomerr</LogoTitle>
+        <LogoTitle variant="h4">Zoomerr</LogoTitle>
       </PartnerItem>
       <PartnerItem>
         <ArtVenueLogo title={'ArtVenue'} />
-        <LogoTitle>ArtVenue</LogoTitle>
+        <LogoTitle variant="h4">ArtVenue</LogoTitle>
       </PartnerItem>
       <PartnerItem>
         <KontrastrLogo title={'kontrastr'} />
-        <LogoTitle>kontrastr</LogoTitle>
+        <LogoTitle variant="h4">kontrastr</LogoTitle>
       </PartnerItem>
       <PartnerItem>
         <WavesmarathonLogo title={'WAVESMARATHON'} />
-        <span style={{ display: 'inline-flex' }}>
-          <LogoTitle style={{ fontSize: '18px', lineHeight: '1' }}>WAVES</LogoTitle>
-          <LogoTitle style={{ fontSize: '18px', lineHeight: '1', fontWeight: '400' }}>MARATHON</LogoTitle>
-        </span>
+        <Box component="span" sx={{ display: 'inline-flex' }}>
+          <LogoTitle variant="body1" sx={{ lineHeight: 1, fontWeight: '700' }}>
+            WAVES
+          </LogoTitle>
+          <LogoTitle variant="body1" sx={{ lineHeight: 1, fontWeight: '400' }}>
+            MARATHON
+          </LogoTitle>
+        </Box>
       </PartnerItem>
     </PartnersSection>
   );
@@ -72,8 +78,7 @@ const PartnerItem = styled('div')`
   }
 `;
 
-const LogoTitle = styled('h4')`
+const LogoTitle = styled(Typography)`
   margin: 0;
-  ${({ theme }) => theme.typography.h4}
-  color: ${({ theme }) => theme.palette.background.default}
+  color: ${({ theme }) => theme.palette.background.default};
 `;

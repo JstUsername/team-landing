@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { useMediaQuery, useTheme, Theme } from '@mui/material';
+import { useMediaQuery, useTheme, Theme, Box, List } from '@mui/material';
 import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
@@ -80,24 +80,24 @@ export default function Footer() {
             </FooterUl>
           </div>
           <div>
-            <div style={{ marginBottom: '24px' }}>
+            <Box sx={{ marginBottom: '24px' }}>
               <ListTitle>Контакты</ListTitle>
-              <FooterUl style={{ flexDirection: 'row', gap: '8px' }}>
+              <FooterUl sx={{ flexDirection: 'row', gap: '8px' }}>
                 <li>
-                  <StoreButton style={{ width: '120px' }}>
+                  <StoreButton sx={{ width: '120px' }}>
                     <AppStore />
                   </StoreButton>
                 </li>
                 <li>
-                  <StoreButton style={{ width: '135px' }}>
+                  <StoreButton sx={{ width: '135px' }}>
                     <GooglePlay />
                   </StoreButton>
                 </li>
               </FooterUl>
-            </div>
+            </Box>
             <div>
               <ListTitle>Присоединиться к нам</ListTitle>
-              <FooterUl style={{ flexDirection: 'row', marginTop: '8px' }}>
+              <FooterUl sx={{ flexDirection: 'row', marginTop: '8px' }}>
                 <li>
                   <YoutubeIcon />
                 </li>
@@ -122,7 +122,7 @@ export default function Footer() {
       <FooterBottom>
         <Copyright>Тестовая компания @ 2023. Все права защищены.</Copyright>
         <nav>
-          <FooterUl style={{ flexDirection: 'row', marginTop: '0px' }}>
+          <FooterUl sx={{ flexDirection: 'row', marginTop: '0px' }}>
             <li>
               <FooterListLink href="">Медицина</FooterListLink>
             </li>
@@ -267,7 +267,7 @@ const ListTitle = styled('h6')`
   }
 `;
 
-const FooterUl = styled('ul')`
+const FooterUl = styled(List)`
   margin: 16px 0 0;
   padding: 0;
   list-style-type: none;
@@ -294,7 +294,7 @@ const FooterListLink = styled('a')`
   }
 `;
 
-const StoreButton = styled('button')`
+const StoreButton = styled(Box)`
   height: 40px;
   display: flex;
   justify-content: center;
