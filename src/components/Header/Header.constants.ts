@@ -5,7 +5,7 @@ import InfoIcon from '../../assets/header/icons/info.svg?react';
 import NewspaperIcon from '../../assets/header/icons/newspaper.svg?react';
 import MessageIcon from '../../assets/header/icons/message.svg?react';
 import BookIcon from '../../assets/header/icons/book.svg?react';
-import ShoppingCartIcon from '../../assets/header/icons/shopping-cart.svg?react';
+import TagIcon from '../../assets/header/icons/tag.svg?react';
 import PaperPlaneIcon from '../../assets/header/icons/paper-plane.svg?react';
 import CoinIcon from '../../assets/header/icons/coin.svg?react';
 
@@ -48,7 +48,7 @@ export const HeaderListItems: HeaderLi[] = [
   {
     label: 'Цены',
     active: false,
-    icon: ShoppingCartIcon,
+    icon: TagIcon,
   },
   {
     label: 'Оставить заявку',
