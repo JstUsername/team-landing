@@ -5,6 +5,7 @@ import Logo from '../../assets/header/logo.svg?react';
 import MailIcon from '../../assets/footer/icons/envelope.svg?react';
 import AppStore from '../../assets/footer/app-store.svg?react';
 import GooglePlay from '../../assets/footer/google-play.svg?react';
+import FooterMiddleUl from './FooterMiddleUl/FooterMiddleUl.tsx';
 import {
   footerSocialMediaItems,
   newsFooterListItems,
@@ -30,36 +31,9 @@ export default function Footer() {
       <Divider />
       <nav>
         <FooterMiddle>
-          <div>
-            <ListTitle>Для взрослых</ListTitle>
-            <FooterUl>
-              {adultFooterListItems.map((adultListItem, adultItemIndex) => (
-                <li key={adultItemIndex}>
-                  <FooterListLink href={adultListItem.href}>{adultListItem.text}</FooterListLink>
-                </li>
-              ))}
-            </FooterUl>
-          </div>
-          <div>
-            <ListTitle>Для детей</ListTitle>
-            <FooterUl>
-              {childFooterListItems.map((childListItem, childItemIndex) => (
-                <li key={childItemIndex}>
-                  <FooterListLink href={childListItem.href}>{childListItem.text}</FooterListLink>
-                </li>
-              ))}
-            </FooterUl>
-          </div>
-          <div>
-            <ListTitle>Новости</ListTitle>
-            <FooterUl>
-              {newsFooterListItems.map((newsListItem, newsItemIndex) => (
-                <li key={newsItemIndex}>
-                  <FooterListLink href={newsListItem.href}>{newsListItem.text}</FooterListLink>
-                </li>
-              ))}
-            </FooterUl>
-          </div>
+          <FooterMiddleUl footerListTitle={'Для взрослых'} footerListItems={adultFooterListItems} />
+          <FooterMiddleUl footerListTitle={'Для детей'} footerListItems={childFooterListItems} />
+          <FooterMiddleUl footerListTitle={'Новости'} footerListItems={newsFooterListItems} />
           <div>
             <Box sx={{ marginBottom: '24px' }}>
               <ListTitle>Контакты</ListTitle>
@@ -226,7 +200,7 @@ const Divider = styled('hr')`
   color: ${({ theme }) => theme.palette.divider2};
 `;
 
-const ListTitle = styled('h6')`
+export const ListTitle = styled('h6')`
   ${({ theme }) => theme.typography.h6};
   margin: 0;
   padding: 12px 0;
@@ -236,7 +210,7 @@ const ListTitle = styled('h6')`
   }
 `;
 
-const FooterUl = styled(List)`
+export const FooterUl = styled(List)`
   margin: 16px 0 0;
   padding: 0;
   list-style-type: none;
@@ -253,7 +227,7 @@ const FooterUl = styled(List)`
   }
 `;
 
-const FooterListLink = styled('a')`
+export const FooterListLink = styled('a')`
   ${({ theme }) => theme.typography.body2};
   line-height: 1;
   color: ${({ theme }) => theme.palette.background.default};
