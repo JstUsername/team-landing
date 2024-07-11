@@ -53,13 +53,15 @@ const PartnersSection = styled('section')`
   justify-content: center;
   padding: 80px;
   background: ${({ theme }) => theme.palette.gradients.blueGradient};
-  flex-wrap: wrap;
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 24px;
     column-gap: 32px;
     padding: 48px 16px;
+  }
+  ${({ theme }) => theme.breakpoints.down('lg')} {
+    flex-wrap: wrap;
   }
 `;
 
