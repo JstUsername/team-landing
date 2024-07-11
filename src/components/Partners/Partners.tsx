@@ -48,8 +48,7 @@ export default function Partners() {
 
 const PartnersSection = styled('section')`
   display: flex;
-  gap: 16px;
-  row-gap: 32px;
+  gap: 32px 16px;
   align-items: center;
   justify-content: center;
   padding: 80px;
@@ -74,7 +73,6 @@ const PartnerItem = styled('div')`
   ${({ theme }) => theme.breakpoints.down('md')} {
     width: fit-content;
     justify-self: center;
-    align-self: center;
   }
 `;
 
