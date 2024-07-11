@@ -227,7 +227,6 @@ const HeaderUl = styled('ul')`
   padding: 0;
   list-style-type: none;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 8px;
