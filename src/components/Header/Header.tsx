@@ -41,7 +41,7 @@ export default function Header() {
   const isBigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <header>
+    <HeaderWrapper>
       {isBigScreen ? (
         <>
           <HeaderTop>
@@ -100,9 +100,19 @@ export default function Header() {
       ) : (
         <HeaderMobile goToLogin={goToLogin} isActive={isActive} setIsActive={setIsActive} />
       )}
-    </header>
+    </HeaderWrapper>
   );
 }
+
+const HeaderWrapper = styled('header')`
+  position: sticky;
+  top: 0;
+  background: ${({ theme }) => theme.palette.background.default};
+  z-index: 9;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    position: static;
+  }
+`;
 
 const HeaderTop = styled('div')`
   display: flex;
