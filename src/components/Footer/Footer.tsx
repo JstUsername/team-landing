@@ -14,16 +14,14 @@ import {
 
 export default function Footer() {
   const theme = useTheme<Theme>();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <FooterWrapper>
       <FooterTop>
         <Logo title="Logo" width="168" height="40" />
         <Search>
           <StyledMailIcon title="Mail" />
-          <StyledInput
-            id="input-mail"
-            placeholder={useMediaQuery(theme.breakpoints.down('sm')) ? 'Подписаться...' : 'Подписаться на рассылку'}
-          />
+          <StyledInput id="input-mail" placeholder={isSmallScreen ? 'Подписаться...' : 'Подписаться на рассылку'} />
           <StyledButton component="button" variant="contained">
             <ButtonText>Подписаться</ButtonText>
           </StyledButton>

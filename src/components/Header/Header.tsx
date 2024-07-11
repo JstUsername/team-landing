@@ -38,10 +38,11 @@ export default function Header() {
   };
 
   const theme = useTheme<Theme>();
+  const isBigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <header>
-      {useMediaQuery(theme.breakpoints.up('sm')) ? (
+      {isBigScreen ? (
         <>
           <HeaderTop>
             <HeaderTopBlock>
