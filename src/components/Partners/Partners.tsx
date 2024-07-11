@@ -52,7 +52,7 @@ const PartnersSection = styled('section')`
   align-items: center;
   justify-content: center;
   padding: 80px;
-  background: ${({ theme }) => theme.palette.gradients.mainGradient};
+  background: ${({ theme }) => theme.palette.gradients.blueGradient};
   flex-wrap: wrap;
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: grid;

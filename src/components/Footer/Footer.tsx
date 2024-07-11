@@ -91,7 +91,7 @@ const FooterWrapper = styled('footer')`
   flex-direction: column;
   gap: 48px;
   padding: 48px 80px;
-  background: ${({ theme }) => theme.palette.gradients.mainGradient};
+  background: ${({ theme }) => theme.palette.gradients.blueGradient};
   ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 48px 16px;
     gap: 32px;
