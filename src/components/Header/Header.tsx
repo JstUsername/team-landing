@@ -216,7 +216,6 @@ const StyledButton = styled(ButtonLink)`
   display: block;
   padding: 16px 28px;
   border: none;
-  margin: 0;
   :hover {
     border: none;
   }
