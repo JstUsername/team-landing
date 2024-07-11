@@ -13,7 +13,7 @@ declare module '@mui/material/styles' {
     divider2: string;
   }
   interface Gradients {
-    mainGradient: string;
+    blueGradient: string;
   }
   interface Gradients {
     blueGradient: string;
@@ -37,17 +37,17 @@ declare module '@mui/material/styles' {
       lineHeight: number;
       letterSpacing: string;
     };
-    articleMainTitle: React.CSSProperties;
-    articleTitle: React.CSSProperties;
-    articleDescription: React.CSSProperties;
-    articleLinkText: React.CSSProperties;
-    sectionHeader: React.CSSProperties;
-    sectionSubHeader: React.CSSProperties;
-    sectionDescription: React.CSSProperties;
-    dropdownHeader: React.CSSProperties;
-    formTitle: React.CSSProperties;
-    formSubTitle: React.CSSProperties;
-    popupTitle: React.CSSProperties;
+    articleMainTitle: CSSProperties;
+    articleTitle: CSSProperties;
+    articleDescription: CSSProperties;
+    articleLinkText: CSSProperties;
+    sectionHeader: CSSProperties;
+    sectionSubHeader: CSSProperties;
+    sectionDescription: CSSProperties;
+    dropdownHeader: CSSProperties;
+    formTitle: CSSProperties;
+    formSubTitle: CSSProperties;
+    popupTitle: CSSProperties;
   }
   interface TypographyVariantsOptions {
     formHeader: CSSProperties;
@@ -68,17 +68,17 @@ declare module '@mui/material/styles' {
       lineHeight?: number;
       letterSpacing?: string;
     };
-    articleMainTitle: React.CSSProperties;
-    articleTitle: React.CSSProperties;
-    articleDescription: React.CSSProperties;
-    articleLinkText: React.CSSProperties;
-    sectionHeader: React.CSSProperties;
-    sectionSubHeader: React.CSSProperties;
-    sectionDescription: React.CSSProperties;
-    dropdownHeader: React.CSSProperties;
-    formTitle: React.CSSProperties;
-    formSubTitle: React.CSSProperties;
-    popupTitle: React.CSSProperties;
+    articleMainTitle: CSSProperties;
+    articleTitle: CSSProperties;
+    articleDescription: CSSProperties;
+    articleLinkText: CSSProperties;
+    sectionHeader: CSSProperties;
+    sectionSubHeader: CSSProperties;
+    sectionDescription: CSSProperties;
+    dropdownHeader: CSSProperties;
+    formTitle: CSSProperties;
+    formSubTitle: CSSProperties;
+    popupTitle: CSSProperties;
   }
   interface PaletteColor {
     loading?: string;
