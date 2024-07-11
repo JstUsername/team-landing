@@ -1,8 +1,8 @@
 /// <reference types="vite-plugin-svgr/client" />
 import { Typography, Box } from '@mui/material';
 import { Popup, PopupLink } from './PopupForm.styled';
-import ArrowRight from '../assets/PartnerForm/arrow-right.svg?react';
-import PopupSuccess from '../assets/PartnerForm/popup-success.svg?react';
+import ArrowRight from '../../assets/PartnerForm/arrow-right.svg?react';
+import PopupSuccess from '../../assets/PartnerForm/popup-success.svg?react';
 
 const PopupForm = ({ handleReturnForm }: { handleReturnForm: () => void }) => {
   return (

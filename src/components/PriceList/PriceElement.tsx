@@ -1,5 +1,5 @@
 import { Stack, Typography, styled, Button, ButtonProps } from '@mui/material';
-import Chip from '../commons/StyledChip/Chip';
+import Chip from '../../commons/StyledChip/Chip';
 import { Service } from './PriceList.types';
 import SvgCheck from '../../assets/PriceList/Check.svg?react';
 

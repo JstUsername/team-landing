@@ -1,5 +1,5 @@
 import { styled } from '@mui/material';
-import chevronDown from '../../assets/PartnerForm/chevron-down.svg';
+import chevronDown from '../../../assets/PartnerForm/chevron-down.svg';
 
 export const FormInput = styled('input')`
   width: 100%;
