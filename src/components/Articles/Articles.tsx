@@ -8,7 +8,7 @@ const Articles = () => {
     <ArticleSection>
       <ArticlesContainer>
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Typography variant="caption" mb="8px" color="primary.dark">
+          <Typography variant="caption" mb="8px" color="primary.dark" textTransform="uppercase">
             Статьи
           </Typography>
           <Typography variant="articleMainTitle" textAlign="center">

@@ -25,6 +25,12 @@ declare module '@mui/material/styles' {
       lineHeight: number;
       letterSpacing: string;
     };
+    buttonM: {
+      fontSize: number;
+      fontWeight: number;
+      lineHeight: number;
+      letterSpacing: string;
+    };
     articleMainTitle: React.CSSProperties;
     articleTitle: React.CSSProperties;
     articleDescription: React.CSSProperties;
@@ -33,6 +39,9 @@ declare module '@mui/material/styles' {
     sectionSubHeader: React.CSSProperties;
     sectionDescription: React.CSSProperties;
     dropdownHeader: React.CSSProperties;
+    formTitle: React.CSSProperties;
+    formSubTitle: React.CSSProperties;
+    popupTitle: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     formHeader: CSSProperties;
@@ -47,6 +56,12 @@ declare module '@mui/material/styles' {
       lineHeight?: number;
       letterSpacing?: string;
     };
+    buttonM?: {
+      fontSize?: number;
+      fontWeight?: number;
+      lineHeight?: number;
+      letterSpacing?: string;
+    };
     articleMainTitle: React.CSSProperties;
     articleTitle: React.CSSProperties;
     articleDescription: React.CSSProperties;
@@ -55,12 +70,17 @@ declare module '@mui/material/styles' {
     sectionSubHeader: React.CSSProperties;
     sectionDescription: React.CSSProperties;
     dropdownHeader: React.CSSProperties;
+    formTitle: React.CSSProperties;
+    formSubTitle: React.CSSProperties;
+    popupTitle: React.CSSProperties;
   }
   interface PaletteColor {
     loading?: string;
+    underline: string;
   }
   interface TypeBackground {
     loading?: string;
+    underline?: string;
   }
 }
 
@@ -75,6 +95,9 @@ declare module '@mui/material/Typography' {
     sectionSubHeader: true;
     sectionDescription: true;
     dropdownHeader: true;
+    formTitle: true;
+    formSubTitle: true;
+    popupTitle: true;
   }
 }
 
@@ -103,6 +126,7 @@ const theme = createTheme({
       default: '#FFFFFF',
       paper: '#F2F4F8',
       loading: '#F3F7FF',
+      underline: '#C1C7CD',
     },
     text: {
       primary: '#21272A',
@@ -180,6 +204,12 @@ const theme = createTheme({
       lineHeight: 1,
       letterSpacing: '0.03em',
     },
+    buttonM: {
+      fontSize: 16,
+      fontWeight: 500,
+      lineHeight: 1,
+      letterSpacing: '0.5px',
+    },
     buttonS: {
       fontSize: 14,
       fontWeight: 500,
@@ -207,6 +237,9 @@ const theme = createTheme({
     sectionHeader: {},
     sectionDescription: {},
     dropdownHeader: {},
+    formTitle: {},
+    formSubTitle: {},
+    popupTitle: {},
   },
   components: {
     MuiTypography: {
@@ -220,6 +253,9 @@ const theme = createTheme({
           sectionSubHeader: 'span',
           sectionDescription: 'p',
           dropdownHeader: 'h5',
+          formTitle: 'h2',
+          formSubTitle: '',
+          popupTitle: 'h3',
         },
       },
     },
@@ -238,6 +274,27 @@ theme.typography.formHeader = {
 
 theme.typography.articleMainTitle = {
   ...theme.typography.h2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h4,
+  },
+};
+
+theme.typography.formTitle = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.h3,
+  },
+};
+
+theme.typography.formSubTitle = {
+  ...theme.typography.body1,
+  [theme.breakpoints.down('sm')]: {
+    ...theme.typography.body2,
+  },
+};
+
+theme.typography.popupTitle = {
+  ...theme.typography.h3,
   [theme.breakpoints.down('sm')]: {
     ...theme.typography.h4,
   },

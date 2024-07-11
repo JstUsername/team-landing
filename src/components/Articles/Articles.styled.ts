@@ -38,6 +38,6 @@ export const AllArticlesLink = styled(Link)`
   cursor: pointer;
 
   :hover {
-    opacity: 0.8;
+    background-color: ${({ theme }) => theme.palette.primary.dark};
   }
 `;
