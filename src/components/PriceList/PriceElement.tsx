@@ -13,22 +13,22 @@ const PriceElement = ({ service }: PriceElementProps) => {
     <PriceElemContainer>
       {isPopular && (
         <PriceElemChip>
-          <Typography fontSize={"14px"}>Популярное</Typography>
+          <Typography fontSize="14px">Популярное</Typography>
         </PriceElemChip>
       )}
-      <Stack gap={"8px"}>
-        <Typography variant={"h3"}>{name}</Typography>
-        <Typography variant={"sectionDescription"}>{desc}</Typography>
+      <Stack gap="8px">
+        <Typography variant="h3">{name}</Typography>
+        <Typography variant="sectionDescription">{desc}</Typography>
       </Stack>
-      <Stack gap={"8px"}>
-        <Typography variant={"h1"} color={"text.secondary"} sx={{ textDecoration: sale && 'line-through' }}>
+      <Stack gap="8px">
+        <Typography variant="h1" color="text.secondary" sx={{ textDecoration: sale && 'line-through' }}>
           {price}
         </Typography>
-        {sale && <Typography variant={"h1"}>{sale}</Typography>}
-        <Typography fontSize={"14px"}>{!sale ? price : sale} USD каждый месяц</Typography>
+        {sale && <Typography variant="h1">{sale}</Typography>}
+        <Typography fontSize="14px">{!sale ? price : sale} USD каждый месяц</Typography>
       </Stack>
-      <ButtonLink variant={"contained"} component={'a'}>
-        <Typography paddingX={"16px"} variant={"button"} textTransform={"capitalize"}>
+      <ButtonLink variant="contained" component="a">
+        <Typography paddingX="16px" variant="button" textTransform="capitalize">
           Начать
         </Typography>
       </ButtonLink>
@@ -36,7 +36,7 @@ const PriceElement = ({ service }: PriceElementProps) => {
         {features.map((feature, index) => (
           <FeatureElement key={index}>
             <SvgCheck />
-            <Typography component={"span"}>{feature}</Typography>
+            <Typography component="span">{feature}</Typography>
           </FeatureElement>
         ))}
       </FeatureList>

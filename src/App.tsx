@@ -11,12 +11,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Global styles={GlobalStyles} />
-      <div className={"App"}>
+      <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path={"/"} element={<HomePage />} />
-            <Route path={"/login"} element={<LoginPage typeLogin={'authorization'} />} />
-            <Route path={"/registration"} element={<LoginPage typeLogin={'registration'} />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage typeLogin="authorization" />} />
+            <Route path="/registration" element={<LoginPage typeLogin="registration" />} />
           </Routes>
         </BrowserRouter>
       </div>

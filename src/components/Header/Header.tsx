@@ -57,30 +57,30 @@ export default function Header() {
         <>
           <HeaderTop>
             <HeaderTopBlock>
-              <MapMarkerIcon title={"Map marker"} />
-              <Typography variant={"body2"}>Москва</Typography>
+              <MapMarkerIcon title="Map marker" />
+              <Typography variant="body2">Москва</Typography>
             </HeaderTopBlock>
             <HeaderTopBlock sx={{ marginLeft: 'auto' }} onClick={goToLogin}>
-              <UserIcon title={"User"} />
-              <Typography variant={"body2"}>Вход</Typography>
+              <UserIcon title="User" />
+              <Typography variant="body2">Вход</Typography>
             </HeaderTopBlock>
             <HeaderTopBlock>
-              <ShoppingCartIcon title={"Shopping cart"} />
-              <Typography variant={"body2"}>Корзина</Typography>
-              <ChevronDownIcon title={"Chevron down"} />
+              <ShoppingCartIcon title="Shopping cart" />
+              <Typography variant="body2">Корзина</Typography>
+              <ChevronDownIcon title="Chevron down" />
             </HeaderTopBlock>
           </HeaderTop>
           <HeaderMiddle>
-            <DesktopLogo title={"Logo"} />
+            <DesktopLogo title="Logo" />
             <Search>
-              <StyledSearchIcon title={"Search"} />
-              <StyledInput id={"input-search"} placeholder={"Поиск по ..."} />
+              <StyledSearchIcon title="Search" />
+              <StyledInput id="input-search" placeholder="Поиск по ..." />
               <CategoriesButton>
                 Все категории
-                <CategoriesButtonIcon title={"Chevron down"} />
+                <CategoriesButtonIcon title="Chevron down" />
               </CategoriesButton>
             </Search>
-            <StyledButton component={"button"} variant={"contained"}>
+            <StyledButton component="button" variant="contained">
               <ButtonText>Поиск</ButtonText>
             </StyledButton>
           </HeaderMiddle>
@@ -97,7 +97,7 @@ export default function Header() {
                       {listItem.label}
                       {listItem.icon && (
                         <LiButtonIcon>
-                          <listItem.icon width={"24px"} height={"24px"} />
+                          <listItem.icon width="24px" height="24px" />
                           <title>{listItem.label}</title>
                         </LiButtonIcon>
                       )}

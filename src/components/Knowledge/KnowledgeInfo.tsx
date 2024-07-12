@@ -3,19 +3,19 @@ import { IKnowledgeInfo } from './Knowledge.types';
 
 const KnowledgeInfo = ({ image, description, statistics }: Omit<IKnowledgeInfo, 'id'>) => {
   return (
-    <Box border={1} borderColor={"divider"} borderRadius={2} p={{ xs: 1, md: 2 }} minHeight={{ xs: 168, sm: 0 }}>
+    <Box border={1} borderColor="divider" borderRadius={2} p={{ xs: 1, md: 2 }} minHeight={{ xs: 168, sm: 0 }}>
       <GridContainer>
-        <Box alignItems={"center"} maxHeight={48}>
+        <Box alignItems="center" maxHeight={48}>
           {image}
         </Box>
         <Box>
-          <Typography variant={"h4"} textAlign={{ xs: 'center', lg: 'left' }}>
+          <Typography variant="h4" textAlign={{ xs: 'center', lg: 'left' }}>
             {statistics}
           </Typography>
           <Typography
-            variant={"subtitle2"}
+            variant="subtitle2"
             fontSize={{ xs: 14, lg: 16 }}
-            color={"secondary.dark"}
+            color="secondary.dark"
             textAlign={{ xs: 'center', lg: 'left' }}
           >
             {description}

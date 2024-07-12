@@ -12,32 +12,32 @@ export default function Partners() {
   return (
     <PartnersSection>
       <PartnerItem>
-        <ShellsLogo title={'SHELLS'} />
-        <LogoTitle variant={"h4"}>SHELLS</LogoTitle>
+        <ShellsLogo title="SHELLS" />
+        <LogoTitle variant="h4">SHELLS</LogoTitle>
       </PartnerItem>
       <PartnerItem>
-        <SmartFinderLogo title={'SmartFinder'} />
-        <LogoTitle variant={"h4"}>SmartFinder</LogoTitle>
+        <SmartFinderLogo title="SmartFinder" />
+        <LogoTitle variant="h4">SmartFinder</LogoTitle>
       </PartnerItem>
       <PartnerItem>
-        <ZoomerrLogo title={'Zoomerr'} />
-        <LogoTitle variant={"h4"}>Zoomerr</LogoTitle>
+        <ZoomerrLogo title="Zoomerr" />
+        <LogoTitle variant="h4">Zoomerr</LogoTitle>
       </PartnerItem>
       <PartnerItem>
-        <ArtVenueLogo title={'ArtVenue'} />
-        <LogoTitle variant={"h4"}>ArtVenue</LogoTitle>
+        <ArtVenueLogo title="ArtVenue" />
+        <LogoTitle variant="h4">ArtVenue</LogoTitle>
       </PartnerItem>
       <PartnerItem>
-        <KontrastrLogo title={'kontrastr'} />
-        <LogoTitle variant={"h4"}>kontrastr</LogoTitle>
+        <KontrastrLogo title="kontrastr" />
+        <LogoTitle variant="h4">kontrastr</LogoTitle>
       </PartnerItem>
       <PartnerItem>
-        <WavesmarathonLogo title={'WAVESMARATHON'} />
-        <Box component={"span"} sx={{ display: 'inline-flex' }}>
-          <LogoTitle variant={"body1"} sx={{ lineHeight: 1, fontWeight: '700' }}>
+        <WavesmarathonLogo title="WAVESMARATHON" />
+        <Box component="span" sx={{ display: 'inline-flex' }}>
+          <LogoTitle variant="body1" sx={{ lineHeight: 1, fontWeight: '700' }}>
             WAVES
           </LogoTitle>
-          <LogoTitle variant={"body1"} sx={{ lineHeight: 1, fontWeight: '400' }}>
+          <LogoTitle variant="body1" sx={{ lineHeight: 1, fontWeight: '400' }}>
             MARATHON
           </LogoTitle>
         </Box>

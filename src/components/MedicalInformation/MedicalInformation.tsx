@@ -51,11 +51,11 @@ const MedicalInformation: FC = () => {
 
   return (
     <Section>
-      <Container maxWidth={'lg'} sx={{ marginBlock: { xs: 5, sm: 10 } }}>
+      <Container maxWidth="lg" sx={{ marginBlock: { xs: 5, sm: 10 } }}>
         <GridContainer>
           <SwiperBox>
             <SwiperButton onClick={prevSlide}>
-              <img src={ButtonLeft} alt={"стрелка влево"} />
+              <img src={ButtonLeft} alt="стрелка влево" />
             </SwiperButton>
             <SwiperCardGrid onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
               {medicalInformationData.map((item, index) => (
@@ -63,7 +63,7 @@ const MedicalInformation: FC = () => {
               ))}
             </SwiperCardGrid>
             <SwiperButton onClick={nextSlide}>
-              <img src={ButtonRight} alt={"стрелка вправо"} />
+              <img src={ButtonRight} alt="стрелка вправо" />
             </SwiperButton>
           </SwiperBox>
         </GridContainer>

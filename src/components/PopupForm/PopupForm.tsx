@@ -7,12 +7,12 @@ import PopupSuccess from '../../assets/PartnerForm/popup-success.svg?react';
 const PopupForm = ({ handleReturnForm }: { handleReturnForm: () => void }) => {
   return (
     <Popup>
-      <Typography variant={"popupTitle"}>Форма успешно отправлена</Typography>
+      <Typography variant="popupTitle">Форма успешно отправлена</Typography>
       <PopupSuccess />
-      <Box paddingTop={"16px"} paddingBottom={"16px"}>
-        <PopupLink href={"#"} onClick={handleReturnForm}>
+      <Box paddingTop="16px" paddingBottom="16px">
+        <PopupLink href="#" onClick={handleReturnForm}>
           <Typography>Вернуться к форме</Typography>
-          <Box display={"flex"} padding={"5px"} marginLeft={"16px"}>
+          <Box display="flex" padding="5px" marginLeft="16px">
             <ArrowRight />
           </Box>
         </PopupLink>

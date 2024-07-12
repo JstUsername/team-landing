@@ -20,11 +20,11 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterTop>
-        <Logo title={"Logo"} width={"168"} height={"40"} />
+        <Logo title="Logo" width="168" height="40" />
         <Search>
-          <StyledMailIcon title={"Mail"} />
-          <StyledInput id={"input-mail"} placeholder={isSmallScreen ? 'Подписаться...' : 'Подписаться на рассылку'} />
-          <StyledButton component={"button"} variant={"contained"}>
+          <StyledMailIcon title="Mail" />
+          <StyledInput id="input-mail" placeholder={isSmallScreen ? 'Подписаться...' : 'Подписаться на рассылку'} />
+          <StyledButton component="button" variant="contained">
             <ButtonText>Подписаться</ButtonText>
           </StyledButton>
         </Search>
@@ -32,9 +32,9 @@ export default function Footer() {
       <Divider />
       <nav>
         <FooterMiddle>
-          <FooterMiddleUl footerListTitle={'Для взрослых'} footerListItems={adultFooterListItems} />
-          <FooterMiddleUl footerListTitle={'Для детей'} footerListItems={childFooterListItems} />
-          <FooterMiddleUl footerListTitle={'Новости'} footerListItems={newsFooterListItems} />
+          <FooterMiddleUl footerListTitle="Для взрослых" footerListItems={adultFooterListItems} />
+          <FooterMiddleUl footerListTitle="Для детей" footerListItems={childFooterListItems} />
+          <FooterMiddleUl footerListTitle="Новости" footerListItems={newsFooterListItems} />
           <div>
             <Box sx={{ marginBottom: '24px' }}>
               <ListTitle>Контакты</ListTitle>
@@ -72,13 +72,13 @@ export default function Footer() {
         <nav>
           <FooterUl sx={{ flexDirection: 'row', marginTop: '0px' }}>
             <li>
-              <FooterListLink href={""}>Медицина</FooterListLink>
+              <FooterListLink href="">Медицина</FooterListLink>
             </li>
             <li>
-              <FooterListLink href={""}>Наука</FooterListLink>
+              <FooterListLink href="">Наука</FooterListLink>
             </li>
             <li>
-              <FooterListLink href={""}>Инновации</FooterListLink>
+              <FooterListLink href="">Инновации</FooterListLink>
             </li>
           </FooterUl>
         </nav>

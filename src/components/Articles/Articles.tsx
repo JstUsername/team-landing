@@ -7,11 +7,11 @@ const Articles = () => {
   return (
     <ArticleSection>
       <ArticlesContainer>
-        <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
-          <Typography variant={"caption"} mb={"8px"} color={"primary.dark"} textTransform={"uppercase"}>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Typography variant="caption" mb="8px" color="primary.dark" textTransform="uppercase">
             Статьи
           </Typography>
-          <Typography variant={"articleMainTitle"} textAlign={"center"}>
+          <Typography variant="articleMainTitle" textAlign="center">
             Статьи для врачей, пациентов и их родственников, а также
             <br />
             научно-популярные доклады о прорывах в медицине
@@ -24,7 +24,7 @@ const Articles = () => {
             ))}
           </ArticlesList>
         </Box>
-        <AllArticlesLink href={"#"} underline={"none"}>
+        <AllArticlesLink href="#" underline="none">
           <Typography>Все статьи</Typography>
         </AllArticlesLink>
       </ArticlesContainer>

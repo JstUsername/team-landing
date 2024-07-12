@@ -19,10 +19,10 @@ export const Dropdown = ({ qa, active = false }: DropdownProps) => {
       tabIndex={0}
     >
       <StyledDropdownHead>
-        <Typography variant={"dropdownHeader"}>{question}</Typography>
+        <Typography variant="dropdownHeader">{question}</Typography>
         {isActive ? <MinusIcon /> : <PlusIcon />}
       </StyledDropdownHead>
-      {isActive && <Typography variant={"body2"}>{answer}</Typography>}
+      {isActive && <Typography variant="body2">{answer}</Typography>}
     </StyledDropdown>
   );
 };

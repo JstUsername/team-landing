@@ -9,29 +9,29 @@ const PriceList = () => {
   const [isToggleChecked, setIsToggleChecked] = useState(true);
 
   return (
-    <StyledPriceList component={"section"}>
+    <StyledPriceList component="section">
       <SectionHeaderBlock>
-        <Stack gap={"8px"}>
-          <Typography variant={"sectionSubHeader"}>цены</Typography>
-          <Typography variant={"sectionHeader"}>Лучший источник медицинской информации</Typography>
+        <Stack gap="8px">
+          <Typography variant="sectionSubHeader">цены</Typography>
+          <Typography variant="sectionHeader">Лучший источник медицинской информации</Typography>
         </Stack>
-        <Typography variant={"sectionDescription"}>
+        <Typography variant="sectionDescription">
           Сервис для врачей, доступный на разных устройствах по подписке на эксклюзивные статьи от ведущих экспертов в
           сфере здравоохранения и охраны здоровья
         </Typography>
       </SectionHeaderBlock>
-      <Stack alignItems={"center"} position={"relative"}>
+      <Stack alignItems="center" position="relative">
         <SaleChip hidden={!isToggleChecked}>
-          <Typography fontSize={"12px"} lineHeight={1.1}>
+          <Typography fontSize="12px" lineHeight={1.1}>
             20% дешевле
           </Typography>
         </SaleChip>
-        <Box display={"flex"} alignItems={"center"} gap={"16px"}>
-          <Typography variant={"subtitle1"}>Год</Typography>
-          <Box display={"flex"} alignItems={"center"} sx={{ transform: 'rotate(180deg)' }}>
-            <Toggle id={'toggleInput'} checked={isToggleChecked} setChecked={setIsToggleChecked} />
+        <Box display="flex" alignItems="center" gap="16px">
+          <Typography variant="subtitle1">Год</Typography>
+          <Box display="flex" alignItems="center" sx={{ transform: 'rotate(180deg)' }}>
+            <Toggle id="toggleInput" checked={isToggleChecked} setChecked={setIsToggleChecked} />
           </Box>
-          <Typography variant={"subtitle1"}>Месяц</Typography>
+          <Typography variant="subtitle1">Месяц</Typography>
         </Box>
       </Stack>
       <ServiceList>

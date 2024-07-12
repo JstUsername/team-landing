@@ -44,66 +44,66 @@ const PartnerForm = () => {
           <PopupForm handleReturnForm={handleReturnForm} />
         ) : (
           <FormBlock onSubmit={onSubmit}>
-            <Box display={"flex"} flexDirection={"column"} gap={"8px"}>
-              <Typography variant={"formTitle"}>Начать использование</Typography>
-              <Typography variant={"formSubTitle"}>Хотите начать сотрудничество? Напишите нам</Typography>
+            <Box display="flex" flexDirection="column" gap="8px">
+              <Typography variant="formTitle">Начать использование</Typography>
+              <Typography variant="formSubTitle">Хотите начать сотрудничество? Напишите нам</Typography>
             </Box>
-            <Box display={"flex"} flexDirection={"column"} gap={"16px"}>
-              <Box display={"flex"} gap={"16px"}>
+            <Box display="flex" flexDirection="column" gap="16px">
+              <Box display="flex" gap="16px">
                 <PartnerFormField
-                  label={"Имя"}
-                  type={"text"}
-                  id={"name"}
-                  name={"name"}
-                  placeholder={"Иван"}
+                  label="Имя"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Иван"
                   onChange={handleChange}
                   required
                 />
                 <PartnerFormField
-                  label={"Фамилия"}
-                  type={"text"}
-                  id={"secondName"}
-                  name={"secondName"}
-                  placeholder={"Иванов"}
+                  label="Фамилия"
+                  type="text"
+                  id="secondName"
+                  name="secondName"
+                  placeholder="Иванов"
                   onChange={handleChange}
                   required
                 />
               </Box>
               <PartnerFormField
-                label={"Тема"}
-                type={"text"}
-                id={"conversationTheme"}
-                name={"conversationTheme"}
-                placeholder={"Сотрудничество"}
+                label="Тема"
+                type="text"
+                id="conversationTheme"
+                name="conversationTheme"
+                placeholder="Сотрудничество"
                 onChange={handleChange}
                 required
               />
               <PartnerFormField
-                label={"Вопросы"}
-                id={"questions"}
-                name={"questions"}
-                placeholder={"Ваш вопрос ..."}
+                label="Вопросы"
+                id="questions"
+                name="questions"
+                placeholder="Ваш вопрос ..."
                 onChange={handleChange}
                 required
                 isTextarea
               />
               <PartnerFormField
-                label={"Группы"}
-                id={"groups-select"}
-                name={"groups"}
+                label="Группы"
+                id="groups-select"
+                name="groups"
                 onChange={handleChange}
                 required
                 isSelect
               />
 
               <PartnerFormField
-                label={"Согласен с политикой обработки данных"}
-                type={"checkbox"}
-                id={"politicCheckbox"}
+                label="Согласен с политикой обработки данных"
+                type="checkbox"
+                id="politicCheckbox"
                 required
                 isCheckbox
               />
-              <StyledFormButton type={"submit"}>Отправить</StyledFormButton>
+              <StyledFormButton type="submit">Отправить</StyledFormButton>
             </Box>
           </FormBlock>
         )}
