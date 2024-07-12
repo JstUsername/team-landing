@@ -16,6 +16,7 @@ import {
 export default function Footer() {
   const theme = useTheme<Theme>();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <FooterWrapper>
       <FooterTop>

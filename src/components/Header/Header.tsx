@@ -17,6 +17,9 @@ import SearchIcon from '../../assets/header/icons/search.svg?react';
 
 export default function Header() {
   const [isActive, setIsActive] = useState(headerListItems);
+  const navigate = useNavigate();
+  const theme = useTheme<Theme>();
+  const isBigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   const handlePageSection = (itemIndex: number) => {
     setIsActive((prev) =>
@@ -32,13 +35,9 @@ export default function Header() {
     );
   };
 
-  const navigate = useNavigate();
   const goToLogin = () => {
     navigate('/login');
   };
-
-  const theme = useTheme<Theme>();
-  const isBigScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <HeaderWrapper>
