@@ -1,12 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import { Theme, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
+import {
+  StyledGrid,
+  LeftColumnWrapper,
+  FormWrapper,
+  AdditionalFields,
+  StyledButton,
+  StyledOutlinedButton,
+  SplitImage,
+} from './LoginPage.styled.ts';
 import FormInput from '../../components/form/FormInput/FormInput.tsx';
 import FormPasswordInput from '../../components/form/FormPasswordInput/FormPasswordInput.tsx';
 import FormEmailInput from '../../components/form/FormEmailInput/FormEmailInput.tsx';
@@ -85,75 +92,3 @@ export default function LoginPage({ typeLogin }: LoginProps) {
     </StyledGrid>
   );
 }
-
-const StyledGrid = styled(Grid)`
-  height: 100vh;
-  overflow: hidden;
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    height: 100%;
-    overflow: auto;
-  }
-`;
-
-const LeftColumnWrapper = styled(Box)`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 48px;
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    height: 100%;
-    gap: 32px;
-  }
-  ${({ theme }) => theme.breakpoints.down('md')} {
-    padding: 32px 16px;
-  }
-  ${({ theme }) => theme.breakpoints.up('md')} {
-    padding: 80px;
-  }
-`;
-
-const FormWrapper = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-const AdditionalFields = styled(FormControl)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const StyledButton = styled(Button)`
-  padding: 14px 12px;
-  border-radius: 0;
-  text-transform: none;
-  font-size: 16px;
-  line-height: 1;
-`;
-
-const StyledOutlinedButton = styled(Button)`
-  padding: 10px;
-  border-radius: 0;
-  text-transform: none;
-  line-height: 1;
-  border-width: 2px;
-  border-color: ${({ theme }) => theme.palette.primary.main};
-  color: ${({ theme }) => theme.palette.primary.main};
-  flex: 1;
-  & .MuiButton-startIcon {
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    border-width: 2px;
-  }
-`;
-
-const SplitImage = styled('img')`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;

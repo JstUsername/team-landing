@@ -1,7 +1,6 @@
 import { FormLinkProps } from './FormLink.types.ts';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { StyledLink } from './FormLink.styled.ts';
 
 export default function FormLink({ linkTo, linkText }: FormLinkProps) {
   return (
@@ -12,13 +11,3 @@ export default function FormLink({ linkTo, linkText }: FormLinkProps) {
     </StyledLink>
   );
 }
-
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.palette.primary.dark};
-  display: inline-block;
-  width: fit-content;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
