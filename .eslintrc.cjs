@@ -9,7 +9,7 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/jsx-curly-brace-presence': [
       'error',
-      { props: 'always', children: 'ignore' }
+      { props: 'never', children: 'ignore' }
     ],
   },
 };
