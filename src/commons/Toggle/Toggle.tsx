@@ -10,7 +10,7 @@ type ToggleProps = {
 const Toggle = ({ checked, setChecked }: ToggleProps) => {
   return (
     <ToggleContainer>
-      <ToggleInput type="checkbox" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+      <ToggleInput type={"checkbox"} checked={checked} onChange={(e) => setChecked(e.target.checked)} />
       <ToggleSwitch active={checked}>
         <ToggleSwitchDot active={checked} />
       </ToggleSwitch>

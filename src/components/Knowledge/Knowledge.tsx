@@ -7,25 +7,25 @@ import ButtonLink from '../../commons/button/ButtonLink';
 
 const Knowledge: FC = () => {
   return (
-    <Container maxWidth="lg" sx={{ background: 'background.default', marginBlock: { xs: 5, sm: 10 } }}>
+    <Container maxWidth={"lg"} sx={{ background: 'background.default', marginBlock: { xs: 5, sm: 10 } }}>
       <GridContainer>
         <Box>
-          <Typography variant="h5" color="primary.dark" mb={1} textTransform="uppercase">
+          <Typography variant={"h5"} color={"primary.dark"} mb={1} textTransform={"uppercase"}>
             знания
           </Typography>
-          <Typography variant="h4" color="text.primary" align="left" fontSize={{ xs: 24, lg: 42 }}>
+          <Typography variant={"h4"} color={"text.primary"} align={"left"} fontSize={{ xs: 24, lg: 42 }}>
             Информацию по отдельным заболеваниям ориентированную на пациентов можно найти в соответствующем разделе
             сайта, статьи разделены на категории.
           </Typography>
         </Box>
         <FlexButton>
-          <ButtonLink variant="contained">
-            <Typography variant="button" fontSize={{ xs: 14, lg: 20 }} textAlign="center" textTransform="none">
+          <ButtonLink variant={"contained"}>
+            <Typography variant={"button"} fontSize={{ xs: 14, lg: 20 }} textAlign={"center"} textTransform={"none"}>
               Для врачей
             </Typography>
           </ButtonLink>
-          <ButtonLink variant="outlined">
-            <Typography variant="button" fontSize={{ xs: 14, lg: 20 }} textAlign="center" textTransform="none">
+          <ButtonLink variant={"outlined"}>
+            <Typography variant={"button"} fontSize={{ xs: 14, lg: 20 }} textAlign={"center"} textTransform={"none"}>
               Для пациентов
             </Typography>
           </ButtonLink>

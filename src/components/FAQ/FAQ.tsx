@@ -5,11 +5,11 @@ import FaqDotsGroup from '../../assets/FAQ/FaqDotsGroup.svg?react';
 
 const FAQComponent = () => {
   return (
-    <Stack component="section" color="text.primary" position="relative">
+    <Stack component={"section"} color={"text.primary"} position={"relative"}>
       <StyledFAQBody>
-        <Stack gap="8px" alignItems="center" textAlign="center">
-          <Typography variant="sectionSubHeader">вопросы</Typography>
-          <Typography variant="sectionHeader">Ответы на частые вопросы</Typography>
+        <Stack gap={"8px"} alignItems={"center"} textAlign={"center"}>
+          <Typography variant={"sectionSubHeader"}>вопросы</Typography>
+          <Typography variant={"sectionHeader"}>Ответы на частые вопросы</Typography>
         </Stack>
         <StyledFaqDropdowns>
           {questions.map((qa, idx) => (

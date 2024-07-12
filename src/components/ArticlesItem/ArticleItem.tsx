@@ -8,21 +8,21 @@ import Loader from '../Loader/Loader';
 const ArticleItem = ({ title, imgUrl, alt, description }: TypeArticle) => {
   return (
     <ArticleListItem>
-      <Box width="100%" bgcolor="background.loading">
-        {imgUrl ? <CardMedia component="img" image={imgUrl} alt={alt} height="220" /> : <Loader />}
+      <Box width={"100%"} bgcolor={"background.loading"}>
+        {imgUrl ? <CardMedia component={"img"} image={imgUrl} alt={alt} height={"220"} /> : <Loader />}
       </Box>
-      <Box padding="24px 16px 16px">
-        <Typography variant="articleTitle" mb="16px">
+      <Box padding={"24px 16px 16px"}>
+        <Typography variant={"articleTitle"} mb={"16px"}>
           {title}
         </Typography>
-        <Typography variant="articleDescription">{description}</Typography>
+        <Typography variant={"articleDescription"}>{description}</Typography>
       </Box>
-      <Box padding="16px" width="100%" marginTop="auto">
-        <Link href="#" underline="none" display="inline-flex" alignItems="center" sx={{ cursor: 'pointer' }}>
-          <Typography variant="articleLinkText" textTransform="capitalize">
+      <Box padding={"16px"} width={"100%"} marginTop={"auto"}>
+        <Link href={"#"} underline={"none"} display={"inline-flex"} alignItems={"center"} sx={{ cursor: 'pointer' }}>
+          <Typography variant={"articleLinkText"} textTransform={"capitalize"}>
             Подробнее
           </Typography>
-          <Box display="flex" padding="5px" marginLeft="16px">
+          <Box display={"flex"} padding={"5px"} marginLeft={"16px"}>
             <ArrowRightSvg />
           </Box>
         </Link>

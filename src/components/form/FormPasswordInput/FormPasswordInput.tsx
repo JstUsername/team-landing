@@ -26,24 +26,24 @@ export default function FormPasswordInput({ typeLogin, passwordSubtitle }: FormP
 
   return (
     <FormInput
-      inputId="password-input"
-      inputLabel="Пароль"
-      inputPlaceholder="******"
+      inputId={"password-input"}
+      inputLabel={"Пароль"}
+      inputPlaceholder={"******"}
       type={showPassword ? 'text' : 'password'}
       inputError={typeLogin === 'registration' ? error : undefined}
       inputOnChange={typeLogin === 'registration' ? handleChange : undefined}
       inputProps={{
         endAdornment: (
-          <InputAdornment position="end">
+          <InputAdornment position={"end"}>
             <IconButton
-              aria-label="toggle password visibility"
+              aria-label={"toggle password visibility"}
               onClick={() => setShowPassword((show) => !show)}
-              edge="end"
+              edge={"end"}
             >
               {!showPassword ? (
-                <EyeIcon title="Change password visibility" width="20px" height="20px" />
+                <EyeIcon title={"Change password visibility"} width={"20px"} height={"20px"} />
               ) : (
-                <EyeCloseIcon title="Change password visibility" width="24px" height="24px" />
+                <EyeCloseIcon title={"Change password visibility"} width={"24px"} height={"24px"} />
               )}
             </IconButton>
           </InputAdornment>

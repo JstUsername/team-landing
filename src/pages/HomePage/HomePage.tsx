@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer.tsx';
 
 function HomePage() {
   return (
-    <div className="AppContent">
+    <div className={"AppContent"}>
       <Header />
       <Articles />
       <MedicalInformation />

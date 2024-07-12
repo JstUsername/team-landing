@@ -38,17 +38,17 @@ export default function LoginPage({ typeLogin }: LoginProps) {
     <StyledGrid container spacing={0}>
       <Grid xs={12} sm={6}>
         <LeftColumnWrapper>
-          <Typography variant="formHeader" sx={{ margin: 0 }}>
+          <Typography variant={"formHeader"} sx={{ margin: 0 }}>
             {typeLogin === 'registration' ? 'Регистрация' : 'Вход'}
           </Typography>
-          <FormWrapper component="form">
+          <FormWrapper component={"form"}>
             {typeLogin === 'registration' && (
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <FormInput inputId="name-input" inputLabel="Имя" inputPlaceholder="Иван" inputSx={{ flex: 1 }} />
+                <FormInput inputId={"name-input"} inputLabel={"Имя"} inputPlaceholder={"Иван"} inputSx={{ flex: 1 }} />
                 <FormInput
-                  inputId="surname-input"
-                  inputLabel="Фамилия"
-                  inputPlaceholder="Иванов"
+                  inputId={"surname-input"}
+                  inputLabel={"Фамилия"}
+                  inputPlaceholder={"Иванов"}
                   inputSx={{ flex: 1 }}
                 />
               </Box>
@@ -56,38 +56,38 @@ export default function LoginPage({ typeLogin }: LoginProps) {
             <FormEmailInput />
             <FormPasswordInput
               typeLogin={typeLogin}
-              passwordSubtitle="Пароль должен содержать минимум 8 символов, строчные и прописные символы"
+              passwordSubtitle={"Пароль должен содержать минимум 8 символов, строчные и прописные символы"}
             />
             <AdditionalFields>
               <Box sx={{ display: 'flex', gap: 1 }}>
                 <FormCheckbox typeLogin={typeLogin} />
               </Box>
-              {typeLogin === 'authorization' && <FormLink linkTo="" linkText="Забыли пароль?" />}
+              {typeLogin === 'authorization' && <FormLink linkTo={""} linkText={"Забыли пароль?"} />}
             </AdditionalFields>
             <FormControl>
-              <StyledButton variant="contained" onClick={goToHome}>
+              <StyledButton variant={"contained"} onClick={goToHome}>
                 {typeLogin === 'registration' ? 'Зарегистрироваться' : 'Вход'}
               </StyledButton>
             </FormControl>
           </FormWrapper>
           <Box sx={{ display: 'flex', gap: 2, [theme.breakpoints.down('lg')]: { flexDirection: 'column' } }}>
-            <StyledOutlinedButton variant="outlined" startIcon={<GoogleIcon title="Google icon" />} onClick={goToHome}>
+            <StyledOutlinedButton variant={"outlined"} startIcon={<GoogleIcon title={"Google icon"} />} onClick={goToHome}>
               <Typography sx={{ paddingX: 2, fontSize: '16px' }}>Вход с помощью Google</Typography>
             </StyledOutlinedButton>
-            <StyledOutlinedButton variant="outlined" startIcon={<AppleIcon title="Apple icon" />} onClick={goToHome}>
+            <StyledOutlinedButton variant={"outlined"} startIcon={<AppleIcon title={"Apple icon"} />} onClick={goToHome}>
               <Typography sx={{ paddingX: 2, fontSize: '16px' }}>Вход с помощью Apple</Typography>
             </StyledOutlinedButton>
           </Box>
           <Divider />
           {typeLogin === 'registration' ? (
-            <FormLink linkTo="/login" linkText="Нет аккаунта? Зарегистрироваться" />
+            <FormLink linkTo={"/login"} linkText={"Нет аккаунта? Зарегистрироваться"} />
           ) : (
-            <FormLink linkTo="/registration" linkText="Уже есть аккаунт?" />
+            <FormLink linkTo={"/registration"} linkText={"Уже есть аккаунт?"} />
           )}
         </LeftColumnWrapper>
       </Grid>
       <Grid xs={0} sm={6}>
-        <SplitImage src={loginImage} alt="Decorative image from the login page" />
+        <SplitImage src={loginImage} alt={"Decorative image from the login page"} />
       </Grid>
     </StyledGrid>
   );

@@ -20,9 +20,9 @@ export default function FormEmailInput() {
 
   return (
     <FormInput
-      inputId="email-input"
-      inputLabel="Email"
-      inputPlaceholder="example@email.com"
+      inputId={"email-input"}
+      inputLabel={"Email"}
+      inputPlaceholder={"example@email.com"}
       inputError={error}
       inputOnChange={handleChange}
     />

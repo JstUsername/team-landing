@@ -16,9 +16,9 @@ export default function FormCheckbox({ typeLogin }: FormCheckboxProps) {
   return (
     <>
       <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)} onKeyDown={handleKeyDown}>
-        {checked && <CheckboxIcon title="Union" />}
+        {checked && <CheckboxIcon title={"Union"} />}
       </StyledCheckbox>
-      <Typography variant="body1" sx={{ fontSize: '14px' }}>
+      <Typography variant={"body1"} sx={{ fontSize: '14px' }}>
         {typeLogin === 'registration' ? 'Согласен с политикой обработки персональных данных' : 'Запомнить меня'}
       </Typography>
     </>
