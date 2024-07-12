@@ -361,37 +361,20 @@ theme.typography.dropdownHeader = {
 };
 
 export const GlobalStyles = css`
-  body {
-    --sb-track-color: ${theme.palette.background.default};
-    --sb-thumb-color: ${theme.palette.secondary.main};
-    --sb-size: 8px;
-  }
-  body::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
-  body::-webkit-scrollbar-track {
+  *::-webkit-scrollbar-track {
     background: ${theme.palette.background.default};
     border-radius: 4px;
   }
-  body::-webkit-scrollbar-thumb {
-    background: ${theme.palette.secondary.main};
-    border-radius: 4px;
-  }
-  body *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  body *::-webkit-scrollbar-track {
-    background: ${theme.palette.background.default};
-    border-radius: 4px;
-  }
-  body *::-webkit-scrollbar-thumb {
+  *::-webkit-scrollbar-thumb {
     background: ${theme.palette.secondary.main};
     border-radius: 4px;
   }
   @supports not selector(::-webkit-scrollbar) {
-    body {
+    * {
       scrollbar-color: ${theme.palette.secondary.main} ${theme.palette.background.default};
     }
   }
