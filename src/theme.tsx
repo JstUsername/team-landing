@@ -1,13 +1,19 @@
 import { CSSProperties } from 'react';
 import '@fontsource/roboto';
 import { createTheme } from '@mui/material/styles';
+import { css } from '@emotion/react';
 
 declare module '@mui/material/styles' {
   interface Palette {
     gradients: Gradients;
+    divider2: string;
   }
   interface PaletteOptions {
     gradients?: Gradients;
+    divider2: string;
+  }
+  interface Gradients {
+    blueGradient: string;
   }
   interface Gradients {
     blueGradient: string;
@@ -31,17 +37,17 @@ declare module '@mui/material/styles' {
       lineHeight: number;
       letterSpacing: string;
     };
-    articleMainTitle: React.CSSProperties;
-    articleTitle: React.CSSProperties;
-    articleDescription: React.CSSProperties;
-    articleLinkText: React.CSSProperties;
-    sectionHeader: React.CSSProperties;
-    sectionSubHeader: React.CSSProperties;
-    sectionDescription: React.CSSProperties;
-    dropdownHeader: React.CSSProperties;
-    formTitle: React.CSSProperties;
-    formSubTitle: React.CSSProperties;
-    popupTitle: React.CSSProperties;
+    articleMainTitle: CSSProperties;
+    articleTitle: CSSProperties;
+    articleDescription: CSSProperties;
+    articleLinkText: CSSProperties;
+    sectionHeader: CSSProperties;
+    sectionSubHeader: CSSProperties;
+    sectionDescription: CSSProperties;
+    dropdownHeader: CSSProperties;
+    formTitle: CSSProperties;
+    formSubTitle: CSSProperties;
+    popupTitle: CSSProperties;
   }
   interface TypographyVariantsOptions {
     formHeader: CSSProperties;
@@ -62,17 +68,17 @@ declare module '@mui/material/styles' {
       lineHeight?: number;
       letterSpacing?: string;
     };
-    articleMainTitle: React.CSSProperties;
-    articleTitle: React.CSSProperties;
-    articleDescription: React.CSSProperties;
-    articleLinkText: React.CSSProperties;
-    sectionHeader: React.CSSProperties;
-    sectionSubHeader: React.CSSProperties;
-    sectionDescription: React.CSSProperties;
-    dropdownHeader: React.CSSProperties;
-    formTitle: React.CSSProperties;
-    formSubTitle: React.CSSProperties;
-    popupTitle: React.CSSProperties;
+    articleMainTitle: CSSProperties;
+    articleTitle: CSSProperties;
+    articleDescription: CSSProperties;
+    articleLinkText: CSSProperties;
+    sectionHeader: CSSProperties;
+    sectionSubHeader: CSSProperties;
+    sectionDescription: CSSProperties;
+    dropdownHeader: CSSProperties;
+    formTitle: CSSProperties;
+    formSubTitle: CSSProperties;
+    popupTitle: CSSProperties;
   }
   interface PaletteColor {
     loading?: string;
@@ -138,7 +144,11 @@ const theme = createTheme({
     success: {
       main: '#25A249',
     },
+    error: {
+      main: '#DA1E28',
+    },
     divider: '#DDE1E6',
+    divider2: '#C1C7CD',
     gradients: {
       blueGradient: 'linear-gradient(180deg, #67C3F4 0%, #5A98F2 100%)',
     },
@@ -172,6 +182,11 @@ const theme = createTheme({
       fontWeight: 700,
       lineHeight: 1.1,
     },
+    h6: {
+      fontSize: 18,
+      fontWeight: 700,
+      lineHeight: 1.1,
+    },
     subtitle1: {
       fontSize: 18,
       lineHeight: 1.4,
@@ -190,6 +205,7 @@ const theme = createTheme({
     },
     body2: {
       fontSize: 16,
+      fontWeight: 500,
       lineHeight: 1.4,
       letterSpacing: '0em',
     },
@@ -343,5 +359,25 @@ theme.typography.dropdownHeader = {
     fontSize: theme.typography.h6.fontSize,
   },
 };
+
+export const GlobalStyles = css`
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: ${theme.palette.background.default};
+    border-radius: 4px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: ${theme.palette.secondary.main};
+    border-radius: 4px;
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-color: ${theme.palette.secondary.main} ${theme.palette.background.default};
+    }
+  }
+`;
 
 export default theme;

@@ -1,5 +1,5 @@
 import { Button, styled } from '@mui/material';
-import formBg from '../assets/PartnerForm/form-bg.jpg';
+import formBg from '../../assets/PartnerForm/form-bg.jpg';
 
 export const Section = styled('section')`
   position: relative;

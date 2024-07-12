@@ -1,11 +1,7 @@
 import { KeyboardEvent, useState } from 'react';
-import { styled } from '@mui/material/styles';
+import { FormCheckboxProps } from './FormCheckbox.types.ts';
 import Typography from '@mui/material/Typography';
-import UnionIcon from '../../../assets/login/icons/union.svg?react';
-
-interface FormCheckboxProps {
-  typeLogin: string;
-}
+import { StyledCheckbox, CheckboxIcon } from './FormCheckbox.styled.ts';
 
 export default function FormCheckbox({ typeLogin }: FormCheckboxProps) {
   const [checked, setChecked] = useState(false);
@@ -20,7 +16,7 @@ export default function FormCheckbox({ typeLogin }: FormCheckboxProps) {
   return (
     <>
       <StyledCheckbox tabIndex={0} onClick={() => setChecked((prev) => !prev)} onKeyDown={handleKeyDown}>
-        {checked && <UnionIcon title="Union" style={{ position: 'absolute', left: '3px', top: '5px' }} />}
+        {checked && <CheckboxIcon title="Union" />}
       </StyledCheckbox>
       <Typography variant="body1" sx={{ fontSize: '14px' }}>
         {typeLogin === 'registration' ? 'Согласен с политикой обработки персональных данных' : 'Запомнить меня'}
@@ -28,14 +24,3 @@ export default function FormCheckbox({ typeLogin }: FormCheckboxProps) {
     </>
   );
 }
-
-const StyledCheckbox = styled('div')`
-  width: 16px;
-  height: 16px;
-  padding: 2px;
-  border: 1px solid;
-  color: ${({ theme }) => theme.palette.text.primary};
-  :hover {
-    background-color: ${({ theme }) => theme.palette.secondary.light};
-  }
-`;

@@ -13,10 +13,12 @@ const ButtonLink: FC<PropsWithChildren<ButtonProps>> = ({ children, ...rest }) =
 const Button = styled(MUIButton)<ButtonProps>`
   padding-inline: 32px;
   padding-block: 16px;
+  margin: 0;
   border: 2px solid ${({ theme }) => theme.palette.info.main};
   border-radius: 0;
   box-shadow: none;
   text-transform: none;
+  align-self: stretch;
   :hover {
     border: 2px solid #3064ac;
   };

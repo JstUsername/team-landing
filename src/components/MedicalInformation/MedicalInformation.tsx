@@ -51,7 +51,7 @@ const MedicalInformation: FC = () => {
 
   return (
     <Section>
-      <Container maxWidth={'lg'} sx={{ marginBlock: { xs: 5, sm: 10 } }}>
+      <Container maxWidth="lg">
         <GridContainer>
           <SwiperBox>
             <SwiperButton onClick={prevSlide}>

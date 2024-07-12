@@ -26,7 +26,7 @@ const MedicalInformationCard: FC<TypeMedicalInformationCard & TypeCard> = ({
         <SwiperCardGrid>
           <img src={icon} alt="иконка" width={48} height={48} />
           <Box textAlign="center">
-            <Typography variant={'h4'} color="text.primary">
+            <Typography variant="h4" color="text.primary">
               {name}
             </Typography>
             <Typography variant="subtitle1" fontWeight={400} color="text.primary">

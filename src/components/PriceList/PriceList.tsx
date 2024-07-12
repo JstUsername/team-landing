@@ -1,8 +1,8 @@
 import { Box, Stack, StackProps, Typography, styled } from '@mui/material';
 import { Services } from './PriceList.constants';
-import Toggle from '../commons/Toggle/Toggle';
+import Toggle from '../../commons/Toggle/Toggle';
 import { useState } from 'react';
-import StyledChip from '../commons/StyledChip/Chip';
+import StyledChip from '../../commons/StyledChip/Chip';
 import PriceElement from './PriceElement.tsx';
 
 const PriceList = () => {
@@ -29,7 +29,7 @@ const PriceList = () => {
         <Box display="flex" alignItems="center" gap="16px">
           <Typography variant="subtitle1">Год</Typography>
           <Box display="flex" alignItems="center" sx={{ transform: 'rotate(180deg)' }}>
-            <Toggle id={'toggleInput'} checked={isToggleChecked} setChecked={setIsToggleChecked} />
+            <Toggle id="toggleInput" checked={isToggleChecked} setChecked={setIsToggleChecked} />
           </Box>
           <Typography variant="subtitle1">Месяц</Typography>
         </Box>

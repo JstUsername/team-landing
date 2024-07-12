@@ -1,5 +1,5 @@
 import { Stack, Typography, styled, Button, ButtonProps } from '@mui/material';
-import Chip from '../commons/StyledChip/Chip';
+import Chip from '../../commons/StyledChip/Chip';
 import { Service } from './PriceList.types';
 import SvgCheck from '../../assets/PriceList/Check.svg?react';
 
@@ -27,7 +27,7 @@ const PriceElement = ({ service }: PriceElementProps) => {
         {sale && <Typography variant="h1">{sale}</Typography>}
         <Typography fontSize="14px">{!sale ? price : sale} USD каждый месяц</Typography>
       </Stack>
-      <ButtonLink variant="contained" component={'a'}>
+      <ButtonLink variant="contained" component="a">
         <Typography paddingX="16px" variant="button" textTransform="capitalize">
           Начать
         </Typography>
